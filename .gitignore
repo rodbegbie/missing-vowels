@@ -1,0 +1,13 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Node
+frontend/node_modules/
+
+# Logs
+*.log
+
+# Build output (optional - can include if you want)
+# frontend/dist/
