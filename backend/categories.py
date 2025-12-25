@@ -688,5 +688,250 @@ CATEGORIES = [
             "Tokyo", "Beijing", "Moscow", "Washington", "Canberra",
             "Ottawa", "Brasilia", "Cairo", "Delhi"
         ]
+    },
+    
+    # MORE CATEGORIES - Animals and Nature
+    {
+        "name": "Big Cats",
+        "answers": [
+            "Lion", "Tiger", "Leopard", "Jaguar", "Cheetah",
+            "Panther", "Cougar", "Lynx", "Puma", "Ocelot"
+        ]
+    },
+    {
+        "name": "Dog Breeds",
+        "answers": [
+            "Labrador", "Bulldog", "Poodle", "Beagle", "Rottweiler",
+            "Dalmatian", "Boxer", "Husky", "Collie", "Terrier",
+            "Spaniel", "Retriever", "Greyhound"
+        ]
+    },
+    {
+        "name": "Birds",
+        "answers": [
+            "Robin", "Sparrow", "Eagle", "Owl", "Penguin",
+            "Flamingo", "Parrot", "Swan", "Crow", "Pigeon",
+            "Hawk", "Raven", "Dove"
+        ]
+    },
+    {
+        "name": "Trees",
+        "answers": [
+            "Oak", "Pine", "Birch", "Maple", "Willow",
+            "Elm", "Ash", "Beech", "Cedar", "Chestnut",
+            "Sycamore", "Yew", "Rowan"
+        ]
+    },
+    {
+        "name": "Flowers",
+        "answers": [
+            "Rose", "Tulip", "Daisy", "Lily", "Orchid",
+            "Sunflower", "Daffodil", "Violet", "Poppy", "Iris",
+            "Carnation", "Bluebell", "Lavender"
+        ]
+    },
+    
+    # MORE CATEGORIES - Food and Drink
+    {
+        "name": "Cocktails",
+        "answers": [
+            "Martini", "Mojito", "Margarita", "Cosmopolitan",
+            "Manhattan", "Daiquiri", "Pina Colada", "Bloody Mary",
+            "Old Fashioned", "Negroni", "Mai Tai"
+        ]
+    },
+    {
+        "name": "Spices and Herbs",
+        "answers": [
+            "Basil", "Oregano", "Thyme", "Rosemary", "Cinnamon",
+            "Paprika", "Cumin", "Turmeric", "Ginger", "Saffron",
+            "Coriander", "Parsley", "Mint"
+        ]
+    },
+    {
+        "name": "Types of Bread",
+        "answers": [
+            "Baguette", "Ciabatta", "Sourdough", "Focaccia",
+            "Brioche", "Croissant", "Naan", "Pitta", "Rye",
+            "Wholemeal", "Bagel", "Pretzel"
+        ]
+    },
+    {
+        "name": "Vegetables",
+        "answers": [
+            "Carrot", "Potato", "Broccoli", "Spinach", "Cabbage",
+            "Onion", "Pepper", "Tomato", "Cucumber", "Celery",
+            "Lettuce", "Peas", "Beans"
+        ]
+    },
+    {
+        "name": "Types of Coffee",
+        "answers": [
+            "Espresso", "Latte", "Cappuccino", "Americano",
+            "Mocha", "Macchiato", "Flat White", "Iced Coffee",
+            "Cortado", "Affogato", "Cold Brew"
+        ]
+    },
+    
+    # MORE CATEGORIES - History and Geography
+    {
+        "name": "Roman Gods",
+        "answers": [
+            "Jupiter", "Mars", "Venus", "Neptune", "Mercury",
+            "Apollo", "Diana", "Minerva", "Pluto", "Juno",
+            "Vulcan", "Bacchus"
+        ]
+    },
+    {
+        "name": "Egyptian Gods",
+        "answers": [
+            "Ra", "Osiris", "Isis", "Horus", "Anubis",
+            "Seth", "Thoth", "Bastet", "Hathor", "Sobek"
+        ]
+    },
+    {
+        "name": "Wonders of the Ancient World",
+        "answers": [
+            "Great Pyramid of Giza", "Hanging Gardens of Babylon",
+            "Statue of Zeus", "Temple of Artemis", "Mausoleum at Halicarnassus",
+            "Colossus of Rhodes", "Lighthouse of Alexandria"
+        ]
+    },
+    {
+        "name": "Oceans and Seas",
+        "answers": [
+            "Atlantic", "Pacific", "Indian", "Arctic", "Southern",
+            "Mediterranean", "Caribbean", "North Sea", "Red Sea",
+            "Black Sea", "Baltic Sea", "Adriatic"
+        ]
+    },
+    {
+        "name": "Mountain Ranges",
+        "answers": [
+            "Himalayas", "Alps", "Andes", "Rockies", "Pyrenees",
+            "Atlas", "Urals", "Appalachians", "Carpathians",
+            "Sierra Nevada", "Dolomites"
+        ]
+    },
+    
+    # MORE CATEGORIES - Entertainment
+    {
+        "name": "Star Wars Characters",
+        "answers": [
+            "Luke Skywalker", "Darth Vader", "Han Solo", "Princess Leia",
+            "Yoda", "Obi Wan Kenobi", "Chewbacca", "R2D2",
+            "C3PO", "Kylo Ren", "Rey"
+        ]
+    },
+    {
+        "name": "Lord of the Rings Characters",
+        "answers": [
+            "Frodo", "Gandalf", "Aragorn", "Legolas", "Gimli",
+            "Samwise", "Gollum", "Saruman", "Boromir", "Sauron",
+            "Bilbo", "Arwen"
+        ]
+    },
+    {
+        "name": "Netflix Original Series",
+        "answers": [
+            "Stranger Things", "The Crown", "Bridgerton", "Squid Game",
+            "Wednesday", "The Witcher", "Orange Is the New Black",
+            "House of Cards", "Black Mirror", "Ozark"
+        ]
+    },
+    {
+        "name": "Video Game Franchises",
+        "answers": [
+            "Mario", "Zelda", "Pokemon", "Call of Duty", "Minecraft",
+            "Grand Theft Auto", "Fortnite", "FIFA", "Halo",
+            "Assassins Creed", "Final Fantasy", "Sonic"
+        ]
+    },
+    {
+        "name": "Famous Movie Directors",
+        "answers": [
+            "Steven Spielberg", "Martin Scorsese", "Christopher Nolan",
+            "Quentin Tarantino", "Alfred Hitchcock", "Stanley Kubrick",
+            "Ridley Scott", "James Cameron", "Tim Burton", "Wes Anderson"
+        ]
+    },
+    
+    # MORE CATEGORIES - Science and Technology
+    {
+        "name": "Programming Languages",
+        "answers": [
+            "Python", "Java", "JavaScript", "Ruby", "Swift",
+            "Rust", "Go", "PHP", "Perl", "Kotlin",
+            "Scala", "Haskell"
+        ]
+    },
+    {
+        "name": "Space Missions",
+        "answers": [
+            "Apollo", "Voyager", "Hubble", "Mars Rover", "Cassini",
+            "New Horizons", "Juno", "Curiosity", "Pioneer",
+            "Galileo", "Rosetta"
+        ]
+    },
+    {
+        "name": "Units of Measurement",
+        "answers": [
+            "Metre", "Kilogram", "Second", "Ampere", "Kelvin",
+            "Mole", "Candela", "Newton", "Joule", "Watt",
+            "Pascal", "Hertz"
+        ]
+    },
+    {
+        "name": "Parts of the Brain",
+        "answers": [
+            "Cerebrum", "Cerebellum", "Brainstem", "Hippocampus",
+            "Amygdala", "Thalamus", "Hypothalamus", "Cortex",
+            "Medulla", "Pons"
+        ]
+    },
+    {
+        "name": "Types of Cloud",
+        "answers": [
+            "Cumulus", "Stratus", "Cirrus", "Nimbus",
+            "Cumulonimbus", "Stratocumulus", "Altocumulus",
+            "Cirrostratus", "Altostratus"
+        ]
+    },
+    
+    # MORE CATEGORIES - Sports and Games
+    {
+        "name": "Tennis Grand Slams",
+        "answers": [
+            "Wimbledon", "US Open", "French Open", "Australian Open"
+        ]
+    },
+    {
+        "name": "Football World Cup Host Countries",
+        "answers": [
+            "Brazil", "Germany", "France", "Italy", "England",
+            "Spain", "Mexico", "Argentina", "South Africa",
+            "Russia", "Qatar", "Japan", "South Korea"
+        ]
+    },
+    {
+        "name": "Chess Pieces",
+        "answers": [
+            "King", "Queen", "Rook", "Bishop", "Knight", "Pawn"
+        ]
+    },
+    {
+        "name": "Poker Hands",
+        "answers": [
+            "Royal Flush", "Straight Flush", "Four of a Kind",
+            "Full House", "Flush", "Straight", "Three of a Kind",
+            "Two Pair", "One Pair", "High Card"
+        ]
+    },
+    {
+        "name": "Athletic Field Events",
+        "answers": [
+            "Long Jump", "High Jump", "Triple Jump", "Pole Vault",
+            "Shot Put", "Discus", "Javelin", "Hammer Throw"
+        ]
     }
 ]
