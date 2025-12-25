@@ -479,5 +479,214 @@ CATEGORIES = [
             "Elegy", "Epic", "Ballad", "Free Verse", "Blank Verse",
             "Couplet", "Tercet", "Sestina"
         ]
+    },
+    
+    # NEW CATEGORIES - Science
+    {
+        "name": "Chemical Elements",
+        "answers": [
+            "Hydrogen", "Helium", "Carbon", "Nitrogen", "Oxygen",
+            "Iron", "Gold", "Silver", "Copper", "Lead",
+            "Mercury", "Uranium", "Platinum", "Zinc"
+        ]
+    },
+    {
+        "name": "Planets of the Solar System",
+        "answers": [
+            "Mercury", "Venus", "Earth", "Mars", "Jupiter",
+            "Saturn", "Uranus", "Neptune"
+        ]
+    },
+    {
+        "name": "Parts of a Cell",
+        "answers": [
+            "Nucleus", "Mitochondria", "Ribosome", "Cell Membrane",
+            "Cytoplasm", "Endoplasmic Reticulum", "Golgi Apparatus",
+            "Lysosome", "Vacuole", "Chloroplast"
+        ]
+    },
+    {
+        "name": "Types of Rock",
+        "answers": [
+            "Granite", "Marble", "Limestone", "Sandstone", "Slate",
+            "Basalt", "Obsidian", "Chalk", "Shale", "Quartzite"
+        ]
+    },
+    {
+        "name": "Bones of the Human Body",
+        "answers": [
+            "Skull", "Femur", "Tibia", "Fibula", "Humerus",
+            "Radius", "Ulna", "Pelvis", "Sternum", "Clavicle",
+            "Scapula", "Vertebra", "Patella"
+        ]
+    },
+    
+    # NEW CATEGORIES - Arts and Culture
+    {
+        "name": "Musical Instruments",
+        "answers": [
+            "Piano", "Guitar", "Violin", "Drums", "Flute",
+            "Trumpet", "Saxophone", "Cello", "Harp", "Clarinet",
+            "Trombone", "Oboe", "Bassoon"
+        ]
+    },
+    {
+        "name": "Art Movements",
+        "answers": [
+            "Impressionism", "Cubism", "Surrealism", "Pop Art",
+            "Abstract Expressionism", "Baroque", "Rococo", "Dadaism",
+            "Fauvism", "Minimalism", "Art Nouveau"
+        ]
+    },
+    {
+        "name": "Famous Paintings",
+        "answers": [
+            "Mona Lisa", "Starry Night", "The Scream", "Girl with a Pearl Earring",
+            "The Last Supper", "Guernica", "The Birth of Venus",
+            "American Gothic", "The Persistence of Memory", "Water Lilies"
+        ]
+    },
+    {
+        "name": "Types of Dance",
+        "answers": [
+            "Ballet", "Waltz", "Tango", "Salsa", "Hip Hop",
+            "Jazz", "Tap", "Flamenco", "Swing", "Foxtrot",
+            "Rumba", "Cha Cha", "Breakdance"
+        ]
+    },
+    {
+        "name": "Theatre Terms",
+        "answers": [
+            "Monologue", "Soliloquy", "Aside", "Prologue", "Epilogue",
+            "Understudy", "Matinee", "Encore", "Intermission",
+            "Curtain Call", "Stage Left", "Backstage"
+        ]
+    },
+    
+    # NEW CATEGORIES - Popular Culture
+    {
+        "name": "James Bond Films",
+        "answers": [
+            "Goldfinger", "Skyfall", "Casino Royale", "Spectre",
+            "Goldeneye", "Thunderball", "Moonraker", "Octopussy",
+            "Dr No", "Die Another Day", "Quantum of Solace"
+        ]
+    },
+    {
+        "name": "Harry Potter Characters",
+        "answers": [
+            "Harry Potter", "Hermione Granger", "Ron Weasley",
+            "Albus Dumbledore", "Severus Snape", "Lord Voldemort",
+            "Draco Malfoy", "Hagrid", "Sirius Black", "Dobby"
+        ]
+    },
+    {
+        "name": "Disney Animated Films",
+        "answers": [
+            "Snow White", "Cinderella", "The Lion King", "Frozen",
+            "Aladdin", "Beauty and the Beast", "The Little Mermaid",
+            "Toy Story", "Finding Nemo", "Moana", "Tangled"
+        ]
+    },
+    {
+        "name": "Marvel Superheroes",
+        "answers": [
+            "Spider Man", "Iron Man", "Captain America", "Thor",
+            "Hulk", "Black Widow", "Hawkeye", "Black Panther",
+            "Doctor Strange", "Ant Man", "Scarlet Witch"
+        ]
+    },
+    {
+        "name": "Social Media Platforms",
+        "answers": [
+            "Facebook", "Twitter", "Instagram", "TikTok", "YouTube",
+            "LinkedIn", "Snapchat", "Pinterest", "Reddit", "WhatsApp"
+        ]
+    },
+    
+    # NEW CATEGORIES - Idioms and Sayings
+    {
+        "name": "Common Idioms",
+        "answers": [
+            "Break a Leg", "Piece of Cake", "Bite the Bullet",
+            "Hit the Nail on the Head", "Under the Weather",
+            "Cost an Arm and a Leg", "Spill the Beans",
+            "Let the Cat out of the Bag", "Once in a Blue Moon"
+        ]
+    },
+    {
+        "name": "Proverbs",
+        "answers": [
+            "A Stitch in Time Saves Nine", "Actions Speak Louder than Words",
+            "Birds of a Feather Flock Together", "Better Late than Never",
+            "The Early Bird Catches the Worm", "Look Before You Leap",
+            "Every Cloud Has a Silver Lining", "Rome Wasnt Built in a Day"
+        ]
+    },
+    {
+        "name": "Nursery Rhyme Characters",
+        "answers": [
+            "Humpty Dumpty", "Jack and Jill", "Little Bo Peep",
+            "Mary Had a Little Lamb", "Old King Cole", "Little Miss Muffet",
+            "Jack Be Nimble", "Old Mother Hubbard", "Georgie Porgie"
+        ]
+    },
+    
+    # NEW CATEGORIES - More General Knowledge
+    {
+        "name": "Zodiac Signs",
+        "answers": [
+            "Aries", "Taurus", "Gemini", "Cancer", "Leo",
+            "Virgo", "Libra", "Scorpio", "Sagittarius",
+            "Capricorn", "Aquarius", "Pisces"
+        ]
+    },
+    {
+        "name": "Card Games",
+        "answers": [
+            "Poker", "Blackjack", "Bridge", "Rummy", "Solitaire",
+            "Snap", "Whist", "Canasta", "Hearts", "Spades",
+            "Crazy Eights", "Go Fish"
+        ]
+    },
+    {
+        "name": "Board Games",
+        "answers": [
+            "Monopoly", "Scrabble", "Chess", "Checkers", "Cluedo",
+            "Risk", "Trivial Pursuit", "Backgammon", "Battleship",
+            "Connect Four", "Pictionary", "Boggle"
+        ]
+    },
+    {
+        "name": "Types of Pasta",
+        "answers": [
+            "Spaghetti", "Penne", "Fusilli", "Linguine", "Rigatoni",
+            "Farfalle", "Tagliatelle", "Ravioli", "Lasagne",
+            "Macaroni", "Fettuccine", "Tortellini"
+        ]
+    },
+    {
+        "name": "Types of Cheese",
+        "answers": [
+            "Cheddar", "Brie", "Camembert", "Stilton", "Gouda",
+            "Parmesan", "Mozzarella", "Feta", "Gruyere",
+            "Roquefort", "Emmental", "Manchego"
+        ]
+    },
+    {
+        "name": "Olympic Sports",
+        "answers": [
+            "Swimming", "Athletics", "Gymnastics", "Cycling", "Rowing",
+            "Boxing", "Wrestling", "Fencing", "Archery", "Judo",
+            "Diving", "Equestrian", "Sailing"
+        ]
+    },
+    {
+        "name": "World Capitals",
+        "answers": [
+            "London", "Paris", "Berlin", "Madrid", "Rome",
+            "Tokyo", "Beijing", "Moscow", "Washington", "Canberra",
+            "Ottawa", "Brasilia", "Cairo", "Delhi"
+        ]
     }
 ]
