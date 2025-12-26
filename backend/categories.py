@@ -6341,8 +6341,8 @@ CATEGORIES: list[CategoryData] = [
         "name": "Books by Alex Horne, Tim Key or Mark Watson",
         "obscurity_modifier": 0.6,
         "answers": [
-            "The Late Train to Gipsy Hill",
-            "Here We Are at This Party",
+            "He Used Thought as a Wife",
+            "Megadate",
             "Hotel Alpha",
             "The Knot",
             "Contacts",
