@@ -38,27 +38,16 @@ interface SpeechRecognitionErrorEvent extends Event {
   error: string;
 }
 
-interface SpeechGrammar {
-  src: string;
-  weight: number;
-}
-
-interface SpeechGrammarList {
-  length: number;
-  item(index: number): SpeechGrammar;
-  addFromString(string: string, weight?: number): void;
-  addFromURI(src: string, weight?: number): void;
-}
-
-interface SpeechGrammarListConstructor {
-  new (): SpeechGrammarList;
+interface SpeechRecognitionPhrase {
+  phrase: string;
+  boost?: number;
 }
 
 interface SpeechRecognition extends EventTarget {
   continuous: boolean;
   interimResults: boolean;
   lang: string;
-  grammars: SpeechGrammarList;
+  phrases?: SpeechRecognitionPhrase[];
   onresult: ((event: SpeechRecognitionEvent) => void) | null;
   onend: (() => void) | null;
   onerror: ((event: SpeechRecognitionErrorEvent) => void) | null;
@@ -74,8 +63,6 @@ declare global {
   interface Window {
     SpeechRecognition?: SpeechRecognitionConstructor;
     webkitSpeechRecognition?: SpeechRecognitionConstructor;
-    SpeechGrammarList?: SpeechGrammarListConstructor;
-    webkitSpeechGrammarList?: SpeechGrammarListConstructor;
   }
 }
 
@@ -317,23 +304,20 @@ function App(): React.ReactElement {
   const startListening = useCallback(() => {
     if (recognitionRef.current && !isListening) {
       try {
-        // Set up grammar hints if available and we have a current clue
-        const SpeechGrammarListClass =
-          window.SpeechGrammarList || window.webkitSpeechGrammarList;
+        // Set up phrase hints if browser supports it
         if (
-          SpeechGrammarListClass &&
+          "phrases" in recognitionRef.current &&
           round &&
           !revealed.includes(currentClueIndex)
         ) {
-          const grammarList = new SpeechGrammarListClass();
           // Get all possible answers for current category as hints
-          const answers = round.clues.map((c) => c.answer.toLowerCase());
+          const phrases: SpeechRecognitionPhrase[] = round.clues.map((c) => ({
+            phrase: c.answer.toLowerCase(),
+            boost: 1,
+          }));
           // Add "pass" as a valid phrase
-          answers.push("pass");
-          // Create JSGF grammar with all answers
-          const grammar = `#JSGF V1.0; grammar answers; public <answer> = ${answers.join(" | ")};`;
-          grammarList.addFromString(grammar, 1);
-          recognitionRef.current.grammars = grammarList;
+          phrases.push({ phrase: "pass", boost: 1 });
+          recognitionRef.current.phrases = phrases;
         }
         setTranscript("");
         recognitionRef.current.start();
