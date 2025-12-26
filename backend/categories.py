@@ -2190,5 +2190,388 @@ CATEGORIES = [
             "Beta Blockers", "Statins", "Anticoagulants", "Diuretics",
             "Corticosteroids", "Immunosuppressants"
         ]
+    },
+    
+    # BATCH 7 - Film, Television and Movie Categories
+    
+    # Classic Films
+    {
+        "name": "Film Noir Classics",
+        "answers": [
+            "Double Indemnity", "The Maltese Falcon", "Sunset Boulevard",
+            "The Big Sleep", "Chinatown", "Touch of Evil",
+            "The Third Man", "Out of the Past", "Laura"
+        ]
+    },
+    {
+        "name": "Spielberg Films",
+        "answers": [
+            "Jaws", "E T the Extra Terrestrial", "Schindlers List",
+            "Jurassic Park", "Saving Private Ryan", "Raiders of the Lost Ark",
+            "The Color Purple", "Catch Me If You Can", "Lincoln", "Munich"
+        ]
+    },
+    {
+        "name": "Scorsese Films",
+        "answers": [
+            "Goodfellas", "Taxi Driver", "Raging Bull", "The Departed",
+            "Casino", "The Wolf of Wall Street", "Shutter Island",
+            "The Irishman", "Gangs of New York", "Hugo"
+        ]
+    },
+    {
+        "name": "Tarantino Films",
+        "answers": [
+            "Pulp Fiction", "Kill Bill", "Reservoir Dogs", "Django Unchained",
+            "Inglourious Basterds", "Jackie Brown", "The Hateful Eight",
+            "Once Upon a Time in Hollywood", "Death Proof"
+        ]
+    },
+    {
+        "name": "Christopher Nolan Films",
+        "answers": [
+            "Inception", "The Dark Knight", "Interstellar", "Memento",
+            "Dunkirk", "Tenet", "The Prestige", "Batman Begins",
+            "Insomnia", "Oppenheimer"
+        ]
+    },
+    {
+        "name": "Stanley Kubrick Films",
+        "answers": [
+            "The Shining", "A Clockwork Orange", "Full Metal Jacket",
+            "Dr Strangelove", "Eyes Wide Shut", "Barry Lyndon",
+            "Spartacus", "Lolita", "Paths of Glory"
+        ]
+    },
+    {
+        "name": "Wes Anderson Films",
+        "answers": [
+            "The Grand Budapest Hotel", "Moonrise Kingdom", "The Royal Tenenbaums",
+            "Fantastic Mr Fox", "The French Dispatch", "Isle of Dogs",
+            "Rushmore", "The Life Aquatic", "The Darjeeling Limited"
+        ]
+    },
+    
+    # Film Genres and Types
+    {
+        "name": "Romantic Comedy Films",
+        "answers": [
+            "When Harry Met Sally", "Notting Hill", "Pretty Woman",
+            "Bridget Jones Diary", "Love Actually", "Four Weddings and a Funeral",
+            "Sleepless in Seattle", "The Proposal", "Crazy Rich Asians"
+        ]
+    },
+    {
+        "name": "Horror Films",
+        "answers": [
+            "The Exorcist", "Halloween", "A Nightmare on Elm Street",
+            "The Shining", "Scream", "The Ring", "Get Out",
+            "Hereditary", "The Conjuring", "It"
+        ]
+    },
+    {
+        "name": "War Films",
+        "answers": [
+            "Saving Private Ryan", "Apocalypse Now", "Platoon",
+            "Full Metal Jacket", "Dunkirk", "The Hurt Locker",
+            "Black Hawk Down", "Hacksaw Ridge", "Letters from Iwo Jima"
+        ]
+    },
+    {
+        "name": "Sports Films",
+        "answers": [
+            "Rocky", "Raging Bull", "Jerry Maguire", "The Blind Side",
+            "Moneyball", "Remember the Titans", "Field of Dreams",
+            "Rudy", "The Fighter", "Creed"
+        ]
+    },
+    {
+        "name": "Animated Feature Films",
+        "answers": [
+            "Shrek", "The Incredibles", "Despicable Me", "Zootopia",
+            "How to Train Your Dragon", "Kung Fu Panda", "Madagascar",
+            "Ice Age", "Megamind", "The Lego Movie"
+        ]
+    },
+    {
+        "name": "Musical Films",
+        "answers": [
+            "The Sound of Music", "Grease", "La La Land", "Chicago",
+            "Les Miserables", "Mamma Mia", "The Greatest Showman",
+            "Moulin Rouge", "Hairspray", "Sweeney Todd"
+        ]
+    },
+    
+    # Actors and Actresses
+    {
+        "name": "Hollywood Leading Men",
+        "answers": [
+            "Tom Hanks", "Leonardo DiCaprio", "Brad Pitt", "George Clooney",
+            "Denzel Washington", "Tom Cruise", "Matt Damon", "Will Smith",
+            "Johnny Depp", "Robert Downey Jr"
+        ]
+    },
+    {
+        "name": "Hollywood Leading Ladies",
+        "answers": [
+            "Meryl Streep", "Cate Blanchett", "Nicole Kidman", "Julia Roberts",
+            "Sandra Bullock", "Angelina Jolie", "Scarlett Johansson",
+            "Jennifer Lawrence", "Emma Stone", "Natalie Portman"
+        ]
+    },
+    {
+        "name": "Comedy Actors",
+        "answers": [
+            "Jim Carrey", "Adam Sandler", "Ben Stiller", "Will Ferrell",
+            "Steve Carell", "Seth Rogen", "Jonah Hill", "Kevin Hart",
+            "Melissa McCarthy", "Tina Fey"
+        ]
+    },
+    {
+        "name": "Action Movie Stars",
+        "answers": [
+            "Arnold Schwarzenegger", "Sylvester Stallone", "Bruce Willis",
+            "Dwayne Johnson", "Jason Statham", "Vin Diesel",
+            "Keanu Reeves", "Liam Neeson", "Jackie Chan", "Jet Li"
+        ]
+    },
+    {
+        "name": "Classic Hollywood Stars",
+        "answers": [
+            "Humphrey Bogart", "Cary Grant", "James Stewart", "Marlon Brando",
+            "Audrey Hepburn", "Marilyn Monroe", "Katharine Hepburn",
+            "Grace Kelly", "Bette Davis", "Clark Gable"
+        ]
+    },
+    
+    # Television
+    {
+        "name": "American Sitcoms",
+        "answers": [
+            "Friends", "Seinfeld", "The Big Bang Theory", "How I Met Your Mother",
+            "The Office", "Parks and Recreation", "Modern Family",
+            "Brooklyn Nine Nine", "Arrested Development", "Curb Your Enthusiasm"
+        ]
+    },
+    {
+        "name": "Crime Drama Series",
+        "answers": [
+            "Breaking Bad", "The Wire", "The Sopranos", "True Detective",
+            "Mindhunter", "Ozark", "Better Call Saul", "Narcos",
+            "Peaky Blinders", "Fargo"
+        ]
+    },
+    {
+        "name": "Fantasy TV Series",
+        "answers": [
+            "Game of Thrones", "The Witcher", "House of the Dragon",
+            "The Lord of the Rings", "Shadow and Bone", "Wheel of Time",
+            "His Dark Materials", "The Sandman", "Good Omens"
+        ]
+    },
+    {
+        "name": "Sci Fi TV Series",
+        "answers": [
+            "Black Mirror", "Stranger Things", "Westworld", "The Expanse",
+            "Battlestar Galactica", "The Mandalorian", "Star Trek",
+            "Doctor Who", "Firefly", "Fringe"
+        ]
+    },
+    {
+        "name": "Medical Drama Series",
+        "answers": [
+            "Greys Anatomy", "House", "ER", "Scrubs", "The Good Doctor",
+            "Chicago Med", "Holby City", "Casualty", "New Amsterdam"
+        ]
+    },
+    {
+        "name": "Reality TV Shows",
+        "answers": [
+            "The X Factor", "Big Brother", "Survivor", "The Voice",
+            "Love Island", "I'm a Celebrity", "The Bachelor",
+            "Dancing with the Stars", "The Great British Bake Off"
+        ]
+    },
+    {
+        "name": "British Drama Series",
+        "answers": [
+            "Downton Abbey", "Sherlock", "Broadchurch", "The Crown",
+            "Luther", "Bodyguard", "Line of Duty", "Happy Valley",
+            "Killing Eve", "Fleabag"
+        ]
+    },
+    {
+        "name": "Animated TV Series",
+        "answers": [
+            "The Simpsons", "Family Guy", "South Park", "Rick and Morty",
+            "Futurama", "Bobs Burgers", "Archer", "BoJack Horseman",
+            "Adventure Time", "Avatar The Last Airbender"
+        ]
+    },
+    
+    # Film Awards and Industry
+    {
+        "name": "Best Actor Oscar Winners",
+        "answers": [
+            "Anthony Hopkins", "Joaquin Phoenix", "Rami Malek",
+            "Gary Oldman", "Casey Affleck", "Eddie Redmayne",
+            "Matthew McConaughey", "Daniel Day Lewis", "Jean Dujardin"
+        ]
+    },
+    {
+        "name": "Best Actress Oscar Winners",
+        "answers": [
+            "Frances McDormand", "Renee Zellweger", "Olivia Colman",
+            "Emma Stone", "Brie Larson", "Julianne Moore",
+            "Cate Blanchett", "Jennifer Lawrence", "Natalie Portman"
+        ]
+    },
+    {
+        "name": "Film Studios",
+        "answers": [
+            "Warner Bros", "Universal Pictures", "Paramount Pictures",
+            "Columbia Pictures", "Twentieth Century Fox", "MGM",
+            "DreamWorks", "Lionsgate", "New Line Cinema"
+        ]
+    },
+    {
+        "name": "Film Festivals",
+        "answers": [
+            "Cannes", "Venice", "Berlin", "Sundance", "Toronto",
+            "Tribeca", "SXSW", "Telluride", "Locarno"
+        ]
+    },
+    
+    # Movie Franchises
+    {
+        "name": "Superhero Film Franchises",
+        "answers": [
+            "The Avengers", "Batman", "Spider Man", "X Men", "Superman",
+            "Wonder Woman", "Guardians of the Galaxy", "Deadpool",
+            "Aquaman", "Thor", "Iron Man"
+        ]
+    },
+    {
+        "name": "Action Film Franchises",
+        "answers": [
+            "Mission Impossible", "Fast and Furious", "Die Hard",
+            "The Bourne Identity", "John Wick", "Lethal Weapon",
+            "Indiana Jones", "Mad Max", "Terminator", "Rambo"
+        ]
+    },
+    {
+        "name": "Horror Film Franchises",
+        "answers": [
+            "Halloween", "Friday the Thirteenth", "A Nightmare on Elm Street",
+            "Scream", "Saw", "The Conjuring", "Paranormal Activity",
+            "Child's Play", "Final Destination", "Insidious"
+        ]
+    },
+    {
+        "name": "Sci Fi Film Franchises",
+        "answers": [
+            "Star Wars", "Star Trek", "Alien", "The Matrix",
+            "Planet of the Apes", "Back to the Future", "Jurassic Park",
+            "Transformers", "Predator", "Men in Black"
+        ]
+    },
+    
+    # TV Characters
+    {
+        "name": "Breaking Bad Characters",
+        "answers": [
+            "Walter White", "Jesse Pinkman", "Skyler White", "Hank Schrader",
+            "Saul Goodman", "Gus Fring", "Mike Ehrmantraut",
+            "Marie Schrader", "Tuco Salamanca"
+        ]
+    },
+    {
+        "name": "The Office Characters",
+        "answers": [
+            "Michael Scott", "Dwight Schrute", "Jim Halpert", "Pam Beesly",
+            "Andy Bernard", "Angela Martin", "Kevin Malone",
+            "Stanley Hudson", "Ryan Howard", "Kelly Kapoor"
+        ]
+    },
+    {
+        "name": "Downton Abbey Characters",
+        "answers": [
+            "Lady Mary Crawley", "Lord Grantham", "Mr Carson", "Mrs Hughes",
+            "Lady Edith", "Tom Branson", "Violet Crawley",
+            "Matthew Crawley", "Mrs Patmore", "Thomas Barrow"
+        ]
+    },
+    {
+        "name": "Stranger Things Characters",
+        "answers": [
+            "Eleven", "Mike Wheeler", "Dustin Henderson", "Lucas Sinclair",
+            "Will Byers", "Joyce Byers", "Jim Hopper", "Steve Harrington",
+            "Nancy Wheeler", "Max Mayfield"
+        ]
+    },
+    
+    # More Film Categories
+    {
+        "name": "Coen Brothers Films",
+        "answers": [
+            "Fargo", "The Big Lebowski", "No Country for Old Men",
+            "True Grit", "O Brother Where Art Thou", "Barton Fink",
+            "Blood Simple", "Raising Arizona", "A Serious Man"
+        ]
+    },
+    {
+        "name": "Tim Burton Films",
+        "answers": [
+            "Edward Scissorhands", "Beetlejuice", "Batman", "Sweeney Todd",
+            "Corpse Bride", "Charlie and the Chocolate Factory",
+            "Big Fish", "Sleepy Hollow", "Alice in Wonderland"
+        ]
+    },
+    {
+        "name": "Ridley Scott Films",
+        "answers": [
+            "Gladiator", "Alien", "Blade Runner", "Thelma and Louise",
+            "Black Hawk Down", "The Martian", "American Gangster",
+            "Kingdom of Heaven", "House of Gucci"
+        ]
+    },
+    {
+        "name": "Denis Villeneuve Films",
+        "answers": [
+            "Dune", "Arrival", "Blade Runner", "Sicario",
+            "Prisoners", "Incendies", "Enemy"
+        ]
+    },
+    {
+        "name": "Best Picture Nominees",
+        "answers": [
+            "The Shawshank Redemption", "Pulp Fiction", "Forrest Gump",
+            "Saving Private Ryan", "The Green Mile", "American Beauty",
+            "The Sixth Sense", "Brokeback Mountain", "Avatar", "Inception"
+        ]
+    },
+    {
+        "name": "Coming of Age Films",
+        "answers": [
+            "Stand By Me", "The Breakfast Club", "Ferris Buellers Day Off",
+            "Dead Poets Society", "Lady Bird", "Boyhood", "Juno",
+            "Superbad", "Perks of Being a Wallflower", "Dazed and Confused"
+        ]
+    },
+    {
+        "name": "Heist Films",
+        "answers": [
+            "Oceans Eleven", "The Italian Job", "Heat", "Inside Man",
+            "The Town", "Baby Driver", "Reservoir Dogs", "Snatch",
+            "Lock Stock and Two Smoking Barrels", "Logan Lucky"
+        ]
+    },
+    {
+        "name": "Courtroom Drama Films",
+        "answers": [
+            "To Kill a Mockingbird", "A Few Good Men", "The Verdict",
+            "Primal Fear", "Philadelphia", "My Cousin Vinny",
+            "The Lincoln Lawyer", "Erin Brockovich"
+        ]
     }
 ]

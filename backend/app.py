@@ -15,12 +15,16 @@ def has_vowels(text):
     vowels = 'aeiouAEIOU'
     return any(c in vowels for c in text)
 
+def has_numbers(text):
+    """Check if text contains any numbers."""
+    return any(c.isdigit() for c in text)
+
 def filter_categories(categories):
-    """Filter out answers without vowels and categories with < 5 valid answers."""
+    """Filter out answers without vowels or with numbers, and categories with < 5 valid answers."""
     filtered = []
     for cat in categories:
-        # Filter answers that have at least one vowel
-        valid_answers = [a for a in cat['answers'] if has_vowels(a)]
+        # Filter answers that have at least one vowel and no numbers
+        valid_answers = [a for a in cat['answers'] if has_vowels(a) and not has_numbers(a)]
         # Only include category if it has at least 5 valid answers
         if len(valid_answers) >= 5:
             filtered.append({
