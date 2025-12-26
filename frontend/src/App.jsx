@@ -117,24 +117,46 @@ function App() {
     }
   }, [])
 
-  // Start listening when a new clue appears
+  // Start listening when a new clue appears or on results screen
   useEffect(() => {
-    if (gameState === 'playing' && voiceEnabled && voiceSupported && !revealed.includes(currentClueIndex)) {
-      startListening()
+    if (voiceEnabled && voiceSupported) {
+      if (gameState === 'playing' && !revealed.includes(currentClueIndex)) {
+        // Small delay to ensure previous recognition has stopped
+        const timer = setTimeout(() => startListening(), 300)
+        return () => clearTimeout(timer)
+      } else if (gameState === 'results') {
+        // Listen for "new game" on results screen
+        const timer = setTimeout(() => startListening(), 500)
+        return () => clearTimeout(timer)
+      }
     }
-  }, [currentClueIndex, gameState, voiceEnabled, voiceSupported])
+  }, [currentClueIndex, gameState, voiceEnabled, voiceSupported, revealed])
 
   // Process transcript when it changes
   useEffect(() => {
-    if (!transcript || !round || revealed.includes(currentClueIndex)) return
+    if (!transcript) return
     
     const normalizedTranscript = normalizeText(transcript)
+    
+    // Check for "new game" command on results screen
+    if (gameState === 'results') {
+      if (normalizedTranscript.includes('new game') || normalizedTranscript.includes('play again') || normalizedTranscript.includes('start again')) {
+        stopListening()
+        setTranscript('')
+        playAgain()
+        return
+      }
+      return
+    }
+    
+    // Only process game commands if playing and not revealed
+    if (!round || revealed.includes(currentClueIndex)) return
     
     // Check for pass/skip commands
     if (normalizedTranscript.includes('pass') || normalizedTranscript.includes('skip') || normalizedTranscript.includes('next')) {
       stopListening()
-      skipClue()
       setTranscript('')
+      skipClue()
       return
     }
     
@@ -142,10 +164,10 @@ function App() {
     const currentClue = round.clues[currentClueIndex]
     if (checkAnswer(transcript, currentClue.answer)) {
       stopListening()
-      revealAnswer(true)
       setTranscript('')
+      revealAnswer(true)
     }
-  }, [transcript, round, currentClueIndex, revealed])
+  }, [transcript, round, currentClueIndex, revealed, gameState])
 
   const startListening = useCallback(() => {
     if (recognitionRef.current && !isListening) {
@@ -437,6 +459,18 @@ function App() {
           <button className="btn btn-play-again" onClick={playAgain}>
             Play Again
           </button>
+          
+          {voiceEnabled && voiceSupported && (
+            <div className={`voice-indicator results-voice ${isListening ? 'listening' : ''}`}>
+              <span className="mic-icon">{isListening ? '🎤' : '🎙️'}</span>
+              <span className="voice-status">
+                {isListening ? 'Say "New Game" to play again' : 'Voice paused'}
+              </span>
+              {transcript && (
+                <span className="transcript">"{transcript}"</span>
+              )}
+            </div>
+          )}
         </main>
       </div>
     )

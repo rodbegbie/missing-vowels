@@ -487,6 +487,10 @@ footer {
   margin-top: 0.5rem;
 }
 
+.voice-indicator.results-voice {
+  margin-top: 1.5rem;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   h1 {
