@@ -76,9 +76,10 @@ function App() {
   const [currentClueIndex, setCurrentClueIndex] = useState(0)
   const [revealed, setRevealed] = useState([])
   const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(40)
+  const [timeLeft, setTimeLeft] = useState(60)
   const [timerActive, setTimerActive] = useState(false)
   const [userAnswers, setUserAnswers] = useState([])
+  const [categoriesPlayed, setCategoriesPlayed] = useState(0)
   
   // Voice recognition state
   const [isListening, setIsListening] = useState(false)
@@ -224,13 +225,27 @@ function App() {
       setCurrentClueIndex(0)
       setRevealed([])
       setScore(0)
-      setTimeLeft(40)
+      setTimeLeft(60)
       setUserAnswers([])
       setTranscript('')
+      setCategoriesPlayed(1)
       setGameState('playing')
       setTimerActive(true)
     } catch (err) {
       console.error('Failed to start game:', err)
+    }
+  }
+
+  const loadNextCategory = async () => {
+    try {
+      const res = await fetch(`${API_URL}/round?difficulty=${selectedDifficulty}`)
+      const data = await res.json()
+      setRound(data)
+      setCurrentClueIndex(0)
+      setRevealed([])
+      setCategoriesPlayed(c => c + 1)
+    } catch (err) {
+      console.error('Failed to load next category:', err)
     }
   }
 
@@ -241,13 +256,13 @@ function App() {
     setRevealed([...revealed, currentClueIndex])
     setUserAnswers([...userAnswers, { 
       clue: round.clues[currentClueIndex], 
-      correct 
+      correct,
+      category: round.category
     }])
     
     if (correct) {
-      // Points based on time remaining
-      const points = Math.max(1, Math.ceil(timeLeft / 10))
-      setScore(s => s + points)
+      // 1 point per correct answer
+      setScore(s => s + 1)
     }
     
     // Auto-advance after brief delay
@@ -256,8 +271,9 @@ function App() {
         setCurrentClueIndex(i => i + 1)
         setTranscript('')
       } else {
-        setTimerActive(false)
-        setGameState('results')
+        // Completed category - load next one
+        setTranscript('')
+        loadNextCategory()
       }
     }, 1500)
   }
@@ -268,8 +284,9 @@ function App() {
       setCurrentClueIndex(i => i + 1)
       setTranscript('')
     } else {
-      setTimerActive(false)
-      setGameState('results')
+      // Completed category - load next one
+      setTranscript('')
+      loadNextCategory()
     }
   }
 
@@ -280,6 +297,8 @@ function App() {
     setRevealed([])
     setScore(0)
     setTranscript('')
+    setCategoriesPlayed(0)
+    setUserAnswers([])
   }
 
   const toggleVoice = () => {
@@ -341,23 +360,20 @@ function App() {
     
     return (
       <div className="app">
+        <div className="top-bar">
+          <div className="top-stat">
+            <span className={`top-timer ${timeLeft <= 10 ? 'urgent' : ''}`}>{timeLeft}</span>
+            <span className="top-label">seconds</span>
+          </div>
+          <div className="top-stat">
+            <span className="top-score">{score}</span>
+            <span className="top-label">points</span>
+          </div>
+        </div>
+        
         <header className="game-header">
           <div className="category-badge">
             <span className="category-name">{round.category}</span>
-          </div>
-          <div className="game-stats">
-            <div className="stat">
-              <span className="stat-label">Clue</span>
-              <span className="stat-value">{currentClueIndex + 1}/4</span>
-            </div>
-            <div className="stat timer">
-              <span className="stat-label">Time</span>
-              <span className={`stat-value ${timeLeft <= 10 ? 'urgent' : ''}`}>{timeLeft}s</span>
-            </div>
-            <div className="stat">
-              <span className="stat-label">Score</span>
-              <span className="stat-value">{score}</span>
-            </div>
           </div>
         </header>
         
@@ -416,10 +432,18 @@ function App() {
   if (gameState === 'results') {
     const correctCount = userAnswers.filter(a => a.correct).length
     
+    // Group answers by category
+    const answersByCategory = userAnswers.reduce((acc, answer) => {
+      const cat = answer.category || 'Unknown'
+      if (!acc[cat]) acc[cat] = []
+      acc[cat].push(answer)
+      return acc
+    }, {})
+    
     return (
       <div className="app">
         <header>
-          <h1>Round Complete!</h1>
+          <h1>Time's Up!</h1>
         </header>
         
         <main className="results">
@@ -437,24 +461,25 @@ function App() {
               <span className="result-value">{userAnswers.length - correctCount}</span>
               <span className="result-label">missed</span>
             </div>
+            <div className="result-stat">
+              <span className="result-value">{categoriesPlayed}</span>
+              <span className="result-label">categories</span>
+            </div>
           </div>
           
-          {round && (
-            <div className="round-summary">
-              <h3>{round.category}</h3>
+          {Object.entries(answersByCategory).map(([category, answers]) => (
+            <div key={category} className="round-summary">
+              <h3>{category}</h3>
               <ul className="answers-list">
-                {round.clues.map((clue, i) => {
-                  const userAnswer = userAnswers.find(a => a.clue === clue)
-                  return (
-                    <li key={i} className={userAnswer?.correct ? 'correct' : 'missed'}>
-                      <span className="answer-clue">{clue.clue}</span>
-                      <span className="answer-solution">{clue.answer}</span>
-                    </li>
-                  )
-                })}
+                {answers.map((answer, i) => (
+                  <li key={i} className={answer.correct ? 'correct' : 'missed'}>
+                    <span className="answer-clue">{answer.clue.clue}</span>
+                    <span className="answer-solution">{answer.clue.answer}</span>
+                  </li>
+                ))}
               </ul>
             </div>
-          )}
+          ))}
           
           <button className="btn btn-play-again" onClick={playAgain}>
             Play Again
