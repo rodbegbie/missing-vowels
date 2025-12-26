@@ -6351,4 +6351,16 @@ CATEGORIES: list[CategoryData] = [
             "Bring Me the Head of the Taskmaster",
         ],
     },
+    {
+        "name": "Alan Partridge TV Shows",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Knowing Me Knowing You",
+            "I'm Alan Partridge",
+            "Mid Morning Matters",
+            "Alan Partridge's Scissored Isle",
+            "This Time with Alan Partridge",
+            "And Did Those Feet",
+        ],
+    },
 ]
