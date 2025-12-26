@@ -5,6 +5,7 @@ CATEGORIES = [
     # EASY CATEGORIES (short, common words, fewer vowels)
     {
         "name": "UK Prime Ministers",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Tony Blair", "Gordon Brown", "David Cameron", "Theresa May",
             "Boris Johnson", "Margaret Thatcher", "John Major", "Harold Wilson",
@@ -13,6 +14,7 @@ CATEGORIES = [
     },
     {
         "name": "London Underground Lines",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Central", "Circle", "District", "Jubilee", "Northern",
             "Piccadilly", "Victoria", "Bakerloo", "Metropolitan",
@@ -21,6 +23,7 @@ CATEGORIES = [
     },
     {
         "name": "British Chocolate Bars",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Mars", "Twix", "Kit Kat", "Dairy Milk", "Snickers",
             "Bounty", "Crunchie", "Wispa", "Flake", "Aero",
@@ -29,6 +32,7 @@ CATEGORIES = [
     },
     {
         "name": "British Supermarkets",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Tesco", "Sainsburys", "Asda", "Morrisons", "Aldi",
             "Lidl", "Waitrose", "Co-op", "Marks and Spencer", "Iceland",
@@ -37,6 +41,7 @@ CATEGORIES = [
     },
     {
         "name": "BBC TV Channels",
+        "obscurity_modifier": -0.1,
         "answers": [
             "BBC One", "BBC Two", "BBC Three", "BBC Four", "CBBC",
             "CBeebies", "BBC News", "BBC Parliament", "BBC Scotland",
@@ -53,6 +58,7 @@ CATEGORIES = [
     },
     {
         "name": "British Newspapers",
+        "obscurity_modifier": -0.1,
         "answers": [
             "The Times", "The Guardian", "The Telegraph", "The Sun",
             "Daily Mail", "Daily Mirror", "The Independent", "Financial Times",
@@ -61,6 +67,7 @@ CATEGORIES = [
     },
     {
         "name": "English Premier League Teams",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Arsenal", "Chelsea", "Liverpool", "Manchester United",
             "Manchester City", "Tottenham", "Everton", "West Ham",
@@ -70,6 +77,7 @@ CATEGORIES = [
     },
     {
         "name": "British Monarchs",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Elizabeth", "Victoria", "George", "Edward", "William",
             "Henry", "Charles", "James", "Anne", "Mary",
@@ -78,6 +86,7 @@ CATEGORIES = [
     },
     {
         "name": "Days of the Week",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
             "Saturday", "Sunday"
@@ -85,6 +94,7 @@ CATEGORIES = [
     },
     {
         "name": "Months of the Year",
+        "obscurity_modifier": -0.4,
         "answers": [
             "January", "February", "March", "April", "May",
             "June", "July", "August", "September", "October",
@@ -93,6 +103,7 @@ CATEGORIES = [
     },
     {
         "name": "Colours",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Red", "Blue", "Green", "Yellow", "Orange",
             "Purple", "Pink", "Brown", "Black", "White",
@@ -101,6 +112,7 @@ CATEGORIES = [
     },
     {
         "name": "Numbers One to Ten",
+        "obscurity_modifier": -0.4,
         "answers": [
             "One", "Two", "Three", "Four", "Five",
             "Six", "Seven", "Eight", "Nine", "Ten"
@@ -108,6 +120,7 @@ CATEGORIES = [
     },
     {
         "name": "Fruits",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Apple", "Banana", "Orange", "Grape", "Lemon",
             "Lime", "Mango", "Peach", "Plum", "Pear",
@@ -116,6 +129,7 @@ CATEGORIES = [
     },
     {
         "name": "Farm Animals",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Cow", "Pig", "Sheep", "Horse", "Chicken",
             "Duck", "Goat", "Dog", "Cat", "Donkey"
@@ -123,6 +137,7 @@ CATEGORIES = [
     },
     {
         "name": "Body Parts",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Head", "Arm", "Leg", "Hand", "Foot",
             "Eye", "Ear", "Nose", "Mouth", "Back",
@@ -131,6 +146,7 @@ CATEGORIES = [
     },
     {
         "name": "UK Cities",
+        "obscurity_modifier": -0.2,
         "answers": [
             "London", "Birmingham", "Manchester", "Leeds", "Glasgow",
             "Liverpool", "Bristol", "Sheffield", "Edinburgh", "Cardiff",
@@ -141,6 +157,7 @@ CATEGORIES = [
     # MEDIUM CATEGORIES
     {
         "name": "Shakespeare Plays",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Hamlet", "Macbeth", "Othello", "King Lear", "Romeo and Juliet",
             "A Midsummer Nights Dream", "The Tempest", "Julius Caesar",
@@ -169,6 +186,7 @@ CATEGORIES = [
     },
     {
         "name": "British Sitcoms",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Fawlty Towers", "Blackadder", "Only Fools and Horses",
             "The Office", "Peep Show", "The Inbetweeners", "Gavin and Stacey",
@@ -221,6 +239,7 @@ CATEGORIES = [
     },
     {
         "name": "British Game Shows",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Only Connect", "University Challenge", "Mastermind", "The Chase",
             "Pointless", "Who Wants to Be a Millionaire", "Countdown",
@@ -258,6 +277,7 @@ CATEGORIES = [
     },
     {
         "name": "London Landmarks",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Big Ben", "Tower Bridge", "Buckingham Palace", "The Shard",
             "London Eye", "Tower of London", "St Pauls Cathedral",
@@ -267,6 +287,7 @@ CATEGORIES = [
     },
     {
         "name": "British Radio Stations",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Radio One", "Radio Two", "Radio Three", "Radio Four",
             "Radio Five Live", "Classic FM", "Capital FM", "Heart FM",
@@ -317,6 +338,7 @@ CATEGORIES = [
     # HARD CATEGORIES
     {
         "name": "Greek Mythology",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Aphrodite", "Dionysus", "Persephone", "Prometheus", "Heracles",
             "Odysseus", "Eurydice", "Icarus", "Achilles", "Agamemnon",
@@ -336,6 +358,7 @@ CATEGORIES = [
     },
     {
         "name": "Opera Composers",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Giuseppe Verdi", "Wolfgang Mozart", "Richard Wagner",
             "Giacomo Puccini", "Georges Bizet", "Gioachino Rossini",
@@ -345,6 +368,7 @@ CATEGORIES = [
     },
     {
         "name": "Renaissance Artists",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Leonardo da Vinci", "Michelangelo", "Raphael", "Sandro Botticelli",
             "Donatello", "Titian", "Caravaggio", "Albrecht Durer",
@@ -361,6 +385,7 @@ CATEGORIES = [
     },
     {
         "name": "Classical Composers",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Johann Sebastian Bach", "Ludwig van Beethoven", "Wolfgang Amadeus Mozart",
             "Frederic Chopin", "Pyotr Tchaikovsky", "Johannes Brahms",
@@ -370,6 +395,7 @@ CATEGORIES = [
     },
     {
         "name": "Economic Terms",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Quantitative Easing", "Gross Domestic Product", "Stagflation",
             "Hyperinflation", "Keynesian Economics", "Laissez Faire",
@@ -415,6 +441,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Battles",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Battle of Thermopylae", "Battle of Agincourt", "Battle of Bosworth Field",
             "Battle of the Somme", "Battle of Stalingrad", "Battle of Gallipoli",
@@ -432,6 +459,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Logical Fallacy",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Straw Man", "Ad Hominem", "False Dichotomy", "Slippery Slope",
             "Appeal to Authority", "Circular Reasoning", "Red Herring",
@@ -472,6 +500,7 @@ CATEGORIES = [
     },
     {
         "name": "Political Ideologies",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Conservatism", "Liberalism", "Socialism", "Communism",
             "Anarchism", "Fascism", "Libertarianism", "Social Democracy",
@@ -490,6 +519,7 @@ CATEGORIES = [
     # NEW CATEGORIES - Science
     {
         "name": "Chemical Elements",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Hydrogen", "Helium", "Carbon", "Nitrogen", "Oxygen",
             "Iron", "Gold", "Silver", "Copper", "Lead",
@@ -498,6 +528,7 @@ CATEGORIES = [
     },
     {
         "name": "Planets of the Solar System",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Mercury", "Venus", "Earth", "Mars", "Jupiter",
             "Saturn", "Uranus", "Neptune"
@@ -530,6 +561,7 @@ CATEGORIES = [
     # NEW CATEGORIES - Arts and Culture
     {
         "name": "Musical Instruments",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Piano", "Guitar", "Violin", "Drums", "Flute",
             "Trumpet", "Saxophone", "Cello", "Harp", "Clarinet",
@@ -554,6 +586,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Dance",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Ballet", "Waltz", "Tango", "Salsa", "Hip Hop",
             "Jazz", "Tap", "Flamenco", "Swing", "Foxtrot",
@@ -572,6 +605,7 @@ CATEGORIES = [
     # NEW CATEGORIES - Popular Culture
     {
         "name": "James Bond Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Goldfinger", "Skyfall", "Casino Royale", "Spectre",
             "Goldeneye", "Thunderball", "Moonraker", "Octopussy",
@@ -580,6 +614,7 @@ CATEGORIES = [
     },
     {
         "name": "Harry Potter Characters",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Harry Potter", "Hermione Granger", "Ron Weasley",
             "Albus Dumbledore", "Severus Snape", "Lord Voldemort",
@@ -588,6 +623,7 @@ CATEGORIES = [
     },
     {
         "name": "Disney Animated Films",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Snow White", "Cinderella", "The Lion King", "Frozen",
             "Aladdin", "Beauty and the Beast", "The Little Mermaid",
@@ -596,6 +632,7 @@ CATEGORIES = [
     },
     {
         "name": "Marvel Superheroes",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Spider Man", "Iron Man", "Captain America", "Thor",
             "Hulk", "Black Widow", "Hawkeye", "Black Panther",
@@ -604,6 +641,7 @@ CATEGORIES = [
     },
     {
         "name": "Social Media Platforms",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Facebook", "Twitter", "Instagram", "TikTok", "YouTube",
             "LinkedIn", "Snapchat", "Pinterest", "Reddit", "WhatsApp"
@@ -641,6 +679,7 @@ CATEGORIES = [
     # NEW CATEGORIES - More General Knowledge
     {
         "name": "Zodiac Signs",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Aries", "Taurus", "Gemini", "Cancer", "Leo",
             "Virgo", "Libra", "Scorpio", "Sagittarius",
@@ -649,6 +688,7 @@ CATEGORIES = [
     },
     {
         "name": "Card Games",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Poker", "Blackjack", "Bridge", "Rummy", "Solitaire",
             "Snap", "Whist", "Canasta", "Hearts", "Spades",
@@ -657,6 +697,7 @@ CATEGORIES = [
     },
     {
         "name": "Board Games",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Monopoly", "Scrabble", "Chess", "Checkers", "Cluedo",
             "Risk", "Trivial Pursuit", "Backgammon", "Battleship",
@@ -665,6 +706,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Pasta",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Spaghetti", "Penne", "Fusilli", "Linguine", "Rigatoni",
             "Farfalle", "Tagliatelle", "Ravioli", "Lasagne",
@@ -673,6 +715,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Cheese",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Cheddar", "Brie", "Camembert", "Stilton", "Gouda",
             "Parmesan", "Mozzarella", "Feta", "Gruyere",
@@ -681,6 +724,7 @@ CATEGORIES = [
     },
     {
         "name": "Olympic Sports",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Swimming", "Athletics", "Gymnastics", "Cycling", "Rowing",
             "Boxing", "Wrestling", "Fencing", "Archery", "Judo",
@@ -689,6 +733,7 @@ CATEGORIES = [
     },
     {
         "name": "World Capitals",
+        "obscurity_modifier": 0.0,
         "answers": [
             "London", "Paris", "Berlin", "Madrid", "Rome",
             "Tokyo", "Beijing", "Moscow", "Washington", "Canberra",
@@ -699,6 +744,7 @@ CATEGORIES = [
     # MORE CATEGORIES - Animals and Nature
     {
         "name": "Big Cats",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Lion", "Tiger", "Leopard", "Jaguar", "Cheetah",
             "Panther", "Cougar", "Lynx", "Puma", "Ocelot"
@@ -716,6 +762,7 @@ CATEGORIES = [
     },
     {
         "name": "Birds",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Robin", "Sparrow", "Eagle", "Owl", "Penguin",
             "Flamingo", "Parrot", "Swan", "Crow", "Pigeon",
@@ -724,6 +771,7 @@ CATEGORIES = [
     },
     {
         "name": "Trees",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Oak", "Pine", "Birch", "Maple", "Willow",
             "Elm", "Ash", "Beech", "Cedar", "Chestnut",
@@ -732,6 +780,7 @@ CATEGORIES = [
     },
     {
         "name": "Flowers",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Rose", "Tulip", "Daisy", "Lily", "Orchid",
             "Sunflower", "Daffodil", "Violet", "Poppy", "Iris",
@@ -742,6 +791,7 @@ CATEGORIES = [
     # MORE CATEGORIES - Food and Drink
     {
         "name": "Cocktails",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Martini", "Mojito", "Margarita", "Cosmopolitan",
             "Manhattan", "Daiquiri", "Pina Colada", "Bloody Mary",
@@ -768,6 +818,7 @@ CATEGORIES = [
     },
     {
         "name": "Vegetables",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Carrot", "Potato", "Broccoli", "Spinach", "Cabbage",
             "Onion", "Pepper", "Tomato", "Cucumber", "Celery",
@@ -786,6 +837,7 @@ CATEGORIES = [
     # MORE CATEGORIES - History and Geography
     {
         "name": "Roman Gods",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Jupiter", "Mars", "Venus", "Neptune", "Mercury",
             "Apollo", "Diana", "Minerva", "Pluto", "Juno",
@@ -794,6 +846,7 @@ CATEGORIES = [
     },
     {
         "name": "Egyptian Gods",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Ra", "Osiris", "Isis", "Horus", "Anubis",
             "Seth", "Thoth", "Bastet", "Hathor", "Sobek"
@@ -801,6 +854,7 @@ CATEGORIES = [
     },
     {
         "name": "Wonders of the Ancient World",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Great Pyramid of Giza", "Hanging Gardens of Babylon",
             "Statue of Zeus", "Temple of Artemis", "Mausoleum at Halicarnassus",
@@ -828,6 +882,7 @@ CATEGORIES = [
     # MORE CATEGORIES - Entertainment
     {
         "name": "Star Wars Characters",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Luke Skywalker", "Darth Vader", "Han Solo", "Princess Leia",
             "Yoda", "Obi Wan Kenobi", "Chewbacca", "R2D2",
@@ -836,6 +891,7 @@ CATEGORIES = [
     },
     {
         "name": "Lord of the Rings Characters",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Frodo", "Gandalf", "Aragorn", "Legolas", "Gimli",
             "Samwise", "Gollum", "Saruman", "Boromir", "Sauron",
@@ -844,6 +900,7 @@ CATEGORIES = [
     },
     {
         "name": "Netflix Original Series",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Stranger Things", "The Crown", "Bridgerton", "Squid Game",
             "Wednesday", "The Witcher", "Orange Is the New Black",
@@ -852,6 +909,7 @@ CATEGORIES = [
     },
     {
         "name": "Video Game Franchises",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Mario", "Zelda", "Pokemon", "Call of Duty", "Minecraft",
             "Grand Theft Auto", "Fortnite", "FIFA", "Halo",
@@ -894,6 +952,7 @@ CATEGORIES = [
     },
     {
         "name": "Parts of the Brain",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Cerebrum", "Cerebellum", "Brainstem", "Hippocampus",
             "Amygdala", "Thalamus", "Hypothalamus", "Cortex",
@@ -951,6 +1010,7 @@ CATEGORIES = [
     # Literature and Writing
     {
         "name": "Dickens Novels",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Oliver Twist", "Great Expectations", "David Copperfield",
             "A Tale of Two Cities", "Bleak House", "Hard Times",
@@ -959,6 +1019,7 @@ CATEGORIES = [
     },
     {
         "name": "Jane Austen Novels",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Pride and Prejudice", "Sense and Sensibility", "Emma",
             "Persuasion", "Mansfield Park", "Northanger Abbey",
@@ -1016,6 +1077,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Operas",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Carmen", "La Traviata", "The Magic Flute", "Rigoletto",
             "Madame Butterfly", "The Barber of Seville", "Tosca",
@@ -1034,6 +1096,7 @@ CATEGORIES = [
     # Film and TV
     {
         "name": "Alfred Hitchcock Films",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Psycho", "Vertigo", "Rear Window", "The Birds",
             "North by Northwest", "Rebecca", "Dial M for Murder",
@@ -1042,6 +1105,7 @@ CATEGORIES = [
     },
     {
         "name": "Oscar Best Picture Winners",
+        "obscurity_modifier": -0.3,
         "answers": [
             "The Godfather", "Schindlers List", "Titanic", "Gladiator",
             "No Country for Old Men", "The Kings Speech",
@@ -1050,6 +1114,7 @@ CATEGORIES = [
     },
     {
         "name": "Pixar Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Toy Story", "Finding Nemo", "The Incredibles", "Up",
             "Wall E", "Monsters Inc", "Ratatouille", "Inside Out",
@@ -1058,6 +1123,7 @@ CATEGORIES = [
     },
     {
         "name": "Friends Characters",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Rachel Green", "Monica Geller", "Phoebe Buffay",
             "Joey Tribbiani", "Chandler Bing", "Ross Geller",
@@ -1066,6 +1132,7 @@ CATEGORIES = [
     },
     {
         "name": "Doctor Who Doctors",
+        "obscurity_modifier": -0.2,
         "answers": [
             "William Hartnell", "Patrick Troughton", "Jon Pertwee",
             "Tom Baker", "David Tennant", "Matt Smith",
@@ -1083,6 +1150,7 @@ CATEGORIES = [
     },
     {
         "name": "Subatomic Particles",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Proton", "Neutron", "Electron", "Quark", "Photon",
             "Neutrino", "Boson", "Muon", "Gluon", "Lepton"
@@ -1114,6 +1182,7 @@ CATEGORIES = [
     # Geography and Travel
     {
         "name": "US States",
+        "obscurity_modifier": 0.0,
         "answers": [
             "California", "Texas", "Florida", "New York", "Illinois",
             "Pennsylvania", "Ohio", "Georgia", "Michigan", "Arizona",
@@ -1122,6 +1191,7 @@ CATEGORIES = [
     },
     {
         "name": "European Countries",
+        "obscurity_modifier": -0.1,
         "answers": [
             "France", "Germany", "Spain", "Italy", "Poland",
             "Sweden", "Norway", "Denmark", "Finland", "Greece",
@@ -1241,6 +1311,7 @@ CATEGORIES = [
     # History
     {
         "name": "Tudor Monarchs",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Henry the Seventh", "Henry the Eighth", "Edward the Sixth",
             "Lady Jane Grey", "Mary the First", "Elizabeth the First"
@@ -1248,6 +1319,7 @@ CATEGORIES = [
     },
     {
         "name": "World War Two Battles",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Battle of Britain", "D Day", "Battle of the Bulge",
             "Battle of Midway", "Siege of Stalingrad", "El Alamein",
@@ -1264,6 +1336,7 @@ CATEGORIES = [
     },
     {
         "name": "American Presidents",
+        "obscurity_modifier": 0.1,
         "answers": [
             "George Washington", "Abraham Lincoln", "John F Kennedy",
             "Franklin Roosevelt", "Theodore Roosevelt", "Barack Obama",
@@ -1272,6 +1345,7 @@ CATEGORIES = [
     },
     {
         "name": "Historical Empires",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Roman Empire", "British Empire", "Ottoman Empire",
             "Mongol Empire", "Persian Empire", "Holy Roman Empire",
@@ -1282,6 +1356,7 @@ CATEGORIES = [
     # More Pop Culture
     {
         "name": "Simpsons Characters",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Homer Simpson", "Marge Simpson", "Bart Simpson",
             "Lisa Simpson", "Maggie Simpson", "Mr Burns",
@@ -1305,6 +1380,7 @@ CATEGORIES = [
     },
     {
         "name": "Beatles Songs",
+        "obscurity_modifier": -0.6,
         "answers": [
             "Hey Jude", "Let It Be", "Yesterday", "Help",
             "Come Together", "Here Comes the Sun", "A Hard Days Night",
@@ -1355,6 +1431,7 @@ CATEGORIES = [
     },
     {
         "name": "Insects",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Bee", "Ant", "Butterfly", "Beetle", "Moth",
             "Dragonfly", "Grasshopper", "Ladybird", "Wasp",
@@ -1373,6 +1450,7 @@ CATEGORIES = [
     },
     {
         "name": "Compass Points",
+        "obscurity_modifier": -0.3,
         "answers": [
             "North", "South", "East", "West",
             "Northeast", "Northwest", "Southeast", "Southwest"
@@ -1393,6 +1471,7 @@ CATEGORIES = [
     },
     {
         "name": "Shapes",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Circle", "Square", "Triangle", "Rectangle", "Oval",
             "Pentagon", "Hexagon", "Octagon", "Star", "Diamond"
@@ -1400,6 +1479,7 @@ CATEGORIES = [
     },
     {
         "name": "Continents",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Africa", "Antarctica", "Asia", "Australia",
             "Europe", "North America", "South America"
@@ -1407,12 +1487,14 @@ CATEGORIES = [
     },
     {
         "name": "Senses",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Sight", "Hearing", "Smell", "Taste", "Touch"
         ]
     },
     {
         "name": "Meals of the Day",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Breakfast", "Lunch", "Dinner", "Supper", "Brunch",
             "Tea", "Snack"
@@ -1497,6 +1579,7 @@ CATEGORIES = [
     },
     {
         "name": "Game of Thrones Houses",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Stark", "Lannister", "Targaryen", "Baratheon",
             "Greyjoy", "Tyrell", "Martell", "Tully", "Arryn"
@@ -1504,6 +1587,7 @@ CATEGORIES = [
     },
     {
         "name": "Streaming Services",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Netflix", "Amazon Prime", "Disney Plus", "Apple TV",
             "HBO Max", "Hulu", "Paramount Plus", "Peacock"
@@ -1592,6 +1676,7 @@ CATEGORIES = [
     },
     {
         "name": "Ice Cream Flavours",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Vanilla", "Chocolate", "Strawberry", "Mint Choc Chip",
             "Cookie Dough", "Caramel", "Pistachio", "Raspberry Ripple"
@@ -1599,6 +1684,7 @@ CATEGORIES = [
     },
     {
         "name": "Fast Food Chains",
+        "obscurity_modifier": -0.2,
         "answers": [
             "McDonalds", "KFC", "Burger King", "Subway", "Pizza Hut",
             "Dominos", "Nandos", "Five Guys", "Greggs"
@@ -1681,6 +1767,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Ballets",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Swan Lake", "The Nutcracker", "Sleeping Beauty",
             "Romeo and Juliet", "Giselle", "Don Quixote",
@@ -1730,6 +1817,7 @@ CATEGORIES = [
     # Classical and Academic
     {
         "name": "Greek Philosophers",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Socrates", "Plato", "Aristotle", "Pythagoras", "Heraclitus",
             "Democritus", "Epicurus", "Zeno of Citium", "Diogenes", "Thales"
@@ -1737,6 +1825,7 @@ CATEGORIES = [
     },
     {
         "name": "Roman Emperors",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Augustus", "Nero", "Caligula", "Tiberius", "Claudius",
             "Trajan", "Hadrian", "Marcus Aurelius", "Constantine", "Julius Caesar"
@@ -1744,6 +1833,7 @@ CATEGORIES = [
     },
     {
         "name": "Ancient Greek Tragedies",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Oedipus Rex", "Antigone", "Medea", "The Oresteia",
             "Electra", "The Bacchae", "Prometheus Bound", "Ajax"
@@ -1751,6 +1841,7 @@ CATEGORIES = [
     },
     {
         "name": "Enlightenment Thinkers",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Voltaire", "Jean Jacques Rousseau", "John Locke", "Immanuel Kant",
             "Montesquieu", "Denis Diderot", "Adam Smith", "David Hume"
@@ -1758,6 +1849,7 @@ CATEGORIES = [
     },
     {
         "name": "Impressionist Painters",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Claude Monet", "Pierre Auguste Renoir", "Edgar Degas",
             "Camille Pissarro", "Alfred Sisley", "Berthe Morisot",
@@ -1766,6 +1858,7 @@ CATEGORIES = [
     },
     {
         "name": "Baroque Composers",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Johann Sebastian Bach", "George Frideric Handel", "Antonio Vivaldi",
             "Claudio Monteverdi", "Henry Purcell", "Domenico Scarlatti",
@@ -1774,6 +1867,7 @@ CATEGORIES = [
     },
     {
         "name": "Existentialist Writers",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Jean Paul Sartre", "Albert Camus", "Simone de Beauvoir",
             "Franz Kafka", "Fyodor Dostoevsky", "Soren Kierkegaard",
@@ -1782,6 +1876,7 @@ CATEGORIES = [
     },
     {
         "name": "Medieval Philosophers",
+        "obscurity_modifier": 0.6,
         "answers": [
             "Thomas Aquinas", "William of Ockham", "Duns Scotus",
             "Anselm of Canterbury", "Peter Abelard", "Boethius",
@@ -1792,6 +1887,7 @@ CATEGORIES = [
     # Science - Advanced
     {
         "name": "Nobel Prize Winning Scientists",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Marie Curie", "Albert Einstein", "Niels Bohr", "Richard Feynman",
             "Werner Heisenberg", "Max Planck", "Erwin Schrodinger",
@@ -1807,6 +1903,7 @@ CATEGORIES = [
     },
     {
         "name": "Organic Chemistry Functional Groups",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Hydroxyl", "Carbonyl", "Carboxyl", "Amino", "Phosphate",
             "Sulfhydryl", "Methyl", "Aldehyde", "Ketone", "Ester"
@@ -1814,6 +1911,7 @@ CATEGORIES = [
     },
     {
         "name": "Astronomical Objects",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Neutron Star", "Black Hole", "White Dwarf", "Red Giant",
             "Pulsar", "Quasar", "Supernova", "Nebula", "Galaxy Cluster"
@@ -1821,6 +1919,7 @@ CATEGORIES = [
     },
     {
         "name": "Cognitive Biases",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Confirmation Bias", "Anchoring Bias", "Availability Heuristic",
             "Dunning Kruger Effect", "Hindsight Bias", "Sunk Cost Fallacy",
@@ -1829,6 +1928,7 @@ CATEGORIES = [
     },
     {
         "name": "Genetic Terms",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Allele", "Genotype", "Phenotype", "Homozygous", "Heterozygous",
             "Dominant", "Recessive", "Mutation", "Chromosome", "Gene Expression"
@@ -1836,6 +1936,7 @@ CATEGORIES = [
     },
     {
         "name": "Particle Physics Terms",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Hadron", "Lepton", "Boson", "Fermion", "Quark",
             "Antimatter", "Higgs Field", "Strong Force", "Weak Force"
@@ -1852,6 +1953,7 @@ CATEGORIES = [
     # Literature - Advanced
     {
         "name": "Booker Prize Winners",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Midnight's Children", "Life of Pi", "The Remains of the Day",
             "Wolf Hall", "The English Patient", "Schindler's Ark",
@@ -1860,6 +1962,7 @@ CATEGORIES = [
     },
     {
         "name": "Russian Novelists",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Leo Tolstoy", "Fyodor Dostoevsky", "Anton Chekhov",
             "Vladimir Nabokov", "Boris Pasternak", "Mikhail Bulgakov",
@@ -1868,6 +1971,7 @@ CATEGORIES = [
     },
     {
         "name": "Modernist Poets",
+        "obscurity_modifier": 0.5,
         "answers": [
             "T S Eliot", "Ezra Pound", "W B Yeats", "Wallace Stevens",
             "William Carlos Williams", "Marianne Moore", "Hart Crane",
@@ -1876,6 +1980,7 @@ CATEGORIES = [
     },
     {
         "name": "Pulitzer Prize Fiction Winners",
+        "obscurity_modifier": 0.4,
         "answers": [
             "To Kill a Mockingbird", "The Grapes of Wrath", "The Color Purple",
             "Beloved", "The Road", "A Visit from the Goon Squad",
@@ -1884,6 +1989,7 @@ CATEGORIES = [
     },
     {
         "name": "Epic Poems",
+        "obscurity_modifier": 0.3,
         "answers": [
             "The Iliad", "The Odyssey", "The Aeneid", "Paradise Lost",
             "Beowulf", "The Divine Comedy", "The Faerie Queene",
@@ -1892,6 +1998,7 @@ CATEGORIES = [
     },
     {
         "name": "Dystopian Novels",
+        "obscurity_modifier": 0.1,
         "answers": [
             "1984", "Brave New World", "Fahrenheit 451", "The Handmaids Tale",
             "A Clockwork Orange", "We", "The Road", "Never Let Me Go",
@@ -1902,6 +2009,7 @@ CATEGORIES = [
     # History - Advanced
     {
         "name": "Treaty of Versailles Terms",
+        "obscurity_modifier": 0.4,
         "answers": [
             "War Guilt Clause", "Reparations", "Demilitarised Zone",
             "League of Nations", "Territorial Losses", "Military Restrictions"
@@ -1909,6 +2017,7 @@ CATEGORIES = [
     },
     {
         "name": "Cold War Events",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Berlin Wall", "Cuban Missile Crisis", "Korean War", "Vietnam War",
             "Bay of Pigs", "Space Race", "Arms Race", "Iron Curtain",
@@ -1917,6 +2026,7 @@ CATEGORIES = [
     },
     {
         "name": "French Revolution Figures",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Maximilien Robespierre", "Jean Paul Marat", "Georges Danton",
             "Marie Antoinette", "Louis XVI", "Napoleon Bonaparte",
@@ -1925,6 +2035,7 @@ CATEGORIES = [
     },
     {
         "name": "British Civil War Figures",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Oliver Cromwell", "Charles I", "Prince Rupert",
             "Thomas Fairfax", "John Pym", "Charles II",
@@ -1933,6 +2044,7 @@ CATEGORIES = [
     },
     {
         "name": "Byzantine Emperors",
+        "obscurity_modifier": 0.6,
         "answers": [
             "Justinian", "Constantine XI", "Basil II", "Heraclius",
             "Theodora", "Leo III", "Alexios I Komnenos", "Manuel I Komnenos"
@@ -1940,6 +2052,7 @@ CATEGORIES = [
     },
     {
         "name": "Mughal Emperors",
+        "obscurity_modifier": 0.6,
         "answers": [
             "Babur", "Humayun", "Akbar", "Jahangir", "Shah Jahan",
             "Aurangzeb", "Bahadur Shah"
@@ -1947,6 +2060,7 @@ CATEGORIES = [
     },
     {
         "name": "Chinese Dynasties",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Qin Dynasty", "Han Dynasty", "Tang Dynasty", "Song Dynasty",
             "Ming Dynasty", "Qing Dynasty", "Yuan Dynasty", "Zhou Dynasty"
@@ -1956,6 +2070,7 @@ CATEGORIES = [
     # Music - Advanced
     {
         "name": "Symphony Composers",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Ludwig van Beethoven", "Johannes Brahms", "Gustav Mahler",
             "Anton Bruckner", "Dmitri Shostakovich", "Jean Sibelius",
@@ -1964,6 +2079,7 @@ CATEGORIES = [
     },
     {
         "name": "Jazz Musicians",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Miles Davis", "John Coltrane", "Duke Ellington", "Louis Armstrong",
             "Charlie Parker", "Thelonious Monk", "Dizzy Gillespie",
@@ -1972,6 +2088,7 @@ CATEGORIES = [
     },
     {
         "name": "Opera Singers",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Luciano Pavarotti", "Maria Callas", "Placido Domingo",
             "Enrico Caruso", "Joan Sutherland", "Renee Fleming",
@@ -1980,6 +2097,7 @@ CATEGORIES = [
     },
     {
         "name": "Romantic Era Composers",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Frederic Chopin", "Franz Liszt", "Robert Schumann",
             "Felix Mendelssohn", "Johannes Brahms", "Richard Wagner",
@@ -1998,6 +2116,7 @@ CATEGORIES = [
     # Art and Architecture - Advanced
     {
         "name": "Sculptors",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Auguste Rodin", "Constantin Brancusi", "Henry Moore",
             "Alberto Giacometti", "Barbara Hepworth", "Anish Kapoor",
@@ -2013,6 +2132,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Architects",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Frank Lloyd Wright", "Le Corbusier", "Zaha Hadid",
             "Norman Foster", "Renzo Piano", "Frank Gehry",
@@ -2021,6 +2141,7 @@ CATEGORIES = [
     },
     {
         "name": "Surrealist Artists",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Salvador Dali", "Rene Magritte", "Max Ernst", "Joan Miro",
             "Yves Tanguy", "Andre Breton", "Man Ray", "Frida Kahlo"
@@ -2028,6 +2149,7 @@ CATEGORIES = [
     },
     {
         "name": "Post Impressionist Painters",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Vincent van Gogh", "Paul Cezanne", "Paul Gauguin",
             "Georges Seurat", "Henri de Toulouse Lautrec", "Pierre Bonnard",
@@ -2038,6 +2160,7 @@ CATEGORIES = [
     # Economics and Politics - Advanced
     {
         "name": "Economic Theories",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Keynesian Economics", "Monetarism", "Supply Side Economics",
             "Austrian Economics", "Modern Monetary Theory",
@@ -2046,6 +2169,7 @@ CATEGORIES = [
     },
     {
         "name": "International Organizations",
+        "obscurity_modifier": 0.2,
         "answers": [
             "United Nations", "World Bank", "International Monetary Fund",
             "World Trade Organization", "NATO", "World Health Organization",
@@ -2054,6 +2178,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Government",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Democracy", "Autocracy", "Oligarchy", "Theocracy",
             "Monarchy", "Republic", "Federalism", "Totalitarianism",
@@ -2068,6 +2193,7 @@ CATEGORIES = [
     },
     {
         "name": "Trade Agreements",
+        "obscurity_modifier": 0.4,
         "answers": [
             "NAFTA", "European Union", "ASEAN", "Mercosur",
             "Trans Pacific Partnership", "USMCA", "CPTPP"
@@ -2077,6 +2203,7 @@ CATEGORIES = [
     # Psychology and Sociology - Advanced
     {
         "name": "Psychological Disorders",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Schizophrenia", "Bipolar Disorder", "Major Depression",
             "Obsessive Compulsive Disorder", "Post Traumatic Stress Disorder",
@@ -2111,6 +2238,7 @@ CATEGORIES = [
     # Law and Justice - Advanced
     {
         "name": "Legal Terms",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Habeas Corpus", "Pro Bono", "Amicus Curiae", "Res Judicata",
             "Mens Rea", "Actus Reus", "Prima Facie", "Stare Decisis",
@@ -2137,6 +2265,7 @@ CATEGORIES = [
     # Religion and Mythology - Advanced
     {
         "name": "Hindu Deities",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Brahma", "Vishnu", "Shiva", "Ganesha", "Krishna",
             "Lakshmi", "Saraswati", "Hanuman", "Durga", "Kali"
@@ -2144,6 +2273,7 @@ CATEGORIES = [
     },
     {
         "name": "Norse Gods",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Odin", "Thor", "Loki", "Freya", "Frigg",
             "Baldur", "Heimdall", "Tyr", "Hel", "Fenrir"
@@ -2151,6 +2281,7 @@ CATEGORIES = [
     },
     {
         "name": "Biblical Figures",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Abraham", "Moses", "David", "Solomon", "Noah",
             "Elijah", "Isaiah", "Jonah", "Daniel", "Job"
@@ -2158,6 +2289,7 @@ CATEGORIES = [
     },
     {
         "name": "Buddhist Concepts",
+        "obscurity_modifier": 0.5,
         "answers": [
             "Nirvana", "Karma", "Dharma", "Samsara", "Enlightenment",
             "Four Noble Truths", "Eightfold Path", "Bodhisattva", "Sangha"
@@ -2165,6 +2297,7 @@ CATEGORIES = [
     },
     {
         "name": "Greek Titans",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Cronus", "Rhea", "Atlas", "Prometheus", "Hyperion",
             "Oceanus", "Themis", "Mnemosyne", "Iapetus", "Coeus"
@@ -2174,6 +2307,7 @@ CATEGORIES = [
     # Medicine and Health - Advanced
     {
         "name": "Medical Specialties",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Cardiology", "Neurology", "Oncology", "Dermatology",
             "Gastroenterology", "Endocrinology", "Rheumatology",
@@ -2182,6 +2316,7 @@ CATEGORIES = [
     },
     {
         "name": "Surgical Procedures",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Appendectomy", "Cholecystectomy", "Mastectomy",
             "Hysterectomy", "Coronary Bypass", "Angioplasty",
@@ -2190,6 +2325,7 @@ CATEGORIES = [
     },
     {
         "name": "Infectious Diseases",
+        "obscurity_modifier": 0.3,
         "answers": [
             "Tuberculosis", "Malaria", "Typhoid", "Cholera",
             "Influenza", "Measles", "Hepatitis", "Meningitis",
@@ -2198,6 +2334,7 @@ CATEGORIES = [
     },
     {
         "name": "Pharmaceutical Drug Classes",
+        "obscurity_modifier": 0.4,
         "answers": [
             "Antibiotics", "Analgesics", "Antihistamines", "Antidepressants",
             "Beta Blockers", "Statins", "Anticoagulants", "Diuretics",
@@ -2210,6 +2347,7 @@ CATEGORIES = [
     # Classic Films
     {
         "name": "Film Noir Classics",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Double Indemnity", "The Maltese Falcon", "Sunset Boulevard",
             "The Big Sleep", "Chinatown", "Touch of Evil",
@@ -2218,6 +2356,7 @@ CATEGORIES = [
     },
     {
         "name": "Spielberg Films",
+        "obscurity_modifier": -0.6,
         "answers": [
             "Jaws", "E T the Extra Terrestrial", "Schindlers List",
             "Jurassic Park", "Saving Private Ryan", "Raiders of the Lost Ark",
@@ -2226,6 +2365,7 @@ CATEGORIES = [
     },
     {
         "name": "Scorsese Films",
+        "obscurity_modifier": -0.5,
         "answers": [
             "Goodfellas", "Taxi Driver", "Raging Bull", "The Departed",
             "Casino", "The Wolf of Wall Street", "Shutter Island",
@@ -2234,6 +2374,7 @@ CATEGORIES = [
     },
     {
         "name": "Tarantino Films",
+        "obscurity_modifier": -0.5,
         "answers": [
             "Pulp Fiction", "Kill Bill", "Reservoir Dogs", "Django Unchained",
             "Inglourious Basterds", "Jackie Brown", "The Hateful Eight",
@@ -2242,6 +2383,7 @@ CATEGORIES = [
     },
     {
         "name": "Christopher Nolan Films",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Inception", "The Dark Knight", "Interstellar", "Memento",
             "Dunkirk", "Tenet", "The Prestige", "Batman Begins",
@@ -2250,6 +2392,7 @@ CATEGORIES = [
     },
     {
         "name": "Stanley Kubrick Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "The Shining", "A Clockwork Orange", "Full Metal Jacket",
             "Dr Strangelove", "Eyes Wide Shut", "Barry Lyndon",
@@ -2258,6 +2401,7 @@ CATEGORIES = [
     },
     {
         "name": "Wes Anderson Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "The Grand Budapest Hotel", "Moonrise Kingdom", "The Royal Tenenbaums",
             "Fantastic Mr Fox", "The French Dispatch", "Isle of Dogs",
@@ -2268,6 +2412,7 @@ CATEGORIES = [
     # Film Genres and Types
     {
         "name": "Romantic Comedy Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "When Harry Met Sally", "Notting Hill", "Pretty Woman",
             "Bridget Jones Diary", "Love Actually", "Four Weddings and a Funeral",
@@ -2276,6 +2421,7 @@ CATEGORIES = [
     },
     {
         "name": "Horror Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "The Exorcist", "Halloween", "A Nightmare on Elm Street",
             "The Shining", "Scream", "The Ring", "Get Out",
@@ -2284,6 +2430,7 @@ CATEGORIES = [
     },
     {
         "name": "War Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Saving Private Ryan", "Apocalypse Now", "Platoon",
             "Full Metal Jacket", "Dunkirk", "The Hurt Locker",
@@ -2292,6 +2439,7 @@ CATEGORIES = [
     },
     {
         "name": "Sports Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Rocky", "Raging Bull", "Jerry Maguire", "The Blind Side",
             "Moneyball", "Remember the Titans", "Field of Dreams",
@@ -2300,6 +2448,7 @@ CATEGORIES = [
     },
     {
         "name": "Animated Feature Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Shrek", "The Incredibles", "Despicable Me", "Zootopia",
             "How to Train Your Dragon", "Kung Fu Panda", "Madagascar",
@@ -2308,6 +2457,7 @@ CATEGORIES = [
     },
     {
         "name": "Musical Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "The Sound of Music", "Grease", "La La Land", "Chicago",
             "Les Miserables", "Mamma Mia", "The Greatest Showman",
@@ -2318,6 +2468,7 @@ CATEGORIES = [
     # Actors and Actresses
     {
         "name": "Hollywood Leading Men",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Tom Hanks", "Leonardo DiCaprio", "Brad Pitt", "George Clooney",
             "Denzel Washington", "Tom Cruise", "Matt Damon", "Will Smith",
@@ -2326,6 +2477,7 @@ CATEGORIES = [
     },
     {
         "name": "Hollywood Leading Ladies",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Meryl Streep", "Cate Blanchett", "Nicole Kidman", "Julia Roberts",
             "Sandra Bullock", "Angelina Jolie", "Scarlett Johansson",
@@ -2334,6 +2486,7 @@ CATEGORIES = [
     },
     {
         "name": "Comedy Actors",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Jim Carrey", "Adam Sandler", "Ben Stiller", "Will Ferrell",
             "Steve Carell", "Seth Rogen", "Jonah Hill", "Kevin Hart",
@@ -2342,6 +2495,7 @@ CATEGORIES = [
     },
     {
         "name": "Action Movie Stars",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Arnold Schwarzenegger", "Sylvester Stallone", "Bruce Willis",
             "Dwayne Johnson", "Jason Statham", "Vin Diesel",
@@ -2350,6 +2504,7 @@ CATEGORIES = [
     },
     {
         "name": "Classic Hollywood Stars",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Humphrey Bogart", "Cary Grant", "James Stewart", "Marlon Brando",
             "Audrey Hepburn", "Marilyn Monroe", "Katharine Hepburn",
@@ -2360,6 +2515,7 @@ CATEGORIES = [
     # Television
     {
         "name": "American Sitcoms",
+        "obscurity_modifier": -0.8,
         "answers": [
             "Friends", "Seinfeld", "The Big Bang Theory", "How I Met Your Mother",
             "The Office", "Parks and Recreation", "Modern Family",
@@ -2368,6 +2524,7 @@ CATEGORIES = [
     },
     {
         "name": "Crime Drama Series",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Breaking Bad", "The Wire", "The Sopranos", "True Detective",
             "Mindhunter", "Ozark", "Better Call Saul", "Narcos",
@@ -2376,6 +2533,7 @@ CATEGORIES = [
     },
     {
         "name": "Fantasy TV Series",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Game of Thrones", "The Witcher", "House of the Dragon",
             "The Lord of the Rings", "Shadow and Bone", "Wheel of Time",
@@ -2384,6 +2542,7 @@ CATEGORIES = [
     },
     {
         "name": "Sci Fi TV Series",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Black Mirror", "Stranger Things", "Westworld", "The Expanse",
             "Battlestar Galactica", "The Mandalorian", "Star Trek",
@@ -2392,6 +2551,7 @@ CATEGORIES = [
     },
     {
         "name": "Medical Drama Series",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Greys Anatomy", "House", "ER", "Scrubs", "The Good Doctor",
             "Chicago Med", "Holby City", "Casualty", "New Amsterdam"
@@ -2399,6 +2559,7 @@ CATEGORIES = [
     },
     {
         "name": "Reality TV Shows",
+        "obscurity_modifier": -0.4,
         "answers": [
             "The X Factor", "Big Brother", "Survivor", "The Voice",
             "Love Island", "I'm a Celebrity", "The Bachelor",
@@ -2407,6 +2568,7 @@ CATEGORIES = [
     },
     {
         "name": "British Drama Series",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Downton Abbey", "Sherlock", "Broadchurch", "The Crown",
             "Luther", "Bodyguard", "Line of Duty", "Happy Valley",
@@ -2415,6 +2577,7 @@ CATEGORIES = [
     },
     {
         "name": "Animated TV Series",
+        "obscurity_modifier": -0.5,
         "answers": [
             "The Simpsons", "Family Guy", "South Park", "Rick and Morty",
             "Futurama", "Bobs Burgers", "Archer", "BoJack Horseman",
@@ -2425,6 +2588,7 @@ CATEGORIES = [
     # Film Awards and Industry
     {
         "name": "Best Actor Oscar Winners",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Anthony Hopkins", "Joaquin Phoenix", "Rami Malek",
             "Gary Oldman", "Casey Affleck", "Eddie Redmayne",
@@ -2433,6 +2597,7 @@ CATEGORIES = [
     },
     {
         "name": "Best Actress Oscar Winners",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Frances McDormand", "Renee Zellweger", "Olivia Colman",
             "Emma Stone", "Brie Larson", "Julianne Moore",
@@ -2441,6 +2606,7 @@ CATEGORIES = [
     },
     {
         "name": "Film Studios",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Warner Bros", "Universal Pictures", "Paramount Pictures",
             "Columbia Pictures", "Twentieth Century Fox", "MGM",
@@ -2458,6 +2624,7 @@ CATEGORIES = [
     # Movie Franchises
     {
         "name": "Superhero Film Franchises",
+        "obscurity_modifier": -0.4,
         "answers": [
             "The Avengers", "Batman", "Spider Man", "X Men", "Superman",
             "Wonder Woman", "Guardians of the Galaxy", "Deadpool",
@@ -2466,6 +2633,7 @@ CATEGORIES = [
     },
     {
         "name": "Action Film Franchises",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Mission Impossible", "Fast and Furious", "Die Hard",
             "The Bourne Identity", "John Wick", "Lethal Weapon",
@@ -2474,6 +2642,7 @@ CATEGORIES = [
     },
     {
         "name": "Horror Film Franchises",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Halloween", "Friday the Thirteenth", "A Nightmare on Elm Street",
             "Scream", "Saw", "The Conjuring", "Paranormal Activity",
@@ -2482,6 +2651,7 @@ CATEGORIES = [
     },
     {
         "name": "Sci Fi Film Franchises",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Star Wars", "Star Trek", "Alien", "The Matrix",
             "Planet of the Apes", "Back to the Future", "Jurassic Park",
@@ -2492,6 +2662,7 @@ CATEGORIES = [
     # TV Characters
     {
         "name": "Breaking Bad Characters",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Walter White", "Jesse Pinkman", "Skyler White", "Hank Schrader",
             "Saul Goodman", "Gus Fring", "Mike Ehrmantraut",
@@ -2500,6 +2671,7 @@ CATEGORIES = [
     },
     {
         "name": "The Office Characters",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Michael Scott", "Dwight Schrute", "Jim Halpert", "Pam Beesly",
             "Andy Bernard", "Angela Martin", "Kevin Malone",
@@ -2508,6 +2680,7 @@ CATEGORIES = [
     },
     {
         "name": "Downton Abbey Characters",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Lady Mary Crawley", "Lord Grantham", "Mr Carson", "Mrs Hughes",
             "Lady Edith", "Tom Branson", "Violet Crawley",
@@ -2516,6 +2689,7 @@ CATEGORIES = [
     },
     {
         "name": "Stranger Things Characters",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Eleven", "Mike Wheeler", "Dustin Henderson", "Lucas Sinclair",
             "Will Byers", "Joyce Byers", "Jim Hopper", "Steve Harrington",
@@ -2526,6 +2700,7 @@ CATEGORIES = [
     # More Film Categories
     {
         "name": "Coen Brothers Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Fargo", "The Big Lebowski", "No Country for Old Men",
             "True Grit", "O Brother Where Art Thou", "Barton Fink",
@@ -2534,6 +2709,7 @@ CATEGORIES = [
     },
     {
         "name": "Tim Burton Films",
+        "obscurity_modifier": -0.4,
         "answers": [
             "Edward Scissorhands", "Beetlejuice", "Batman", "Sweeney Todd",
             "Corpse Bride", "Charlie and the Chocolate Factory",
@@ -2542,6 +2718,7 @@ CATEGORIES = [
     },
     {
         "name": "Ridley Scott Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Gladiator", "Alien", "Blade Runner", "Thelma and Louise",
             "Black Hawk Down", "The Martian", "American Gangster",
@@ -2550,6 +2727,7 @@ CATEGORIES = [
     },
     {
         "name": "Denis Villeneuve Films",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Dune", "Arrival", "Blade Runner", "Sicario",
             "Prisoners", "Incendies", "Enemy"
@@ -2557,6 +2735,7 @@ CATEGORIES = [
     },
     {
         "name": "Best Picture Nominees",
+        "obscurity_modifier": -0.3,
         "answers": [
             "The Shawshank Redemption", "Pulp Fiction", "Forrest Gump",
             "Saving Private Ryan", "The Green Mile", "American Beauty",
@@ -2565,6 +2744,7 @@ CATEGORIES = [
     },
     {
         "name": "Coming of Age Films",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Stand By Me", "The Breakfast Club", "Ferris Buellers Day Off",
             "Dead Poets Society", "Lady Bird", "Boyhood", "Juno",
@@ -2573,6 +2753,7 @@ CATEGORIES = [
     },
     {
         "name": "Heist Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Oceans Eleven", "The Italian Job", "Heat", "Inside Man",
             "The Town", "Baby Driver", "Reservoir Dogs", "Snatch",
@@ -2581,6 +2762,7 @@ CATEGORIES = [
     },
     {
         "name": "Courtroom Drama Films",
+        "obscurity_modifier": -0.2,
         "answers": [
             "To Kill a Mockingbird", "A Few Good Men", "The Verdict",
             "Primal Fear", "Philadelphia", "My Cousin Vinny",
@@ -2593,6 +2775,7 @@ CATEGORIES = [
     # Geography
     {
         "name": "Caribbean Islands",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Jamaica", "Barbados", "Trinidad", "Bahamas", "Cuba",
             "Dominican Republic", "Puerto Rico", "Aruba", "Grenada",
@@ -2601,6 +2784,7 @@ CATEGORIES = [
     },
     {
         "name": "African Countries",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Nigeria", "Kenya", "Egypt", "South Africa", "Morocco",
             "Ghana", "Ethiopia", "Tanzania", "Uganda", "Algeria",
@@ -2609,6 +2793,7 @@ CATEGORIES = [
     },
     {
         "name": "Asian Countries",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Japan", "China", "India", "Thailand", "Vietnam",
             "Indonesia", "Malaysia", "Philippines", "Singapore",
@@ -2617,6 +2802,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Deserts",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Sahara", "Gobi", "Kalahari", "Mojave", "Atacama",
             "Arabian", "Sonoran", "Namib", "Patagonian", "Great Victoria"
@@ -2624,6 +2810,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Volcanoes",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Mount Vesuvius", "Mount Etna", "Krakatoa", "Mount Fuji",
             "Mount St Helens", "Kilauea", "Eyjafjallajokull",
@@ -2634,6 +2821,7 @@ CATEGORIES = [
     # Sports Extended
     {
         "name": "Tennis Players",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Roger Federer", "Rafael Nadal", "Novak Djokovic", "Andy Murray",
             "Serena Williams", "Venus Williams", "Maria Sharapova",
@@ -2642,6 +2830,7 @@ CATEGORIES = [
     },
     {
         "name": "Formula One Teams",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Ferrari", "Mercedes", "Red Bull", "McLaren", "Williams",
             "Aston Martin", "Alpine", "Alfa Romeo", "Haas", "AlphaTauri"
@@ -2649,6 +2838,7 @@ CATEGORIES = [
     },
     {
         "name": "Boxing Weight Classes",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Heavyweight", "Cruiserweight", "Light Heavyweight", "Middleweight",
             "Welterweight", "Lightweight", "Featherweight", "Bantamweight",
@@ -2657,6 +2847,7 @@ CATEGORIES = [
     },
     {
         "name": "Winter Olympic Sports",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Figure Skating", "Ice Hockey", "Skiing", "Snowboarding",
             "Bobsled", "Luge", "Curling", "Biathlon", "Skeleton",
@@ -2665,6 +2856,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Footballers",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Lionel Messi", "Cristiano Ronaldo", "David Beckham", "Pele",
             "Diego Maradona", "Zinedine Zidane", "Ronaldinho", "Neymar",
@@ -2675,6 +2867,7 @@ CATEGORIES = [
     # Food and Drink Extended
     {
         "name": "Types of Tea",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Earl Grey", "English Breakfast", "Green Tea", "Chamomile",
             "Peppermint", "Oolong", "Darjeeling", "Jasmine", "Rooibos",
@@ -2683,6 +2876,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Beer",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Lager", "Ale", "Stout", "Porter", "Pilsner",
             "IPA", "Wheat Beer", "Bitter", "Pale Ale", "Brown Ale",
@@ -2691,6 +2885,7 @@ CATEGORIES = [
     },
     {
         "name": "Italian Dishes",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Pizza", "Risotto", "Lasagne", "Carbonara", "Bolognese",
             "Tiramisu", "Gnocchi", "Bruschetta", "Panna Cotta",
@@ -2699,6 +2894,7 @@ CATEGORIES = [
     },
     {
         "name": "Asian Cuisines",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Sushi", "Dim Sum", "Pad Thai", "Pho", "Curry",
             "Ramen", "Satay", "Kimchi", "Bibimbap", "Teriyaki",
@@ -2707,6 +2903,7 @@ CATEGORIES = [
     },
     {
         "name": "Desserts",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Cheesecake", "Brownie", "Pavlova", "Creme Brulee", "Trifle",
             "Profiteroles", "Mousse", "Souffle", "Sorbet", "Gelato",
@@ -2717,6 +2914,7 @@ CATEGORIES = [
     # Music Extended
     {
         "name": "Nineties Bands",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Nirvana", "Oasis", "Blur", "Radiohead", "Pearl Jam",
             "Green Day", "Red Hot Chili Peppers", "Foo Fighters",
@@ -2725,6 +2923,7 @@ CATEGORIES = [
     },
     {
         "name": "Eighties Bands",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Duran Duran", "Depeche Mode", "The Cure", "New Order",
             "Tears for Fears", "A Ha", "Wham", "Culture Club",
@@ -2733,6 +2932,7 @@ CATEGORIES = [
     },
     {
         "name": "Rap Artists",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Eminem", "Jay Z", "Kanye West", "Drake", "Snoop Dogg",
             "Tupac", "Notorious BIG", "Kendrick Lamar", "Nas",
@@ -2741,6 +2941,7 @@ CATEGORIES = [
     },
     {
         "name": "Country Music Artists",
+        "obscurity_modifier": -0.1,
         "answers": [
             "Johnny Cash", "Dolly Parton", "Willie Nelson", "Garth Brooks",
             "Taylor Swift", "Carrie Underwood", "Blake Shelton",
@@ -2749,6 +2950,7 @@ CATEGORIES = [
     },
     {
         "name": "Rock Legends",
+        "obscurity_modifier": -0.3,
         "answers": [
             "Led Zeppelin", "Pink Floyd", "The Who", "AC DC",
             "Aerosmith", "Black Sabbath", "Deep Purple", "Van Halen",
@@ -2759,6 +2961,7 @@ CATEGORIES = [
     # Science Extended
     {
         "name": "Human Body Systems",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Circulatory", "Respiratory", "Digestive", "Nervous",
             "Skeletal", "Muscular", "Immune", "Endocrine",
@@ -2767,6 +2970,7 @@ CATEGORIES = [
     },
     {
         "name": "Types of Scientist",
+        "obscurity_modifier": 0.1,
         "answers": [
             "Physicist", "Chemist", "Biologist", "Geologist", "Astronomer",
             "Botanist", "Zoologist", "Ecologist", "Geneticist",
@@ -2775,6 +2979,7 @@ CATEGORIES = [
     },
     {
         "name": "Laboratory Equipment",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Microscope", "Bunsen Burner", "Test Tube", "Beaker", "Pipette",
             "Petri Dish", "Flask", "Centrifuge", "Thermometer",
@@ -2783,6 +2988,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Equations",
+        "obscurity_modifier": 0.3,
         "answers": [
             "E equals MC squared", "Pythagorean Theorem", "Newtons Second Law",
             "Schrodinger Equation", "Maxwell Equations", "Euler Identity",
@@ -2793,6 +2999,7 @@ CATEGORIES = [
     # Miscellaneous
     {
         "name": "Mythical Creatures",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Dragon", "Unicorn", "Phoenix", "Griffin", "Centaur",
             "Mermaid", "Minotaur", "Pegasus", "Kraken", "Basilisk",
@@ -2801,6 +3008,7 @@ CATEGORIES = [
     },
     {
         "name": "Phobias",
+        "obscurity_modifier": 0.2,
         "answers": [
             "Arachnophobia", "Claustrophobia", "Acrophobia", "Agoraphobia",
             "Trypophobia", "Hemophobia", "Nyctophobia", "Ophidiophobia",
@@ -2809,6 +3017,7 @@ CATEGORIES = [
     },
     {
         "name": "Wedding Anniversaries",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Paper", "Cotton", "Leather", "Wood", "Tin",
             "Crystal", "Silver", "Pearl", "Ruby", "Gold",
@@ -2817,6 +3026,7 @@ CATEGORIES = [
     },
     {
         "name": "Birthstones",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Garnet", "Amethyst", "Aquamarine", "Diamond", "Emerald",
             "Pearl", "Ruby", "Peridot", "Sapphire", "Opal",
@@ -2825,6 +3035,7 @@ CATEGORIES = [
     },
     {
         "name": "Personality Types",
+        "obscurity_modifier": 0.0,
         "answers": [
             "Introvert", "Extrovert", "Ambivert", "Type A", "Type B",
             "Optimist", "Pessimist", "Realist", "Idealist", "Pragmatist"
@@ -2832,6 +3043,7 @@ CATEGORIES = [
     },
     {
         "name": "Famous Inventions",
+        "obscurity_modifier": -0.2,
         "answers": [
             "Wheel", "Printing Press", "Light Bulb", "Telephone", "Automobile",
             "Aeroplane", "Transistor", "Internet", "Penicillin", "Compass",

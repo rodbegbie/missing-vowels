@@ -29,7 +29,8 @@ def filter_categories(categories):
         if len(valid_answers) >= 5:
             filtered.append({
                 'name': cat['name'],
-                'answers': valid_answers
+                'answers': valid_answers,
+                'obscurity_modifier': cat.get('obscurity_modifier', 0)
             })
     return filtered
 
@@ -117,140 +118,6 @@ def format_missing_vowels(text):
     
     return ' '.join(result), total_vowels
 
-# Obscurity modifiers for categories
-# Negative = more commonly known, Positive = more obscure
-OBSCURITY_MODIFIERS = {
-    # Very common - everyday knowledge
-    'Colours': -0.4, 'Numbers One to Ten': -0.4, 'Days of the Week': -0.4,
-    'Months of the Year': -0.4, 'Fruits': -0.3, 'Vegetables': -0.3,
-    'Farm Animals': -0.3, 'Body Parts': -0.3, 'Shapes': -0.3,
-    'Continents': -0.3, 'Senses': -0.4, 'Meals of the Day': -0.4,
-    'Compass Points': -0.3, 'Flowers': -0.2, 'Trees': -0.2,
-    'Birds': -0.2, 'Insects': -0.2, 'Big Cats': -0.2,
-    
-    # Common pop culture - widely known (stronger modifiers for long-named categories)
-    'Disney Animated Films': -0.4, 'Marvel Superheroes': -0.3,
-    'Harry Potter Characters': -0.4, 'Star Wars Characters': -0.3,
-    'Social Media Platforms': -0.2, 'Fast Food Chains': -0.2,
-    'Streaming Services': -0.3, 'Video Game Franchises': -0.3,
-    'Beatles Songs': -0.6, 'Friends Characters': -0.4,
-    'The Simpsons': -0.2, 'Simpsons Characters': -0.4,
-    'American Sitcoms': -0.8, 'Horror Films': -0.3,
-    'Superhero Film Franchises': -0.4, 'Animated TV Series': -0.5,
-    
-    # British common knowledge
-    'British Supermarkets': -0.2, 'British Chocolate Bars': -0.2,
-    'UK Cities': -0.2, 'British Newspapers': -0.1,
-    'English Premier League Teams': -0.1, 'British Sitcoms': -0.1,
-    'British Drama Series': -0.1, 'British Game Shows': -0.1,
-    'London Underground Lines': 0, 'BBC TV Channels': -0.1,
-    'London Landmarks': -0.1, 'British Radio Stations': 0,
-    
-    # General knowledge - moderate
-    'World Capitals': 0, 'European Countries': -0.1, 'US States': 0,
-    'Chemical Elements': 0, 'Planets of the Solar System': -0.2,
-    'Musical Instruments': -0.1, 'Types of Dance': 0,
-    'Board Games': -0.1, 'Card Games': 0, 'Olympic Sports': 0,
-    'Zodiac Signs': -0.1, 'Types of Pasta': 0, 'Types of Cheese': 0,
-    'Cocktails': 0, 'Ice Cream Flavours': -0.2,
-    
-    # Requires some education/interest
-    'Shakespeare Plays': 0.2, 'Greek Mythology': 0.2,
-    'Roman Gods': 0.2, 'Egyptian Gods': 0.4, 'Norse Gods': 0.3,
-    'Hindu Deities': 0.5, 'Greek Titans': 0.4, 'Buddhist Concepts': 0.5,
-    'Biblical Figures': 0.2,
-    
-    # Academic/specialist
-    'Greek Philosophers': 0.4, 'Roman Emperors': 0.4,
-    'Byzantine Emperors': 0.6, 'Mughal Emperors': 0.6,
-    'Chinese Dynasties': 0.4, 'Enlightenment Thinkers': 0.5,
-    'Medieval Philosophers': 0.6, 'Existentialist Writers': 0.5,
-    
-    # Classical music/art - specialist
-    'Opera Composers': 0.4, 'Baroque Composers': 0.5,
-    'Classical Composers': 0.3, 'Symphony Composers': 0.4,
-    'Romantic Era Composers': 0.4, 'Jazz Musicians': 0.3,
-    'Opera Singers': 0.5, 'Famous Operas': 0.4, 'Famous Ballets': 0.4,
-    'Impressionist Painters': 0.4, 'Post Impressionist Painters': 0.5,
-    'Surrealist Artists': 0.4, 'Renaissance Artists': 0.3,
-    'Sculptors': 0.4, 'Famous Architects': 0.3,
-    
-    # Science - specialist
-    'Organic Chemistry Functional Groups': 0.5,
-    'Particle Physics Terms': 0.5, 'Subatomic Particles': 0.4,
-    'Astronomical Objects': 0.3, 'Nobel Prize Winning Scientists': 0.3,
-    'Genetic Terms': 0.3, 'Parts of the Brain': 0.3,
-    'Medical Specialties': 0.3, 'Surgical Procedures': 0.4,
-    'Pharmaceutical Drug Classes': 0.4, 'Infectious Diseases': 0.3,
-    'Psychological Disorders': 0.3, 'Cognitive Biases': 0.4,
-    
-    # Literature - varies
-    'Booker Prize Winners': 0.4, 'Pulitzer Prize Fiction Winners': 0.4,
-    'Russian Novelists': 0.4, 'Modernist Poets': 0.5,
-    'Epic Poems': 0.3, 'Dystopian Novels': 0.1,
-    'Dickens Novels': 0.2, 'Jane Austen Novels': 0.2,
-    'Ancient Greek Tragedies': 0.5,
-    
-    # History - varies
-    'Cold War Events': 0.2, 'French Revolution Figures': 0.4,
-    'British Civil War Figures': 0.4, 'Treaty of Versailles Terms': 0.4,
-    'Tudor Monarchs': 0.2, 'British Monarchs': 0.1,
-    'American Presidents': 0.1, 'UK Prime Ministers': 0.1,
-    'Historical Empires': 0.3, 'Famous Battles': 0.3,
-    'World War Two Battles': 0.2, 'Wonders of the Ancient World': 0.3,
-    
-    # Economics/Politics - specialist
-    'Economic Terms': 0.4, 'Economic Theories': 0.5,
-    'Political Ideologies': 0.3, 'Types of Government': 0.2,
-    'International Organizations': 0.2, 'Trade Agreements': 0.4,
-    'Legal Terms': 0.4, 'Types of Logical Fallacy': 0.4,
-    
-    # Film directors - varies by fame (strong adjustment for long film names)
-    'Spielberg Films': -0.6, 'Scorsese Films': -0.5,
-    'Tarantino Films': -0.5, 'Christopher Nolan Films': -0.4,
-    'Stanley Kubrick Films': -0.3, 'Wes Anderson Films': -0.2,
-    'Alfred Hitchcock Films': -0.4, 'Tim Burton Films': -0.4,
-    'Coen Brothers Films': -0.2, 'Ridley Scott Films': -0.3,
-    'Denis Villeneuve Films': -0.1,
-    'Film Noir Classics': -0.2,
-    
-    # TV shows - generally accessible (adjusted for long show names)
-    'Crime Drama Series': -0.3, 'Fantasy TV Series': -0.3,
-    'Sci Fi TV Series': -0.3, 'Medical Drama Series': -0.3,
-    'Reality TV Shows': -0.4, 'Breaking Bad Characters': -0.2,
-    'The Office Characters': -0.3, 'Stranger Things Characters': -0.3,
-    'Downton Abbey Characters': -0.2, 'Game of Thrones Houses': -0.2,
-    
-    # More TV/Film adjustments
-    'British Sitcoms': -0.4, 'Romantic Comedy Films': -0.3,
-    'War Films': -0.2, 'Sports Films': -0.2, 'Musical Films': -0.3,
-    'Animated Feature Films': -0.3, 'Coming of Age Films': -0.3,
-    'Heist Films': -0.2, 'Courtroom Drama Films': -0.2,
-    'Hollywood Leading Men': -0.3, 'Hollywood Leading Ladies': -0.3,
-    'Comedy Actors': -0.3, 'Action Movie Stars': -0.3,
-    'Classic Hollywood Stars': -0.2, 'Best Actor Oscar Winners': -0.2,
-    'Best Actress Oscar Winners': -0.2, 'Film Studios': -0.1,
-    'Action Film Franchises': -0.3, 'Horror Film Franchises': -0.3,
-    'Sci Fi Film Franchises': -0.2, 'Best Picture Nominees': -0.3,
-    'Pixar Films': -0.3, 'Oscar Best Picture Winners': -0.3,
-    'James Bond Films': -0.2, 'Lord of the Rings Characters': -0.3,
-    'Netflix Original Series': -0.4, 'Doctor Who Doctors': -0.2,
-    
-    # New batch modifiers
-    'Caribbean Islands': -0.1, 'African Countries': 0, 'Asian Countries': 0,
-    'Famous Deserts': 0.1, 'Famous Volcanoes': 0.2,
-    'Tennis Players': -0.2, 'Formula One Teams': 0, 'Famous Footballers': -0.3,
-    'Boxing Weight Classes': 0.1, 'Winter Olympic Sports': -0.1,
-    'Types of Tea': 0, 'Types of Beer': 0, 'Italian Dishes': -0.1,
-    'Asian Cuisines': -0.1, 'Desserts': -0.2,
-    'Nineties Bands': -0.3, 'Eighties Bands': -0.2, 'Rap Artists': -0.2,
-    'Country Music Artists': -0.1, 'Rock Legends': -0.3,
-    'Human Body Systems': 0.1, 'Types of Scientist': 0.1,
-    'Laboratory Equipment': 0, 'Famous Equations': 0.3,
-    'Mythical Creatures': -0.2, 'Phobias': 0.2,
-    'Wedding Anniversaries': 0, 'Birthstones': 0, 'Personality Types': 0,
-    'Famous Inventions': -0.2,
-}
 
 def calculate_difficulty(category):
     """Calculate difficulty score for a category (1-5).
@@ -289,8 +156,8 @@ def calculate_difficulty(category):
     if len(answers) <= 6:
         avg_score *= 0.9
     
-    # Apply obscurity modifier based on topic
-    obscurity = OBSCURITY_MODIFIERS.get(category['name'], 0)
+    # Apply obscurity modifier based on topic (from category definition)
+    obscurity = category.get('obscurity_modifier', 0)
     avg_score += obscurity
     
     # Convert to 1-5 scale
