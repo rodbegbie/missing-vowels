@@ -12,7 +12,8 @@
       "prettier --write"
     ],
     "backend/*.py": [
-      "backend/.venv/bin/ruff format"
+      "backend/.venv/bin/ruff format",
+      "backend/.venv/bin/ty check"
     ]
   },
   "devDependencies": {

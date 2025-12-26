@@ -1,7 +1,15 @@
 # Missing Vowels Game - Categories and Answers
 # 50 categories familiar to British university graduates
+from typing import TypedDict
 
-CATEGORIES = [
+
+class CategoryData(TypedDict, total=False):
+    name: str
+    answers: list[str]
+    obscurity_modifier: float
+
+
+CATEGORIES: list[CategoryData] = [
     # EASY CATEGORIES (short, common words, fewer vowels)
     {
         "name": "UK Prime Ministers",
