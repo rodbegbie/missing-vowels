@@ -3332,5 +3332,58 @@ CATEGORIES = [
             "Swap", "Warrant", "ETF", "Mutual Fund", "Hedge Fund",
             "Annuity", "Certificate of Deposit"
         ]
+    },
+    
+    # TV and Film Personalities
+    {
+        "name": "Taskmaster Contestants",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Frank Skinner", "Romesh Ranganathan", "Roisin Conaty", "Josh Widdicombe",
+            "Noel Fielding", "Mel Giedroyc", "Hugh Dennis", "Liza Tarbuck",
+            "Joe Lycett", "James Acaster", "Rhod Gilbert", "Ed Gamble",
+            "Kerry Godliman", "Richard Herring", "Jessica Knappett", "Aisling Bea",
+            "Bob Mortimer", "Sally Phillips", "Mark Watson", "Nish Kumar",
+            "Victoria Coren Mitchell", "Dara O Briain", "Ardal O Hanlon", "Chris Ramsey",
+            "Katherine Ryan", "Lee Mack", "Mike Wozniak", "Sarah Kendall",
+            "Mawaan Rizwan", "Sophie Duker", "Alan Davies", "Guz Khan"
+        ]
+    },
+    {
+        "name": "British Stand Up Comedians",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "Peter Kay", "Michael McIntyre", "Jimmy Carr", "Ricky Gervais",
+            "Eddie Izzard", "Billy Connolly", "Lee Mack", "Jack Whitehall",
+            "Russell Howard", "Sarah Millican", "Kevin Bridges", "Frankie Boyle",
+            "John Bishop", "Miranda Hart", "Dara O Briain", "Sean Lock",
+            "Greg Davies", "Romesh Ranganathan", "Rob Beckett", "Josh Widdicombe",
+            "James Acaster", "Joe Lycett", "Nish Kumar", "Katherine Ryan",
+            "Russell Brand", "Bill Bailey", "Alan Carr", "David Mitchell"
+        ]
+    },
+    {
+        "name": "Saturday Night Live Alumni",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Eddie Murphy", "Adam Sandler", "Will Ferrell", "Tina Fey",
+            "Amy Poehler", "Bill Murray", "Dan Aykroyd", "Chevy Chase",
+            "Chris Farley", "Mike Myers", "Dana Carvey", "Chris Rock",
+            "Kristen Wiig", "Maya Rudolph", "Fred Armisen", "Bill Hader",
+            "Seth Meyers", "Jimmy Fallon", "Tracy Morgan", "Kate McKinnon",
+            "Pete Davidson", "Kenan Thompson", "Andy Samberg", "Jason Sudeikis",
+            "Gilda Radner", "John Belushi", "Phil Hartman", "Jan Hooks"
+        ]
+    },
+    {
+        "name": "Demi Moore Films",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Ghost", "Indecent Proposal", "A Few Good Men", "Striptease",
+            "GI Jane", "Disclosure", "The Scarlet Letter", "Now and Then",
+            "About Last Night", "St Elmos Fire", "The Seventh Sign", "Blame It on Rio",
+            "Charlie's Angels Full Throttle", "Bobby", "Margin Call", "The Joneses",
+            "Flawless", "Half Light", "Mr Brooks", "Rough Night"
+        ]
     }
 ]
