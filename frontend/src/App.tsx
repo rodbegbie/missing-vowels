@@ -253,7 +253,7 @@ function App(): React.ReactElement {
   const [isListening, setIsListening] = useState<boolean>(false)
   const [transcript, setTranscript] = useState<string>('')
   const [voiceSupported, setVoiceSupported] = useState<boolean>(false)
-  const [voiceEnabled, setVoiceEnabled] = useState<boolean>(true)
+  const [voiceEnabled, setVoiceEnabled] = useState<boolean>(false)
   const recognitionRef = useRef<SpeechRecognition | null>(null)
 
   // Initialize speech recognition
