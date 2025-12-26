@@ -36,6 +36,43 @@ h1 {
   letter-spacing: 0.05em;
 }
 
+/* Animated Title */
+.animated-title {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title-letter {
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+
+.title-vowel {
+  opacity: 1;
+}
+
+.title-vowel.fade-out {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.title-space {
+  display: inline-block;
+  width: 0.5em;
+  transition: all 0.5s ease;
+}
+
+.title-space.hidden {
+  width: 0;
+}
+
+.title-consonant.group-start {
+  margin-left: 0.4em;
+}
+
 .subtitle {
   color: #c5ddf5;
   font-size: 1.1rem;

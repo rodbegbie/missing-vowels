@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import './App.css'
 
 const API_URL = '/api'
@@ -123,6 +123,92 @@ function checkAnswer(spoken: string, correct: string): boolean {
   
   // If most words match, consider it correct
   return matches >= Math.ceil(correctWords.length * 0.7)
+}
+
+// Animated title component for the menu screen
+function AnimatedTitle(): React.ReactElement {
+  const [phase, setPhase] = useState<'full' | 'fading' | 'condensed'>('full')
+  
+  // Original title and the condensed version
+  // "MISSING VOWELS" -> "MSS NGV WLS" (vowels removed, regrouped)
+  const fullText = 'MISSING VOWELS'
+  const vowels = new Set(['A', 'E', 'I', 'O', 'U'])
+  
+  // Final grouping: "MSS NGV WLS" (vowels removed, regrouped with 2-3 spaces)
+  
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setPhase('fading'), 1000)
+    const condenseTimer = setTimeout(() => setPhase('condensed'), 1600)
+    return () => {
+      clearTimeout(fadeTimer)
+      clearTimeout(condenseTimer)
+    }
+  }, [])
+  
+  // Build letter elements with animation classes
+  const letters = useMemo(() => {
+    const result: React.ReactElement[] = []
+    let consonantIndex = 0
+    
+    // Map consonants to their final positions
+    // MSS NGV WLS = positions within groups
+    const consonantPositions = [
+      { group: 0, pos: 0 }, // M
+      { group: 0, pos: 1 }, // S
+      { group: 0, pos: 2 }, // S
+      { group: 1, pos: 0 }, // N
+      { group: 1, pos: 1 }, // G
+      { group: 1, pos: 2 }, // V
+      { group: 2, pos: 0 }, // W
+      { group: 2, pos: 1 }, // L
+      { group: 2, pos: 2 }, // S
+    ]
+    
+    for (let i = 0; i < fullText.length; i++) {
+      const char = fullText[i]
+      
+      if (char === ' ') {
+        result.push(
+          <span 
+            key={i} 
+            className={`title-space ${phase === 'condensed' ? 'hidden' : ''}`}
+          >
+            {' '}
+          </span>
+        )
+      } else if (vowels.has(char)) {
+        result.push(
+          <span 
+            key={i} 
+            className={`title-letter title-vowel ${phase !== 'full' ? 'fade-out' : ''}`}
+          >
+            {char}
+          </span>
+        )
+      } else {
+        const posInfo = consonantPositions[consonantIndex]
+        const isGroupStart = posInfo.pos === 0 && posInfo.group > 0
+        consonantIndex++
+        
+        result.push(
+          <span 
+            key={i} 
+            className={`title-letter title-consonant ${phase === 'condensed' ? 'condensed' : ''} ${isGroupStart && phase === 'condensed' ? 'group-start' : ''}`}
+          >
+            {char}
+          </span>
+        )
+      }
+    }
+    
+    return result
+  }, [phase])
+  
+  return (
+    <h1 className="animated-title">
+      {letters}
+    </h1>
+  )
 }
 
 function App(): React.ReactElement {
@@ -374,7 +460,7 @@ function App(): React.ReactElement {
     return (
       <div className="app">
         <header>
-          <h1>Missing Vowels</h1>
+          <AnimatedTitle />
           <p className="subtitle">Inspired by Only Connect</p>
         </header>
         
