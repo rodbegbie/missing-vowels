@@ -92,38 +92,50 @@ def format_missing_vowels(text):
     return ' '.join(result), total_vowels
 
 def calculate_difficulty(category):
-    """Calculate difficulty score for a category (1-5)."""
+    """Calculate difficulty score for a category (1-5).
+    
+    Easy (1): Very short, common words (days, colors, numbers)
+    Medium-Easy (2): Short common words and phrases
+    Medium (3): High school common knowledge, moderate length
+    Medium-Hard (4): Longer phrases, some specialist knowledge
+    Hard (5): Long phrases, obscure or specialist topics
+    """
     answers = category['answers']
     total_score = 0
     
     for answer in answers:
-        # Factor 1: Length of answer
-        length_score = len(answer) / 20  # Normalize
+        # Factor 1: Length of answer (characters)
+        length_score = len(answer) / 18  # Normalize
         
-        # Factor 2: Number of vowels removed
+        # Factor 2: Number of vowels removed (more = harder to read)
         _, vowel_count = format_missing_vowels(answer)
-        vowel_score = vowel_count / 10  # Normalize
+        vowel_score = vowel_count / 8  # Normalize
         
         # Factor 3: Number of words (more words = harder to parse)
         word_count = len(answer.split())
-        word_score = (word_count - 1) / 4  # Normalize
+        word_score = (word_count - 1) / 3  # Normalize
         
         answer_score = length_score + vowel_score + word_score
         total_score += answer_score
     
     avg_score = total_score / len(answers)
     
-    # Convert to 1-5 scale with better distribution
-    if avg_score < 0.6:
-        return 1
-    elif avg_score < 0.9:
-        return 2
-    elif avg_score < 1.2:
-        return 3
+    # Also factor in number of answers (fewer = less variety = slightly easier)
+    if len(answers) <= 6:
+        avg_score *= 0.9
+    
+    # Convert to 1-5 scale
+    # Adjusted thresholds to put high school knowledge in medium (3)
+    if avg_score < 0.55:
+        return 1  # Easy: very short words
+    elif avg_score < 0.85:
+        return 2  # Medium-Easy: short common words
+    elif avg_score < 1.15:
+        return 3  # Medium: high school level
     elif avg_score < 1.5:
-        return 4
+        return 4  # Medium-Hard: longer, some specialist
     else:
-        return 5
+        return 5  # Hard: long, obscure, specialist
 
 # Pre-calculate difficulties
 for cat in CATEGORIES:

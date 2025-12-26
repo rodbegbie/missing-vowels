@@ -1347,5 +1347,368 @@ CATEGORIES = [
             "Dragonfly", "Grasshopper", "Ladybird", "Wasp",
             "Cricket", "Firefly", "Caterpillar"
         ]
+    },
+    
+    # BATCH 5 - 50 More Categories
+    
+    # Easy - Common Knowledge
+    {
+        "name": "Seasons",
+        "answers": [
+            "Spring", "Summer", "Autumn", "Winter"
+        ]
+    },
+    {
+        "name": "Compass Points",
+        "answers": [
+            "North", "South", "East", "West",
+            "Northeast", "Northwest", "Southeast", "Southwest"
+        ]
+    },
+    {
+        "name": "Planets in Order",
+        "answers": [
+            "Mercury", "Venus", "Earth", "Mars",
+            "Jupiter", "Saturn", "Uranus", "Neptune"
+        ]
+    },
+    {
+        "name": "Primary Colours",
+        "answers": [
+            "Red", "Blue", "Yellow"
+        ]
+    },
+    {
+        "name": "Shapes",
+        "answers": [
+            "Circle", "Square", "Triangle", "Rectangle", "Oval",
+            "Pentagon", "Hexagon", "Octagon", "Star", "Diamond"
+        ]
+    },
+    {
+        "name": "Continents",
+        "answers": [
+            "Africa", "Antarctica", "Asia", "Australia",
+            "Europe", "North America", "South America"
+        ]
+    },
+    {
+        "name": "Senses",
+        "answers": [
+            "Sight", "Hearing", "Smell", "Taste", "Touch"
+        ]
+    },
+    {
+        "name": "Meals of the Day",
+        "answers": [
+            "Breakfast", "Lunch", "Dinner", "Supper", "Brunch",
+            "Tea", "Snack"
+        ]
+    },
+    
+    # High School Common Knowledge - Should be Medium
+    {
+        "name": "States of Matter",
+        "answers": [
+            "Solid", "Liquid", "Gas", "Plasma"
+        ]
+    },
+    {
+        "name": "Types of Angle",
+        "answers": [
+            "Acute", "Right", "Obtuse", "Straight", "Reflex"
+        ]
+    },
+    {
+        "name": "Literary Devices",
+        "answers": [
+            "Metaphor", "Simile", "Alliteration", "Personification",
+            "Hyperbole", "Onomatopoeia", "Irony", "Oxymoron",
+            "Imagery", "Symbolism"
+        ]
+    },
+    {
+        "name": "Parts of the Digestive System",
+        "answers": [
+            "Mouth", "Oesophagus", "Stomach", "Small Intestine",
+            "Large Intestine", "Liver", "Pancreas", "Rectum"
+        ]
+    },
+    {
+        "name": "Types of Renewable Energy",
+        "answers": [
+            "Solar", "Wind", "Hydroelectric", "Geothermal",
+            "Biomass", "Tidal", "Wave"
+        ]
+    },
+    {
+        "name": "Layers of the Earth",
+        "answers": [
+            "Crust", "Mantle", "Outer Core", "Inner Core"
+        ]
+    },
+    {
+        "name": "Water Cycle Stages",
+        "answers": [
+            "Evaporation", "Condensation", "Precipitation",
+            "Collection", "Transpiration"
+        ]
+    },
+    {
+        "name": "Blood Types",
+        "answers": [
+            "Type A", "Type B", "Type AB", "Type O"
+        ]
+    },
+    {
+        "name": "World War Two Allied Powers",
+        "answers": [
+            "United Kingdom", "United States", "Soviet Union",
+            "France", "China", "Canada", "Australia"
+        ]
+    },
+    {
+        "name": "Tectonic Plate Boundaries",
+        "answers": [
+            "Convergent", "Divergent", "Transform"
+        ]
+    },
+    
+    # Pop Culture
+    {
+        "name": "Taylor Swift Albums",
+        "answers": [
+            "Fearless", "Speak Now", "Red", "1989", "Reputation",
+            "Lover", "Folklore", "Evermore", "Midnights"
+        ]
+    },
+    {
+        "name": "Game of Thrones Houses",
+        "answers": [
+            "Stark", "Lannister", "Targaryen", "Baratheon",
+            "Greyjoy", "Tyrell", "Martell", "Tully", "Arryn"
+        ]
+    },
+    {
+        "name": "Streaming Services",
+        "answers": [
+            "Netflix", "Amazon Prime", "Disney Plus", "Apple TV",
+            "HBO Max", "Hulu", "Paramount Plus", "Peacock"
+        ]
+    },
+    {
+        "name": "Famous YouTubers",
+        "answers": [
+            "PewDiePie", "MrBeast", "Markiplier", "KSI",
+            "Logan Paul", "Jake Paul", "Zoella", "DanTDM"
+        ]
+    },
+    {
+        "name": "Emoji Categories",
+        "answers": [
+            "Smileys", "People", "Animals", "Food", "Activities",
+            "Travel", "Objects", "Symbols", "Flags"
+        ]
+    },
+    {
+        "name": "Fortnite Terms",
+        "answers": [
+            "Victory Royale", "Battle Bus", "Storm Circle",
+            "Loot", "Shield", "Build", "Elimination", "Dub"
+        ]
+    },
+    {
+        "name": "TikTok Trends",
+        "answers": [
+            "For You Page", "Duet", "Stitch", "Sound",
+            "Viral", "Dance Challenge", "Live", "Filter"
+        ]
+    },
+    
+    # Sports
+    {
+        "name": "Football Positions",
+        "answers": [
+            "Goalkeeper", "Defender", "Midfielder", "Forward",
+            "Centre Back", "Full Back", "Winger", "Striker"
+        ]
+    },
+    {
+        "name": "Cricket Terms",
+        "answers": [
+            "Wicket", "Bowler", "Batsman", "Umpire", "Innings",
+            "Boundary", "Six", "Four", "LBW", "Maiden Over"
+        ]
+    },
+    {
+        "name": "Rugby Positions",
+        "answers": [
+            "Prop", "Hooker", "Lock", "Flanker", "Number Eight",
+            "Scrum Half", "Fly Half", "Centre", "Wing", "Full Back"
+        ]
+    },
+    {
+        "name": "Golf Terms",
+        "answers": [
+            "Birdie", "Eagle", "Bogey", "Par", "Albatross",
+            "Fairway", "Green", "Bunker", "Tee", "Handicap"
+        ]
+    },
+    {
+        "name": "Martial Arts",
+        "answers": [
+            "Karate", "Judo", "Taekwondo", "Kung Fu", "Aikido",
+            "Jiu Jitsu", "Muay Thai", "Kendo", "Capoeira"
+        ]
+    },
+    
+    # Food and Cooking
+    {
+        "name": "Cooking Methods",
+        "answers": [
+            "Baking", "Frying", "Grilling", "Roasting", "Boiling",
+            "Steaming", "Poaching", "Braising", "Sauteing"
+        ]
+    },
+    {
+        "name": "Types of Cake",
+        "answers": [
+            "Sponge", "Chocolate", "Carrot", "Cheesecake",
+            "Red Velvet", "Victoria", "Pound", "Fruit", "Coffee"
+        ]
+    },
+    {
+        "name": "Ice Cream Flavours",
+        "answers": [
+            "Vanilla", "Chocolate", "Strawberry", "Mint Choc Chip",
+            "Cookie Dough", "Caramel", "Pistachio", "Raspberry Ripple"
+        ]
+    },
+    {
+        "name": "Fast Food Chains",
+        "answers": [
+            "McDonalds", "KFC", "Burger King", "Subway", "Pizza Hut",
+            "Dominos", "Nandos", "Five Guys", "Greggs"
+        ]
+    },
+    {
+        "name": "Types of Wine",
+        "answers": [
+            "Red", "White", "Rose", "Sparkling", "Champagne",
+            "Prosecco", "Merlot", "Chardonnay", "Pinot Noir"
+        ]
+    },
+    
+    # More Science
+    {
+        "name": "Noble Gases",
+        "answers": [
+            "Helium", "Neon", "Argon", "Krypton", "Xenon", "Radon"
+        ]
+    },
+    {
+        "name": "Types of Wave",
+        "answers": [
+            "Sound Wave", "Light Wave", "Radio Wave", "Microwave",
+            "X Ray", "Gamma Ray", "Infrared", "Ultraviolet"
+        ]
+    },
+    {
+        "name": "Newton Laws",
+        "answers": [
+            "First Law", "Second Law", "Third Law"
+        ]
+    },
+    {
+        "name": "Types of Force",
+        "answers": [
+            "Gravity", "Friction", "Tension", "Normal Force",
+            "Air Resistance", "Magnetic Force", "Applied Force"
+        ]
+    },
+    {
+        "name": "Human Chromosomes",
+        "answers": [
+            "X Chromosome", "Y Chromosome", "Autosome"
+        ]
+    },
+    
+    # Arts and Entertainment
+    {
+        "name": "West End Musicals",
+        "answers": [
+            "Les Miserables", "Phantom of the Opera", "Wicked",
+            "Mamma Mia", "The Lion King", "Hamilton", "Matilda",
+            "Billy Elliot", "Chicago", "Cats"
+        ]
+    },
+    {
+        "name": "Studio Ghibli Films",
+        "answers": [
+            "Spirited Away", "My Neighbour Totoro", "Howls Moving Castle",
+            "Princess Mononoke", "Ponyo", "Kiki's Delivery Service",
+            "Castle in the Sky", "Grave of the Fireflies"
+        ]
+    },
+    {
+        "name": "Horror Film Villains",
+        "answers": [
+            "Freddy Krueger", "Jason Voorhees", "Michael Myers",
+            "Ghostface", "Pennywise", "Chucky", "Leatherface",
+            "Hannibal Lecter", "Jigsaw"
+        ]
+    },
+    {
+        "name": "Superhero Powers",
+        "answers": [
+            "Super Strength", "Flight", "Invisibility", "Telepathy",
+            "Super Speed", "X Ray Vision", "Telekinesis",
+            "Shape Shifting", "Time Travel"
+        ]
+    },
+    {
+        "name": "Famous Ballets",
+        "answers": [
+            "Swan Lake", "The Nutcracker", "Sleeping Beauty",
+            "Romeo and Juliet", "Giselle", "Don Quixote",
+            "Coppelia", "La Sylphide"
+        ]
+    },
+    
+    # Technology
+    {
+        "name": "Apple Products",
+        "answers": [
+            "iPhone", "iPad", "MacBook", "iMac", "Apple Watch",
+            "AirPods", "HomePod", "Apple TV", "Mac Mini"
+        ]
+    },
+    {
+        "name": "Computer Parts",
+        "answers": [
+            "CPU", "GPU", "RAM", "Hard Drive", "Motherboard",
+            "Power Supply", "SSD", "Monitor", "Keyboard", "Mouse"
+        ]
+    },
+    {
+        "name": "Internet Browsers",
+        "answers": [
+            "Chrome", "Firefox", "Safari", "Edge", "Opera",
+            "Internet Explorer", "Brave"
+        ]
+    },
+    {
+        "name": "File Extensions",
+        "answers": [
+            "PDF", "JPEG", "PNG", "MP3", "MP4",
+            "DOC", "XLS", "ZIP", "GIF", "HTML"
+        ]
+    },
+    {
+        "name": "Keyboard Shortcuts",
+        "answers": [
+            "Copy", "Paste", "Cut", "Undo", "Redo",
+            "Save", "Print", "Find", "Select All"
+        ]
     }
 ]
