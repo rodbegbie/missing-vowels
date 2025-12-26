@@ -145,7 +145,9 @@ CATEGORIES = [
             "Hamlet", "Macbeth", "Othello", "King Lear", "Romeo and Juliet",
             "A Midsummer Nights Dream", "The Tempest", "Julius Caesar",
             "Much Ado About Nothing", "Twelfth Night", "The Merchant of Venice",
-            "As You Like It", "Richard the Third", "Henry the Fifth"
+            "As You Like It", "Richard the Third", "Henry the Fifth",
+            "The Taming of the Shrew", "Antony and Cleopatra", "Coriolanus",
+            "The Comedy of Errors", "The Winters Tale", "Measure for Measure"
         ]
     },
     {
@@ -171,7 +173,9 @@ CATEGORIES = [
             "Fawlty Towers", "Blackadder", "Only Fools and Horses",
             "The Office", "Peep Show", "The Inbetweeners", "Gavin and Stacey",
             "Father Ted", "Red Dwarf", "Absolutely Fabulous", "Vicar of Dibley",
-            "Spaced", "The IT Crowd", "Phoenix Nights"
+            "Spaced", "The IT Crowd", "Phoenix Nights", "Porridge",
+            "Dads Army", "Are You Being Served", "Keeping Up Appearances",
+            "The Good Life", "Dinnerladies", "Bottom", "Men Behaving Badly"
         ]
     },
     {
@@ -316,7 +320,9 @@ CATEGORIES = [
         "answers": [
             "Aphrodite", "Dionysus", "Persephone", "Prometheus", "Heracles",
             "Odysseus", "Eurydice", "Icarus", "Achilles", "Agamemnon",
-            "Andromeda", "Bellerophon", "Cassandra", "Narcissus"
+            "Andromeda", "Bellerophon", "Cassandra", "Narcissus",
+            "Orpheus", "Theseus", "Perseus", "Jason", "Medusa",
+            "Minotaur", "Cerberus", "Cyclops", "Ares", "Athena", "Apollo"
         ]
     },
     {
@@ -703,7 +709,9 @@ CATEGORIES = [
         "answers": [
             "Labrador", "Bulldog", "Poodle", "Beagle", "Rottweiler",
             "Dalmatian", "Boxer", "Husky", "Collie", "Terrier",
-            "Spaniel", "Retriever", "Greyhound"
+            "Spaniel", "Retriever", "Greyhound", "Dachshund", "Pug",
+            "Chihuahua", "Doberman", "Great Dane", "Shih Tzu", "Corgi",
+            "Alsatian", "Mastiff", "Whippet", "Akita", "Samoyed"
         ]
     },
     {
@@ -737,7 +745,9 @@ CATEGORIES = [
         "answers": [
             "Martini", "Mojito", "Margarita", "Cosmopolitan",
             "Manhattan", "Daiquiri", "Pina Colada", "Bloody Mary",
-            "Old Fashioned", "Negroni", "Mai Tai"
+            "Old Fashioned", "Negroni", "Mai Tai", "Long Island Iced Tea",
+            "Whiskey Sour", "Singapore Sling", "Caipirinha", "Bellini",
+            "Espresso Martini", "Moscow Mule", "Sex on the Beach", "Aperol Spritz"
         ]
     },
     {
@@ -794,7 +804,8 @@ CATEGORIES = [
         "answers": [
             "Great Pyramid of Giza", "Hanging Gardens of Babylon",
             "Statue of Zeus", "Temple of Artemis", "Mausoleum at Halicarnassus",
-            "Colossus of Rhodes", "Lighthouse of Alexandria"
+            "Colossus of Rhodes", "Lighthouse of Alexandria",
+            "Great Wall of China", "Petra", "Colosseum", "Machu Picchu"
         ]
     },
     {
@@ -950,7 +961,8 @@ CATEGORIES = [
         "name": "Jane Austen Novels",
         "answers": [
             "Pride and Prejudice", "Sense and Sensibility", "Emma",
-            "Persuasion", "Mansfield Park", "Northanger Abbey"
+            "Persuasion", "Mansfield Park", "Northanger Abbey",
+            "Lady Susan", "Sanditon", "The Watsons"
         ]
     },
     {
@@ -1280,7 +1292,8 @@ CATEGORIES = [
         "name": "Strictly Come Dancing Judges",
         "answers": [
             "Len Goodman", "Craig Revel Horwood", "Bruno Tonioli",
-            "Darcey Bussell", "Shirley Ballas", "Motsi Mabuse", "Anton Du Beke"
+            "Darcey Bussell", "Shirley Ballas", "Motsi Mabuse", "Anton Du Beke",
+            "Arlene Phillips", "Alesha Dixon"
         ]
     },
     {
@@ -1603,7 +1616,7 @@ CATEGORIES = [
     {
         "name": "Noble Gases",
         "answers": [
-            "Helium", "Neon", "Argon", "Krypton", "Xenon", "Radon"
+            "Helium", "Neon", "Argon", "Krypton", "Xenon", "Radon", "Oganesson"
         ]
     },
     {
@@ -2572,6 +2585,257 @@ CATEGORIES = [
             "To Kill a Mockingbird", "A Few Good Men", "The Verdict",
             "Primal Fear", "Philadelphia", "My Cousin Vinny",
             "The Lincoln Lawyer", "Erin Brockovich"
+        ]
+    },
+    
+    # BATCH 8 - 30 More Categories
+    
+    # Geography
+    {
+        "name": "Caribbean Islands",
+        "answers": [
+            "Jamaica", "Barbados", "Trinidad", "Bahamas", "Cuba",
+            "Dominican Republic", "Puerto Rico", "Aruba", "Grenada",
+            "Saint Lucia", "Antigua", "Martinique", "Curacao"
+        ]
+    },
+    {
+        "name": "African Countries",
+        "answers": [
+            "Nigeria", "Kenya", "Egypt", "South Africa", "Morocco",
+            "Ghana", "Ethiopia", "Tanzania", "Uganda", "Algeria",
+            "Tunisia", "Senegal", "Zimbabwe", "Botswana", "Namibia"
+        ]
+    },
+    {
+        "name": "Asian Countries",
+        "answers": [
+            "Japan", "China", "India", "Thailand", "Vietnam",
+            "Indonesia", "Malaysia", "Philippines", "Singapore",
+            "South Korea", "Taiwan", "Nepal", "Cambodia", "Myanmar"
+        ]
+    },
+    {
+        "name": "Famous Deserts",
+        "answers": [
+            "Sahara", "Gobi", "Kalahari", "Mojave", "Atacama",
+            "Arabian", "Sonoran", "Namib", "Patagonian", "Great Victoria"
+        ]
+    },
+    {
+        "name": "Famous Volcanoes",
+        "answers": [
+            "Mount Vesuvius", "Mount Etna", "Krakatoa", "Mount Fuji",
+            "Mount St Helens", "Kilauea", "Eyjafjallajokull",
+            "Mount Pinatubo", "Pompeii", "Stromboli"
+        ]
+    },
+    
+    # Sports Extended
+    {
+        "name": "Tennis Players",
+        "answers": [
+            "Roger Federer", "Rafael Nadal", "Novak Djokovic", "Andy Murray",
+            "Serena Williams", "Venus Williams", "Maria Sharapova",
+            "Steffi Graf", "Pete Sampras", "Boris Becker", "Bjorn Borg"
+        ]
+    },
+    {
+        "name": "Formula One Teams",
+        "answers": [
+            "Ferrari", "Mercedes", "Red Bull", "McLaren", "Williams",
+            "Aston Martin", "Alpine", "Alfa Romeo", "Haas", "AlphaTauri"
+        ]
+    },
+    {
+        "name": "Boxing Weight Classes",
+        "answers": [
+            "Heavyweight", "Cruiserweight", "Light Heavyweight", "Middleweight",
+            "Welterweight", "Lightweight", "Featherweight", "Bantamweight",
+            "Flyweight", "Strawweight"
+        ]
+    },
+    {
+        "name": "Winter Olympic Sports",
+        "answers": [
+            "Figure Skating", "Ice Hockey", "Skiing", "Snowboarding",
+            "Bobsled", "Luge", "Curling", "Biathlon", "Skeleton",
+            "Speed Skating", "Cross Country Skiing"
+        ]
+    },
+    {
+        "name": "Famous Footballers",
+        "answers": [
+            "Lionel Messi", "Cristiano Ronaldo", "David Beckham", "Pele",
+            "Diego Maradona", "Zinedine Zidane", "Ronaldinho", "Neymar",
+            "Kylian Mbappe", "Wayne Rooney", "Thierry Henry", "George Best"
+        ]
+    },
+    
+    # Food and Drink Extended
+    {
+        "name": "Types of Tea",
+        "answers": [
+            "Earl Grey", "English Breakfast", "Green Tea", "Chamomile",
+            "Peppermint", "Oolong", "Darjeeling", "Jasmine", "Rooibos",
+            "Chai", "Matcha", "White Tea", "Lapsang Souchong"
+        ]
+    },
+    {
+        "name": "Types of Beer",
+        "answers": [
+            "Lager", "Ale", "Stout", "Porter", "Pilsner",
+            "IPA", "Wheat Beer", "Bitter", "Pale Ale", "Brown Ale",
+            "Amber", "Saison", "Kolsch"
+        ]
+    },
+    {
+        "name": "Italian Dishes",
+        "answers": [
+            "Pizza", "Risotto", "Lasagne", "Carbonara", "Bolognese",
+            "Tiramisu", "Gnocchi", "Bruschetta", "Panna Cotta",
+            "Osso Buco", "Minestrone", "Carpaccio", "Prosciutto"
+        ]
+    },
+    {
+        "name": "Asian Cuisines",
+        "answers": [
+            "Sushi", "Dim Sum", "Pad Thai", "Pho", "Curry",
+            "Ramen", "Satay", "Kimchi", "Bibimbap", "Teriyaki",
+            "Laksa", "Rendang", "Spring Rolls"
+        ]
+    },
+    {
+        "name": "Desserts",
+        "answers": [
+            "Cheesecake", "Brownie", "Pavlova", "Creme Brulee", "Trifle",
+            "Profiteroles", "Mousse", "Souffle", "Sorbet", "Gelato",
+            "Baklava", "Churros", "Cannoli", "Macarons"
+        ]
+    },
+    
+    # Music Extended
+    {
+        "name": "Nineties Bands",
+        "answers": [
+            "Nirvana", "Oasis", "Blur", "Radiohead", "Pearl Jam",
+            "Green Day", "Red Hot Chili Peppers", "Foo Fighters",
+            "Spice Girls", "Backstreet Boys", "NSYNC", "Smashing Pumpkins"
+        ]
+    },
+    {
+        "name": "Eighties Bands",
+        "answers": [
+            "Duran Duran", "Depeche Mode", "The Cure", "New Order",
+            "Tears for Fears", "A Ha", "Wham", "Culture Club",
+            "Pet Shop Boys", "Eurythmics", "Spandau Ballet", "Bananarama"
+        ]
+    },
+    {
+        "name": "Rap Artists",
+        "answers": [
+            "Eminem", "Jay Z", "Kanye West", "Drake", "Snoop Dogg",
+            "Tupac", "Notorious BIG", "Kendrick Lamar", "Nas",
+            "Ice Cube", "Dr Dre", "Lil Wayne", "Cardi B", "Nicki Minaj"
+        ]
+    },
+    {
+        "name": "Country Music Artists",
+        "answers": [
+            "Johnny Cash", "Dolly Parton", "Willie Nelson", "Garth Brooks",
+            "Taylor Swift", "Carrie Underwood", "Blake Shelton",
+            "Shania Twain", "Kenny Rogers", "Tim McGraw", "Faith Hill"
+        ]
+    },
+    {
+        "name": "Rock Legends",
+        "answers": [
+            "Led Zeppelin", "Pink Floyd", "The Who", "AC DC",
+            "Aerosmith", "Black Sabbath", "Deep Purple", "Van Halen",
+            "Guns N Roses", "Metallica", "Iron Maiden", "Kiss"
+        ]
+    },
+    
+    # Science Extended
+    {
+        "name": "Human Body Systems",
+        "answers": [
+            "Circulatory", "Respiratory", "Digestive", "Nervous",
+            "Skeletal", "Muscular", "Immune", "Endocrine",
+            "Reproductive", "Integumentary", "Lymphatic"
+        ]
+    },
+    {
+        "name": "Types of Scientist",
+        "answers": [
+            "Physicist", "Chemist", "Biologist", "Geologist", "Astronomer",
+            "Botanist", "Zoologist", "Ecologist", "Geneticist",
+            "Microbiologist", "Paleontologist", "Meteorologist"
+        ]
+    },
+    {
+        "name": "Laboratory Equipment",
+        "answers": [
+            "Microscope", "Bunsen Burner", "Test Tube", "Beaker", "Pipette",
+            "Petri Dish", "Flask", "Centrifuge", "Thermometer",
+            "Graduated Cylinder", "Funnel", "Tongs"
+        ]
+    },
+    {
+        "name": "Famous Equations",
+        "answers": [
+            "E equals MC squared", "Pythagorean Theorem", "Newtons Second Law",
+            "Schrodinger Equation", "Maxwell Equations", "Euler Identity",
+            "Quadratic Formula", "Ideal Gas Law"
+        ]
+    },
+    
+    # Miscellaneous
+    {
+        "name": "Mythical Creatures",
+        "answers": [
+            "Dragon", "Unicorn", "Phoenix", "Griffin", "Centaur",
+            "Mermaid", "Minotaur", "Pegasus", "Kraken", "Basilisk",
+            "Chimera", "Hydra", "Sphinx", "Werewolf", "Vampire"
+        ]
+    },
+    {
+        "name": "Phobias",
+        "answers": [
+            "Arachnophobia", "Claustrophobia", "Acrophobia", "Agoraphobia",
+            "Trypophobia", "Hemophobia", "Nyctophobia", "Ophidiophobia",
+            "Cynophobia", "Glossophobia", "Coulrophobia"
+        ]
+    },
+    {
+        "name": "Wedding Anniversaries",
+        "answers": [
+            "Paper", "Cotton", "Leather", "Wood", "Tin",
+            "Crystal", "Silver", "Pearl", "Ruby", "Gold",
+            "Diamond", "Platinum"
+        ]
+    },
+    {
+        "name": "Birthstones",
+        "answers": [
+            "Garnet", "Amethyst", "Aquamarine", "Diamond", "Emerald",
+            "Pearl", "Ruby", "Peridot", "Sapphire", "Opal",
+            "Topaz", "Turquoise"
+        ]
+    },
+    {
+        "name": "Personality Types",
+        "answers": [
+            "Introvert", "Extrovert", "Ambivert", "Type A", "Type B",
+            "Optimist", "Pessimist", "Realist", "Idealist", "Pragmatist"
+        ]
+    },
+    {
+        "name": "Famous Inventions",
+        "answers": [
+            "Wheel", "Printing Press", "Light Bulb", "Telephone", "Automobile",
+            "Aeroplane", "Transistor", "Internet", "Penicillin", "Compass",
+            "Telescope", "Steam Engine", "Vaccination", "Radio"
         ]
     }
 ]

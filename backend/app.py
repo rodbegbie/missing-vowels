@@ -235,6 +235,21 @@ OBSCURITY_MODIFIERS = {
     'Pixar Films': -0.3, 'Oscar Best Picture Winners': -0.3,
     'James Bond Films': -0.2, 'Lord of the Rings Characters': -0.3,
     'Netflix Original Series': -0.4, 'Doctor Who Doctors': -0.2,
+    
+    # New batch modifiers
+    'Caribbean Islands': -0.1, 'African Countries': 0, 'Asian Countries': 0,
+    'Famous Deserts': 0.1, 'Famous Volcanoes': 0.2,
+    'Tennis Players': -0.2, 'Formula One Teams': 0, 'Famous Footballers': -0.3,
+    'Boxing Weight Classes': 0.1, 'Winter Olympic Sports': -0.1,
+    'Types of Tea': 0, 'Types of Beer': 0, 'Italian Dishes': -0.1,
+    'Asian Cuisines': -0.1, 'Desserts': -0.2,
+    'Nineties Bands': -0.3, 'Eighties Bands': -0.2, 'Rap Artists': -0.2,
+    'Country Music Artists': -0.1, 'Rock Legends': -0.3,
+    'Human Body Systems': 0.1, 'Types of Scientist': 0.1,
+    'Laboratory Equipment': 0, 'Famous Equations': 0.3,
+    'Mythical Creatures': -0.2, 'Phobias': 0.2,
+    'Wedding Anniversaries': 0, 'Birthstones': 0, 'Personality Types': 0,
+    'Famous Inventions': -0.2,
 }
 
 def calculate_difficulty(category):
