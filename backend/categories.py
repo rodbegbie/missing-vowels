@@ -933,5 +933,419 @@ CATEGORIES = [
             "Long Jump", "High Jump", "Triple Jump", "Pole Vault",
             "Shot Put", "Discus", "Javelin", "Hammer Throw"
         ]
+    },
+    
+    # BATCH 4 - More Categories
+    
+    # Literature and Writing
+    {
+        "name": "Dickens Novels",
+        "answers": [
+            "Oliver Twist", "Great Expectations", "David Copperfield",
+            "A Tale of Two Cities", "Bleak House", "Hard Times",
+            "Nicholas Nickleby", "The Pickwick Papers", "Dombey and Son"
+        ]
+    },
+    {
+        "name": "Jane Austen Novels",
+        "answers": [
+            "Pride and Prejudice", "Sense and Sensibility", "Emma",
+            "Persuasion", "Mansfield Park", "Northanger Abbey"
+        ]
+    },
+    {
+        "name": "Fairy Tale Characters",
+        "answers": [
+            "Cinderella", "Snow White", "Rapunzel", "Sleeping Beauty",
+            "Red Riding Hood", "Hansel and Gretel", "Rumpelstiltskin",
+            "Goldilocks", "Puss in Boots", "Jack and the Beanstalk"
+        ]
+    },
+    {
+        "name": "Punctuation Marks",
+        "answers": [
+            "Comma", "Full Stop", "Question Mark", "Exclamation Mark",
+            "Colon", "Semicolon", "Apostrophe", "Hyphen",
+            "Quotation Marks", "Brackets", "Ellipsis"
+        ]
+    },
+    {
+        "name": "Parts of Speech",
+        "answers": [
+            "Noun", "Verb", "Adjective", "Adverb", "Pronoun",
+            "Preposition", "Conjunction", "Interjection", "Article"
+        ]
+    },
+    
+    # Music
+    {
+        "name": "Music Genres",
+        "answers": [
+            "Rock", "Pop", "Jazz", "Blues", "Classical",
+            "Hip Hop", "Country", "Reggae", "Metal", "Punk",
+            "Soul", "Disco", "Electronic"
+        ]
+    },
+    {
+        "name": "Musical Terms",
+        "answers": [
+            "Crescendo", "Fortissimo", "Pianissimo", "Allegro",
+            "Andante", "Staccato", "Legato", "Tempo",
+            "Fermata", "Arpeggio", "Vibrato"
+        ]
+    },
+    {
+        "name": "One Hit Wonders",
+        "answers": [
+            "Tainted Love", "Come On Eileen", "Video Killed the Radio Star",
+            "Take On Me", "Mambo Number Five", "Who Let the Dogs Out",
+            "Ice Ice Baby", "Macarena", "Gangnam Style"
+        ]
+    },
+    {
+        "name": "Famous Operas",
+        "answers": [
+            "Carmen", "La Traviata", "The Magic Flute", "Rigoletto",
+            "Madame Butterfly", "The Barber of Seville", "Tosca",
+            "Don Giovanni", "Aida", "La Boheme"
+        ]
+    },
+    {
+        "name": "Number One Albums",
+        "answers": [
+            "Thriller", "Back in Black", "The Dark Side of the Moon",
+            "Rumours", "Abbey Road", "Born to Run", "Purple Rain",
+            "Nevermind", "OK Computer", "21"
+        ]
+    },
+    
+    # Film and TV
+    {
+        "name": "Alfred Hitchcock Films",
+        "answers": [
+            "Psycho", "Vertigo", "Rear Window", "The Birds",
+            "North by Northwest", "Rebecca", "Dial M for Murder",
+            "Strangers on a Train", "Rope", "Notorious"
+        ]
+    },
+    {
+        "name": "Oscar Best Picture Winners",
+        "answers": [
+            "The Godfather", "Schindlers List", "Titanic", "Gladiator",
+            "No Country for Old Men", "The Kings Speech",
+            "12 Years a Slave", "Moonlight", "Parasite", "Nomadland"
+        ]
+    },
+    {
+        "name": "Pixar Films",
+        "answers": [
+            "Toy Story", "Finding Nemo", "The Incredibles", "Up",
+            "Wall E", "Monsters Inc", "Ratatouille", "Inside Out",
+            "Coco", "Soul", "Brave"
+        ]
+    },
+    {
+        "name": "Friends Characters",
+        "answers": [
+            "Rachel Green", "Monica Geller", "Phoebe Buffay",
+            "Joey Tribbiani", "Chandler Bing", "Ross Geller",
+            "Gunther", "Janice"
+        ]
+    },
+    {
+        "name": "Doctor Who Doctors",
+        "answers": [
+            "William Hartnell", "Patrick Troughton", "Jon Pertwee",
+            "Tom Baker", "David Tennant", "Matt Smith",
+            "Peter Capaldi", "Jodie Whittaker", "Christopher Eccleston"
+        ]
+    },
+    
+    # Science
+    {
+        "name": "Types of Energy",
+        "answers": [
+            "Kinetic", "Potential", "Thermal", "Chemical", "Nuclear",
+            "Electrical", "Magnetic", "Sound", "Light", "Elastic"
+        ]
+    },
+    {
+        "name": "Subatomic Particles",
+        "answers": [
+            "Proton", "Neutron", "Electron", "Quark", "Photon",
+            "Neutrino", "Boson", "Muon", "Gluon", "Lepton"
+        ]
+    },
+    {
+        "name": "Human Organs",
+        "answers": [
+            "Heart", "Lungs", "Liver", "Kidney", "Brain",
+            "Stomach", "Intestines", "Pancreas", "Spleen", "Bladder"
+        ]
+    },
+    {
+        "name": "Vitamins",
+        "answers": [
+            "Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D",
+            "Vitamin E", "Vitamin K", "Thiamine", "Riboflavin",
+            "Niacin", "Folic Acid"
+        ]
+    },
+    {
+        "name": "Types of Triangle",
+        "answers": [
+            "Equilateral", "Isosceles", "Scalene", "Right Angled",
+            "Acute", "Obtuse"
+        ]
+    },
+    
+    # Geography and Travel
+    {
+        "name": "US States",
+        "answers": [
+            "California", "Texas", "Florida", "New York", "Illinois",
+            "Pennsylvania", "Ohio", "Georgia", "Michigan", "Arizona",
+            "Colorado", "Washington", "Oregon", "Nevada"
+        ]
+    },
+    {
+        "name": "European Countries",
+        "answers": [
+            "France", "Germany", "Spain", "Italy", "Poland",
+            "Sweden", "Norway", "Denmark", "Finland", "Greece",
+            "Portugal", "Belgium", "Austria", "Switzerland"
+        ]
+    },
+    {
+        "name": "World Rivers",
+        "answers": [
+            "Amazon", "Nile", "Thames", "Danube", "Seine",
+            "Rhine", "Ganges", "Mississippi", "Yangtze", "Congo",
+            "Volga", "Tigris", "Euphrates"
+        ]
+    },
+    {
+        "name": "Airlines",
+        "answers": [
+            "British Airways", "Virgin Atlantic", "Easyjet", "Ryanair",
+            "Emirates", "Lufthansa", "Air France", "Delta",
+            "American Airlines", "Qantas", "Singapore Airlines"
+        ]
+    },
+    {
+        "name": "Famous Bridges",
+        "answers": [
+            "Tower Bridge", "Golden Gate Bridge", "Sydney Harbour Bridge",
+            "Brooklyn Bridge", "Pont Neuf", "Rialto Bridge",
+            "Charles Bridge", "Millennium Bridge", "Forth Bridge"
+        ]
+    },
+    
+    # Everyday Life
+    {
+        "name": "Types of Hat",
+        "answers": [
+            "Bowler", "Fedora", "Top Hat", "Beret", "Beanie",
+            "Baseball Cap", "Sombrero", "Trilby", "Panama",
+            "Flat Cap", "Cowboy Hat", "Turban"
+        ]
+    },
+    {
+        "name": "Types of Shoe",
+        "answers": [
+            "Trainer", "Boot", "Sandal", "Loafer", "Brogue",
+            "Stiletto", "Flip Flop", "Wellington", "Slipper",
+            "Moccasin", "Platform", "Espadrille"
+        ]
+    },
+    {
+        "name": "Household Chores",
+        "answers": [
+            "Washing Up", "Vacuuming", "Ironing", "Dusting",
+            "Mopping", "Laundry", "Cooking", "Cleaning",
+            "Gardening", "Tidying", "Polishing"
+        ]
+    },
+    {
+        "name": "Kitchen Utensils",
+        "answers": [
+            "Spatula", "Whisk", "Ladle", "Tongs", "Colander",
+            "Rolling Pin", "Grater", "Peeler", "Sieve",
+            "Corkscrew", "Masher", "Skewer"
+        ]
+    },
+    {
+        "name": "Parts of a Car",
+        "answers": [
+            "Engine", "Gearbox", "Clutch", "Radiator", "Exhaust",
+            "Windscreen", "Bonnet", "Boot", "Bumper", "Headlight",
+            "Indicator", "Dashboard"
+        ]
+    },
+    
+    # More Idioms and Phrases
+    {
+        "name": "Rhyming Slang",
+        "answers": [
+            "Apples and Pears", "Barnet Fair", "Dog and Bone",
+            "Plates of Meat", "Trouble and Strife", "Bread and Honey",
+            "Butchers Hook", "Ruby Murray", "Adam and Eve"
+        ]
+    },
+    {
+        "name": "Weather Idioms",
+        "answers": [
+            "Raining Cats and Dogs", "Under the Weather", "Storm in a Teacup",
+            "Every Cloud Has a Silver Lining", "Come Rain or Shine",
+            "Break the Ice", "Snowed Under", "Chasing Rainbows"
+        ]
+    },
+    {
+        "name": "Animal Idioms",
+        "answers": [
+            "Let the Cat out of the Bag", "The Elephant in the Room",
+            "Hold Your Horses", "Kill Two Birds with One Stone",
+            "A Fish out of Water", "Straight from the Horses Mouth",
+            "Barking up the Wrong Tree", "Wolf in Sheeps Clothing"
+        ]
+    },
+    {
+        "name": "Body Part Idioms",
+        "answers": [
+            "Break a Leg", "Cost an Arm and a Leg", "Keep Your Chin Up",
+            "Get Cold Feet", "Pull Someones Leg", "Give the Cold Shoulder",
+            "Keep an Eye On", "Bite Your Tongue", "All Ears"
+        ]
+    },
+    {
+        "name": "Food Idioms",
+        "answers": [
+            "Piece of Cake", "Spill the Beans", "Bring Home the Bacon",
+            "In a Nutshell", "Egg on Your Face", "Apple of My Eye",
+            "Bread and Butter", "Cherry on Top", "Full of Beans"
+        ]
+    },
+    
+    # History
+    {
+        "name": "Tudor Monarchs",
+        "answers": [
+            "Henry the Seventh", "Henry the Eighth", "Edward the Sixth",
+            "Lady Jane Grey", "Mary the First", "Elizabeth the First"
+        ]
+    },
+    {
+        "name": "World War Two Battles",
+        "answers": [
+            "Battle of Britain", "D Day", "Battle of the Bulge",
+            "Battle of Midway", "Siege of Stalingrad", "El Alamein",
+            "Pearl Harbor", "Battle of Kursk", "Dunkirk"
+        ]
+    },
+    {
+        "name": "Famous Queens",
+        "answers": [
+            "Cleopatra", "Queen Victoria", "Elizabeth the First",
+            "Marie Antoinette", "Mary Queen of Scots", "Catherine the Great",
+            "Nefertiti", "Boudicca", "Anne Boleyn"
+        ]
+    },
+    {
+        "name": "American Presidents",
+        "answers": [
+            "George Washington", "Abraham Lincoln", "John F Kennedy",
+            "Franklin Roosevelt", "Theodore Roosevelt", "Barack Obama",
+            "Donald Trump", "Joe Biden", "Ronald Reagan", "Richard Nixon"
+        ]
+    },
+    {
+        "name": "Historical Empires",
+        "answers": [
+            "Roman Empire", "British Empire", "Ottoman Empire",
+            "Mongol Empire", "Persian Empire", "Holy Roman Empire",
+            "Byzantine Empire", "Spanish Empire", "French Empire"
+        ]
+    },
+    
+    # More Pop Culture
+    {
+        "name": "Simpsons Characters",
+        "answers": [
+            "Homer Simpson", "Marge Simpson", "Bart Simpson",
+            "Lisa Simpson", "Maggie Simpson", "Mr Burns",
+            "Ned Flanders", "Moe Szyslak", "Krusty the Clown"
+        ]
+    },
+    {
+        "name": "Strictly Come Dancing Judges",
+        "answers": [
+            "Len Goodman", "Craig Revel Horwood", "Bruno Tonioli",
+            "Darcey Bussell", "Shirley Ballas", "Motsi Mabuse", "Anton Du Beke"
+        ]
+    },
+    {
+        "name": "Spice Girls",
+        "answers": [
+            "Victoria Beckham", "Mel B", "Emma Bunton",
+            "Mel C", "Geri Halliwell"
+        ]
+    },
+    {
+        "name": "Beatles Songs",
+        "answers": [
+            "Hey Jude", "Let It Be", "Yesterday", "Help",
+            "Come Together", "Here Comes the Sun", "A Hard Days Night",
+            "Yellow Submarine", "Eleanor Rigby", "Strawberry Fields Forever"
+        ]
+    },
+    {
+        "name": "Roald Dahl Books",
+        "answers": [
+            "Charlie and the Chocolate Factory", "Matilda", "The BFG",
+            "James and the Giant Peach", "The Witches", "Fantastic Mr Fox",
+            "Danny the Champion of the World", "The Twits", "George's Marvellous Medicine"
+        ]
+    },
+    
+    # More Science and Nature
+    {
+        "name": "Dinosaurs",
+        "answers": [
+            "Tyrannosaurus Rex", "Triceratops", "Velociraptor",
+            "Stegosaurus", "Brachiosaurus", "Pterodactyl",
+            "Diplodocus", "Ankylosaurus", "Spinosaurus"
+        ]
+    },
+    {
+        "name": "Constellations",
+        "answers": [
+            "Orion", "Ursa Major", "Ursa Minor", "Cassiopeia",
+            "Scorpius", "Leo", "Taurus", "Gemini",
+            "Andromeda", "Pegasus", "Draco"
+        ]
+    },
+    {
+        "name": "Precious Stones",
+        "answers": [
+            "Diamond", "Ruby", "Emerald", "Sapphire", "Amethyst",
+            "Opal", "Topaz", "Pearl", "Jade", "Garnet",
+            "Turquoise", "Onyx"
+        ]
+    },
+    {
+        "name": "Sea Creatures",
+        "answers": [
+            "Shark", "Whale", "Dolphin", "Octopus", "Jellyfish",
+            "Seahorse", "Starfish", "Lobster", "Crab", "Squid",
+            "Eel", "Stingray", "Turtle"
+        ]
+    },
+    {
+        "name": "Insects",
+        "answers": [
+            "Bee", "Ant", "Butterfly", "Beetle", "Moth",
+            "Dragonfly", "Grasshopper", "Ladybird", "Wasp",
+            "Cricket", "Firefly", "Caterpillar"
+        ]
     }
 ]
