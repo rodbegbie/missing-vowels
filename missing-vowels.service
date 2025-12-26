@@ -6,8 +6,8 @@ After=network.target
 Type=simple
 User=exedev
 WorkingDirectory=/home/exedev/missing-vowels/backend
-Environment=PATH=/home/exedev/missing-vowels/backend/venv/bin:/usr/bin:/bin
-ExecStart=/home/exedev/missing-vowels/backend/venv/bin/python app.py
+Environment=PATH=/home/exedev/.local/bin:/usr/bin:/bin
+ExecStart=/home/exedev/.local/bin/uv run python app.py
 Restart=always
 RestartSec=3
 
