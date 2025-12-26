@@ -3385,5 +3385,113 @@ CATEGORIES = [
             "Charlie's Angels Full Throttle", "Bobby", "Margin Call", "The Joneses",
             "Flawless", "Half Light", "Mr Brooks", "Rough Night"
         ]
+    },
+    
+    # Politicians - British, European and American
+    {
+        "name": "British Cabinet Positions",
+        "obscurity_modifier": 0.1,
+        "answers": [
+            "Prime Minister", "Chancellor of the Exchequer", "Home Secretary",
+            "Foreign Secretary", "Defence Secretary", "Health Secretary",
+            "Education Secretary", "Transport Secretary", "Environment Secretary",
+            "Justice Secretary", "Work and Pensions Secretary", "Chief Whip"
+        ]
+    },
+    {
+        "name": "British Politicians",
+        "obscurity_modifier": 0.1,
+        "answers": [
+            "Keir Starmer", "Rishi Sunak", "Boris Johnson", "Jeremy Corbyn",
+            "Nigel Farage", "Nicola Sturgeon", "Sadiq Khan", "Michael Gove",
+            "Priti Patel", "Jacob Rees Mogg", "Dominic Raab", "Liz Truss",
+            "Ed Miliband", "David Cameron", "George Osborne", "William Hague",
+            "Ken Clarke", "John Prescott", "Gordon Brown", "Tony Blair"
+        ]
+    },
+    {
+        "name": "Historical British Politicians",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Winston Churchill", "Margaret Thatcher", "Harold Wilson", "Clement Attlee",
+            "Benjamin Disraeli", "William Gladstone", "Robert Peel", "Lloyd George",
+            "Neville Chamberlain", "Anthony Eden", "Harold Macmillan", "Edward Heath",
+            "James Callaghan", "Alec Douglas Home", "Stanley Baldwin", "Ramsay MacDonald"
+        ]
+    },
+    {
+        "name": "US Vice Presidents",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "Kamala Harris", "Mike Pence", "Joe Biden", "Dick Cheney",
+            "Al Gore", "Dan Quayle", "George Bush", "Walter Mondale",
+            "Nelson Rockefeller", "Spiro Agnew", "Hubert Humphrey", "Lyndon Johnson"
+        ]
+    },
+    {
+        "name": "US Politicians",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "Nancy Pelosi", "Mitch McConnell", "Chuck Schumer", "Alexandria Ocasio Cortez",
+            "Bernie Sanders", "Elizabeth Warren", "Ted Cruz", "Marco Rubio",
+            "Ron DeSantis", "Gavin Newsom", "Hillary Clinton", "John McCain",
+            "Mitt Romney", "Paul Ryan", "John Kerry", "Condoleezza Rice"
+        ]
+    },
+    {
+        "name": "Historical US Politicians",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Abraham Lincoln", "Thomas Jefferson", "Benjamin Franklin", "Alexander Hamilton",
+            "Theodore Roosevelt", "Franklin Roosevelt", "John Adams", "James Madison",
+            "Andrew Jackson", "Ulysses Grant", "Woodrow Wilson", "Henry Kissinger",
+            "Robert Kennedy", "Martin Luther King", "Malcolm X", "Rosa Parks"
+        ]
+    },
+    {
+        "name": "French Presidents",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Emmanuel Macron", "Francois Hollande", "Nicolas Sarkozy", "Jacques Chirac",
+            "Francois Mitterrand", "Valery Giscard dEstaing", "Georges Pompidou",
+            "Charles de Gaulle", "Rene Coty", "Vincent Auriol"
+        ]
+    },
+    {
+        "name": "German Chancellors",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Olaf Scholz", "Angela Merkel", "Gerhard Schroder", "Helmut Kohl",
+            "Helmut Schmidt", "Willy Brandt", "Kurt Georg Kiesinger", "Ludwig Erhard",
+            "Konrad Adenauer", "Otto von Bismarck"
+        ]
+    },
+    {
+        "name": "European Union Leaders",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Ursula von der Leyen", "Charles Michel", "Christine Lagarde",
+            "Jean Claude Juncker", "Donald Tusk", "Herman Van Rompuy",
+            "Jose Manuel Barroso", "Romano Prodi", "Jacques Delors", "Mario Draghi"
+        ]
+    },
+    {
+        "name": "Italian Prime Ministers",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Giorgia Meloni", "Mario Draghi", "Giuseppe Conte", "Matteo Renzi",
+            "Silvio Berlusconi", "Romano Prodi", "Giulio Andreotti", "Bettino Craxi",
+            "Aldo Moro", "Benito Mussolini"
+        ]
+    },
+    {
+        "name": "World Leaders Past and Present",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "Vladimir Putin", "Xi Jinping", "Narendra Modi", "Justin Trudeau",
+            "Volodymyr Zelensky", "Benjamin Netanyahu", "Recep Tayyip Erdogan",
+            "Jair Bolsonaro", "Jacinda Ardern", "Scott Morrison", "Moon Jae In",
+            "Shinzo Abe", "Kim Jong Un", "Fidel Castro", "Nelson Mandela", "Mahatma Gandhi"
+        ]
     }
 ]
