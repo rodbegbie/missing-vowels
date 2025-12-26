@@ -142,7 +142,12 @@ footer {
 
 .top-timer.urgent {
   color: #FF6B6B;
-  animation: pulse 0.5s infinite;
+  animation: pulse-urgent 0.5s infinite;
+}
+
+@keyframes pulse-urgent {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .top-label {
