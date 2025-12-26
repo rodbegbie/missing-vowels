@@ -1675,7 +1675,7 @@ CATEGORIES = [
         ]
     },
     {
-        "name": "Ice Cream Flavours",
+        "name": "Dessert Types",
         "obscurity_modifier": -0.2,
         "answers": [
             "Vanilla", "Chocolate", "Strawberry", "Mint Choc Chip",
@@ -3048,6 +3048,289 @@ CATEGORIES = [
             "Wheel", "Printing Press", "Light Bulb", "Telephone", "Automobile",
             "Aeroplane", "Transistor", "Internet", "Penicillin", "Compass",
             "Telescope", "Steam Engine", "Vaccination", "Radio"
+        ]
+    },
+    
+    # NEW CATEGORIES - 30 Unique Additional
+    
+    # Easy (obscurity_modifier negative, short common words)
+    {
+        "name": "Breakfast Foods",
+        "obscurity_modifier": -0.4,
+        "answers": [
+            "Toast", "Eggs", "Bacon", "Cereal", "Porridge",
+            "Pancakes", "Waffles", "Muffin", "Croissant", "Yogurt",
+            "Granola", "Sausage"
+        ]
+    },
+    {
+        "name": "Garden Tools",
+        "obscurity_modifier": -0.3,
+        "answers": [
+            "Spade", "Fork", "Rake", "Hoe", "Trowel",
+            "Shears", "Pruner", "Mower", "Hose", "Wheelbarrow",
+            "Watering Can", "Secateurs"
+        ]
+    },
+    {
+        "name": "Rooms in a House",
+        "obscurity_modifier": -0.4,
+        "answers": [
+            "Kitchen", "Bedroom", "Bathroom", "Lounge", "Dining Room",
+            "Hallway", "Attic", "Basement", "Garage", "Study",
+            "Nursery", "Utility Room"
+        ]
+    },
+    {
+        "name": "Cleaning Products",
+        "obscurity_modifier": -0.3,
+        "answers": [
+            "Bleach", "Soap", "Detergent", "Polish", "Disinfectant",
+            "Sponge", "Mop", "Duster", "Broom", "Cloth",
+            "Spray", "Brush"
+        ]
+    },
+    {
+        "name": "Office Supplies",
+        "obscurity_modifier": -0.3,
+        "answers": [
+            "Pen", "Pencil", "Paper", "Stapler", "Scissors",
+            "Ruler", "Eraser", "Folder", "Envelope", "Clip",
+            "Tape", "Notepad"
+        ]
+    },
+    
+    # Medium-Easy (common knowledge, slightly longer)
+    {
+        "name": "Pastries and Baked Goods",
+        "obscurity_modifier": -0.2,
+        "answers": [
+            "Croissant", "Danish", "Scone", "Muffin", "Donut",
+            "Cinnamon Roll", "Brioche", "Pain au Chocolat", "Eclair",
+            "Profiterole", "Strudel", "Turnover"
+        ]
+    },
+    {
+        "name": "Smartphone Brands",
+        "obscurity_modifier": -0.1,
+        "answers": [
+            "Apple", "Samsung", "Google", "Huawei", "Sony",
+            "Nokia", "Motorola", "OnePlus", "Xiaomi", "Oppo",
+            "LG", "HTC"
+        ]
+    },
+    {
+        "name": "Pizza Toppings",
+        "obscurity_modifier": -0.2,
+        "answers": [
+            "Pepperoni", "Mushroom", "Olive", "Onion", "Pepper",
+            "Sausage", "Ham", "Pineapple", "Anchovy", "Jalapeno",
+            "Spinach", "Bacon"
+        ]
+    },
+    {
+        "name": "Video Game Consoles",
+        "obscurity_modifier": -0.2,
+        "answers": [
+            "PlayStation", "Xbox", "Nintendo Switch", "Wii", "Game Boy",
+            "Sega Genesis", "Atari", "Nintendo DS", "PSP", "Dreamcast",
+            "Super Nintendo", "GameCube"
+        ]
+    },
+    {
+        "name": "Cat Breeds",
+        "obscurity_modifier": -0.1,
+        "answers": [
+            "Persian", "Siamese", "Maine Coon", "Ragdoll", "Bengal",
+            "British Shorthair", "Abyssinian", "Sphynx", "Scottish Fold",
+            "Burmese", "Russian Blue", "Birman"
+        ]
+    },
+    
+    # Medium (general knowledge, moderate complexity)
+    {
+        "name": "Famous Rivers",
+        "obscurity_modifier": 0.1,
+        "answers": [
+            "Thames", "Nile", "Amazon", "Danube", "Rhine",
+            "Mississippi", "Ganges", "Yangtze", "Seine", "Tiber",
+            "Euphrates", "Congo"
+        ]
+    },
+    {
+        "name": "Sandwich Types",
+        "obscurity_modifier": 0.0,
+        "answers": [
+            "Club Sandwich", "BLT", "Reuben", "Panini", "Submarine",
+            "Wrap", "Toastie", "Bagel", "Croissant", "Baguette",
+            "Ciabatta", "Flatbread"
+        ]
+    },
+    {
+        "name": "World Religions",
+        "obscurity_modifier": 0.1,
+        "answers": [
+            "Christianity", "Islam", "Hinduism", "Buddhism", "Judaism",
+            "Sikhism", "Taoism", "Shinto", "Confucianism", "Jainism",
+            "Zoroastrianism", "Bahai"
+        ]
+    },
+    {
+        "name": "Currencies of the World",
+        "obscurity_modifier": 0.1,
+        "answers": [
+            "Dollar", "Euro", "Pound", "Yen", "Yuan",
+            "Rupee", "Peso", "Franc", "Krona", "Rand",
+            "Rouble", "Lira"
+        ]
+    },
+    {
+        "name": "Headwear",
+        "obscurity_modifier": 0.0,
+        "answers": [
+            "Fedora", "Bowler", "Beret", "Trilby", "Top Hat",
+            "Beanie", "Baseball Cap", "Sombrero", "Turban", "Fez",
+            "Panama", "Deerstalker"
+        ]
+    },
+    
+    # Medium-Hard (specialist knowledge, longer phrases)
+    {
+        "name": "Philosophy Branches",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Metaphysics", "Epistemology", "Ethics", "Aesthetics", "Logic",
+            "Ontology", "Phenomenology", "Existentialism", "Empiricism",
+            "Rationalism", "Pragmatism"
+        ]
+    },
+    {
+        "name": "Wine Grape Varieties",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Chardonnay", "Merlot", "Cabernet Sauvignon", "Pinot Noir", "Shiraz",
+            "Sauvignon Blanc", "Riesling", "Malbec", "Tempranillo", "Grenache",
+            "Pinot Grigio", "Zinfandel"
+        ]
+    },
+    {
+        "name": "Knitting Terms",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Cast On", "Cast Off", "Purl", "Knit", "Yarn Over",
+            "Slip Stitch", "Decrease", "Increase", "Garter Stitch",
+            "Stockinette", "Cable", "Ribbing"
+        ]
+    },
+    {
+        "name": "Classical Music Terms",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Allegro", "Andante", "Forte", "Piano", "Crescendo",
+            "Diminuendo", "Staccato", "Legato", "Tempo", "Adagio",
+            "Presto", "Moderato"
+        ]
+    },
+    {
+        "name": "Sailing Terms",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Port", "Starboard", "Bow", "Stern", "Mast",
+            "Boom", "Halyard", "Sheet", "Tack", "Jibe",
+            "Headsail", "Spinnaker"
+        ]
+    },
+    
+    # Hard (obscure topics, complex phrases)
+    {
+        "name": "Psychological Phenomena",
+        "obscurity_modifier": 0.5,
+        "answers": [
+            "Confirmation Bias", "Anchoring Effect", "Hindsight Bias",
+            "Availability Heuristic", "Dunning Kruger Effect",
+            "Sunk Cost Fallacy", "Halo Effect", "Bandwagon Effect",
+            "Negativity Bias", "Optimism Bias"
+        ]
+    },
+    {
+        "name": "Extinct Animals",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Dodo", "Mammoth", "Sabre Toothed Tiger", "Tyrannosaurus Rex",
+            "Velociraptor", "Pterodactyl", "Stegosaurus", "Triceratops",
+            "Megalodon", "Quagga", "Tasmanian Tiger"
+        ]
+    },
+    {
+        "name": "Mathematical Concepts",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Calculus", "Algebra", "Geometry", "Trigonometry", "Statistics",
+            "Probability", "Topology", "Number Theory", "Set Theory",
+            "Linear Algebra", "Differential Equations"
+        ]
+    },
+    {
+        "name": "Hospital Departments",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Cardiology", "Neurology", "Oncology", "Dermatology", "Orthopaedics",
+            "Psychiatry", "Radiology", "Pathology", "Anaesthesia",
+            "Paediatrics", "Geriatrics", "Ophthalmology"
+        ]
+    },
+    {
+        "name": "Ancient Empires",
+        "obscurity_modifier": 0.3,
+        "answers": [
+            "Roman Empire", "Persian Empire", "Ottoman Empire", "Byzantine Empire",
+            "Mongol Empire", "British Empire", "Han Dynasty", "Maurya Empire",
+            "Gupta Empire", "Inca Empire", "Aztec Empire"
+        ]
+    },
+    {
+        "name": "Chess Pieces and Moves",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "King", "Queen", "Rook", "Bishop", "Knight", "Pawn",
+            "Castling", "En Passant", "Check", "Checkmate",
+            "Stalemate", "Promotion"
+        ]
+    },
+    {
+        "name": "Printing and Typography Terms",
+        "obscurity_modifier": 0.4,
+        "answers": [
+            "Serif", "Sans Serif", "Font", "Kerning", "Leading",
+            "Typeface", "Bold", "Italic", "Uppercase", "Lowercase",
+            "Point Size", "Baseline"
+        ]
+    },
+    {
+        "name": "Cryptography Terms",
+        "obscurity_modifier": 0.5,
+        "answers": [
+            "Encryption", "Decryption", "Cipher", "Hash", "Key",
+            "Algorithm", "Plaintext", "Ciphertext", "Public Key",
+            "Private Key", "Digital Signature", "Certificate"
+        ]
+    },
+    {
+        "name": "Greek Mythology Creatures",
+        "obscurity_modifier": 0.2,
+        "answers": [
+            "Cerberus", "Cyclops", "Medusa", "Minotaur", "Hydra",
+            "Chimera", "Harpy", "Siren", "Satyr", "Centaur",
+            "Gorgon", "Titan"
+        ]
+    },
+    {
+        "name": "Financial Instruments",
+        "obscurity_modifier": 0.5,
+        "answers": [
+            "Stock", "Bond", "Derivative", "Option", "Future",
+            "Swap", "Warrant", "ETF", "Mutual Fund", "Hedge Fund",
+            "Annuity", "Certificate of Deposit"
         ]
     }
 ]
