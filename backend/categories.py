@@ -1710,5 +1710,485 @@ CATEGORIES = [
             "Copy", "Paste", "Cut", "Undo", "Redo",
             "Save", "Print", "Find", "Select All"
         ]
+    },
+    
+    # BATCH 6 - Medium-Hard and Hard Categories (59 total)
+    
+    # Classical and Academic
+    {
+        "name": "Greek Philosophers",
+        "answers": [
+            "Socrates", "Plato", "Aristotle", "Pythagoras", "Heraclitus",
+            "Democritus", "Epicurus", "Zeno of Citium", "Diogenes", "Thales"
+        ]
+    },
+    {
+        "name": "Roman Emperors",
+        "answers": [
+            "Augustus", "Nero", "Caligula", "Tiberius", "Claudius",
+            "Trajan", "Hadrian", "Marcus Aurelius", "Constantine", "Julius Caesar"
+        ]
+    },
+    {
+        "name": "Ancient Greek Tragedies",
+        "answers": [
+            "Oedipus Rex", "Antigone", "Medea", "The Oresteia",
+            "Electra", "The Bacchae", "Prometheus Bound", "Ajax"
+        ]
+    },
+    {
+        "name": "Enlightenment Thinkers",
+        "answers": [
+            "Voltaire", "Jean Jacques Rousseau", "John Locke", "Immanuel Kant",
+            "Montesquieu", "Denis Diderot", "Adam Smith", "David Hume"
+        ]
+    },
+    {
+        "name": "Impressionist Painters",
+        "answers": [
+            "Claude Monet", "Pierre Auguste Renoir", "Edgar Degas",
+            "Camille Pissarro", "Alfred Sisley", "Berthe Morisot",
+            "Mary Cassatt", "Gustave Caillebotte"
+        ]
+    },
+    {
+        "name": "Baroque Composers",
+        "answers": [
+            "Johann Sebastian Bach", "George Frideric Handel", "Antonio Vivaldi",
+            "Claudio Monteverdi", "Henry Purcell", "Domenico Scarlatti",
+            "Jean Baptiste Lully", "Arcangelo Corelli"
+        ]
+    },
+    {
+        "name": "Existentialist Writers",
+        "answers": [
+            "Jean Paul Sartre", "Albert Camus", "Simone de Beauvoir",
+            "Franz Kafka", "Fyodor Dostoevsky", "Soren Kierkegaard",
+            "Friedrich Nietzsche", "Martin Heidegger"
+        ]
+    },
+    {
+        "name": "Medieval Philosophers",
+        "answers": [
+            "Thomas Aquinas", "William of Ockham", "Duns Scotus",
+            "Anselm of Canterbury", "Peter Abelard", "Boethius",
+            "Averroes", "Maimonides"
+        ]
+    },
+    
+    # Science - Advanced
+    {
+        "name": "Nobel Prize Winning Scientists",
+        "answers": [
+            "Marie Curie", "Albert Einstein", "Niels Bohr", "Richard Feynman",
+            "Werner Heisenberg", "Max Planck", "Erwin Schrodinger",
+            "James Watson", "Francis Crick", "Dorothy Hodgkin"
+        ]
+    },
+    {
+        "name": "Types of Logical Gate",
+        "answers": [
+            "AND Gate", "OR Gate", "NOT Gate", "NAND Gate",
+            "NOR Gate", "XOR Gate", "XNOR Gate"
+        ]
+    },
+    {
+        "name": "Organic Chemistry Functional Groups",
+        "answers": [
+            "Hydroxyl", "Carbonyl", "Carboxyl", "Amino", "Phosphate",
+            "Sulfhydryl", "Methyl", "Aldehyde", "Ketone", "Ester"
+        ]
+    },
+    {
+        "name": "Astronomical Objects",
+        "answers": [
+            "Neutron Star", "Black Hole", "White Dwarf", "Red Giant",
+            "Pulsar", "Quasar", "Supernova", "Nebula", "Galaxy Cluster"
+        ]
+    },
+    {
+        "name": "Cognitive Biases",
+        "answers": [
+            "Confirmation Bias", "Anchoring Bias", "Availability Heuristic",
+            "Dunning Kruger Effect", "Hindsight Bias", "Sunk Cost Fallacy",
+            "Bandwagon Effect", "Halo Effect", "Negativity Bias"
+        ]
+    },
+    {
+        "name": "Genetic Terms",
+        "answers": [
+            "Allele", "Genotype", "Phenotype", "Homozygous", "Heterozygous",
+            "Dominant", "Recessive", "Mutation", "Chromosome", "Gene Expression"
+        ]
+    },
+    {
+        "name": "Particle Physics Terms",
+        "answers": [
+            "Hadron", "Lepton", "Boson", "Fermion", "Quark",
+            "Antimatter", "Higgs Field", "Strong Force", "Weak Force"
+        ]
+    },
+    {
+        "name": "Mathematical Constants",
+        "answers": [
+            "Pi", "Euler Number", "Golden Ratio", "Square Root of Two",
+            "Imaginary Unit", "Avogadro Constant", "Planck Constant"
+        ]
+    },
+    
+    # Literature - Advanced
+    {
+        "name": "Booker Prize Winners",
+        "answers": [
+            "Midnight's Children", "Life of Pi", "The Remains of the Day",
+            "Wolf Hall", "The English Patient", "Schindler's Ark",
+            "The God of Small Things", "Amsterdam", "True History of the Kelly Gang"
+        ]
+    },
+    {
+        "name": "Russian Novelists",
+        "answers": [
+            "Leo Tolstoy", "Fyodor Dostoevsky", "Anton Chekhov",
+            "Vladimir Nabokov", "Boris Pasternak", "Mikhail Bulgakov",
+            "Ivan Turgenev", "Alexander Solzhenitsyn"
+        ]
+    },
+    {
+        "name": "Modernist Poets",
+        "answers": [
+            "T S Eliot", "Ezra Pound", "W B Yeats", "Wallace Stevens",
+            "William Carlos Williams", "Marianne Moore", "Hart Crane",
+            "H D Hilda Doolittle"
+        ]
+    },
+    {
+        "name": "Pulitzer Prize Fiction Winners",
+        "answers": [
+            "To Kill a Mockingbird", "The Grapes of Wrath", "The Color Purple",
+            "Beloved", "The Road", "A Visit from the Goon Squad",
+            "The Goldfinch", "Less", "The Overstory"
+        ]
+    },
+    {
+        "name": "Epic Poems",
+        "answers": [
+            "The Iliad", "The Odyssey", "The Aeneid", "Paradise Lost",
+            "Beowulf", "The Divine Comedy", "The Faerie Queene",
+            "The Canterbury Tales", "Don Juan"
+        ]
+    },
+    {
+        "name": "Dystopian Novels",
+        "answers": [
+            "1984", "Brave New World", "Fahrenheit 451", "The Handmaids Tale",
+            "A Clockwork Orange", "We", "The Road", "Never Let Me Go",
+            "The Children of Men"
+        ]
+    },
+    
+    # History - Advanced
+    {
+        "name": "Treaty of Versailles Terms",
+        "answers": [
+            "War Guilt Clause", "Reparations", "Demilitarised Zone",
+            "League of Nations", "Territorial Losses", "Military Restrictions"
+        ]
+    },
+    {
+        "name": "Cold War Events",
+        "answers": [
+            "Berlin Wall", "Cuban Missile Crisis", "Korean War", "Vietnam War",
+            "Bay of Pigs", "Space Race", "Arms Race", "Iron Curtain",
+            "Proxy Wars", "Detente"
+        ]
+    },
+    {
+        "name": "French Revolution Figures",
+        "answers": [
+            "Maximilien Robespierre", "Jean Paul Marat", "Georges Danton",
+            "Marie Antoinette", "Louis XVI", "Napoleon Bonaparte",
+            "Marquis de Lafayette", "Charlotte Corday"
+        ]
+    },
+    {
+        "name": "British Civil War Figures",
+        "answers": [
+            "Oliver Cromwell", "Charles I", "Prince Rupert",
+            "Thomas Fairfax", "John Pym", "Charles II",
+            "William Laud", "Earl of Essex"
+        ]
+    },
+    {
+        "name": "Byzantine Emperors",
+        "answers": [
+            "Justinian", "Constantine XI", "Basil II", "Heraclius",
+            "Theodora", "Leo III", "Alexios I Komnenos", "Manuel I Komnenos"
+        ]
+    },
+    {
+        "name": "Mughal Emperors",
+        "answers": [
+            "Babur", "Humayun", "Akbar", "Jahangir", "Shah Jahan",
+            "Aurangzeb", "Bahadur Shah"
+        ]
+    },
+    {
+        "name": "Chinese Dynasties",
+        "answers": [
+            "Qin Dynasty", "Han Dynasty", "Tang Dynasty", "Song Dynasty",
+            "Ming Dynasty", "Qing Dynasty", "Yuan Dynasty", "Zhou Dynasty"
+        ]
+    },
+    
+    # Music - Advanced
+    {
+        "name": "Symphony Composers",
+        "answers": [
+            "Ludwig van Beethoven", "Johannes Brahms", "Gustav Mahler",
+            "Anton Bruckner", "Dmitri Shostakovich", "Jean Sibelius",
+            "Hector Berlioz", "Antonin Dvorak"
+        ]
+    },
+    {
+        "name": "Jazz Musicians",
+        "answers": [
+            "Miles Davis", "John Coltrane", "Duke Ellington", "Louis Armstrong",
+            "Charlie Parker", "Thelonious Monk", "Dizzy Gillespie",
+            "Billie Holiday", "Ella Fitzgerald"
+        ]
+    },
+    {
+        "name": "Opera Singers",
+        "answers": [
+            "Luciano Pavarotti", "Maria Callas", "Placido Domingo",
+            "Enrico Caruso", "Joan Sutherland", "Renee Fleming",
+            "Andrea Bocelli", "Jessye Norman"
+        ]
+    },
+    {
+        "name": "Romantic Era Composers",
+        "answers": [
+            "Frederic Chopin", "Franz Liszt", "Robert Schumann",
+            "Felix Mendelssohn", "Johannes Brahms", "Richard Wagner",
+            "Giuseppe Verdi", "Pyotr Tchaikovsky"
+        ]
+    },
+    {
+        "name": "Music Theory Terms",
+        "answers": [
+            "Counterpoint", "Cadence", "Modulation", "Syncopation",
+            "Polyrhythm", "Atonality", "Chromaticism", "Dissonance",
+            "Resolution", "Ostinato"
+        ]
+    },
+    
+    # Art and Architecture - Advanced
+    {
+        "name": "Sculptors",
+        "answers": [
+            "Auguste Rodin", "Constantin Brancusi", "Henry Moore",
+            "Alberto Giacometti", "Barbara Hepworth", "Anish Kapoor",
+            "Louise Bourgeois", "Anthony Gormley"
+        ]
+    },
+    {
+        "name": "Art Auction Houses",
+        "answers": [
+            "Christies", "Sothebys", "Bonhams", "Phillips",
+            "Heritage Auctions"
+        ]
+    },
+    {
+        "name": "Famous Architects",
+        "answers": [
+            "Frank Lloyd Wright", "Le Corbusier", "Zaha Hadid",
+            "Norman Foster", "Renzo Piano", "Frank Gehry",
+            "I M Pei", "Tadao Ando", "Santiago Calatrava"
+        ]
+    },
+    {
+        "name": "Surrealist Artists",
+        "answers": [
+            "Salvador Dali", "Rene Magritte", "Max Ernst", "Joan Miro",
+            "Yves Tanguy", "Andre Breton", "Man Ray", "Frida Kahlo"
+        ]
+    },
+    {
+        "name": "Post Impressionist Painters",
+        "answers": [
+            "Vincent van Gogh", "Paul Cezanne", "Paul Gauguin",
+            "Georges Seurat", "Henri de Toulouse Lautrec", "Pierre Bonnard",
+            "Edouard Vuillard"
+        ]
+    },
+    
+    # Economics and Politics - Advanced
+    {
+        "name": "Economic Theories",
+        "answers": [
+            "Keynesian Economics", "Monetarism", "Supply Side Economics",
+            "Austrian Economics", "Modern Monetary Theory",
+            "Mercantilism", "Neoliberalism", "Marxist Economics"
+        ]
+    },
+    {
+        "name": "International Organizations",
+        "answers": [
+            "United Nations", "World Bank", "International Monetary Fund",
+            "World Trade Organization", "NATO", "World Health Organization",
+            "International Court of Justice", "UNICEF", "UNESCO"
+        ]
+    },
+    {
+        "name": "Types of Government",
+        "answers": [
+            "Democracy", "Autocracy", "Oligarchy", "Theocracy",
+            "Monarchy", "Republic", "Federalism", "Totalitarianism",
+            "Plutocracy", "Meritocracy"
+        ]
+    },
+    {
+        "name": "UN Security Council Members",
+        "answers": [
+            "United States", "United Kingdom", "France", "Russia", "China"
+        ]
+    },
+    {
+        "name": "Trade Agreements",
+        "answers": [
+            "NAFTA", "European Union", "ASEAN", "Mercosur",
+            "Trans Pacific Partnership", "USMCA", "CPTPP"
+        ]
+    },
+    
+    # Psychology and Sociology - Advanced
+    {
+        "name": "Psychological Disorders",
+        "answers": [
+            "Schizophrenia", "Bipolar Disorder", "Major Depression",
+            "Obsessive Compulsive Disorder", "Post Traumatic Stress Disorder",
+            "Borderline Personality Disorder", "Dissociative Identity Disorder"
+        ]
+    },
+    {
+        "name": "Famous Psychologists",
+        "answers": [
+            "Sigmund Freud", "Carl Jung", "B F Skinner", "Ivan Pavlov",
+            "Jean Piaget", "Abraham Maslow", "Carl Rogers",
+            "Albert Bandura", "Philip Zimbardo"
+        ]
+    },
+    {
+        "name": "Sociological Theories",
+        "answers": [
+            "Functionalism", "Conflict Theory", "Symbolic Interactionism",
+            "Social Constructionism", "Structural Functionalism",
+            "Feminist Theory", "Postmodernism"
+        ]
+    },
+    {
+        "name": "Defence Mechanisms",
+        "answers": [
+            "Repression", "Denial", "Projection", "Displacement",
+            "Sublimation", "Rationalisation", "Regression",
+            "Reaction Formation", "Intellectualisation"
+        ]
+    },
+    
+    # Law and Justice - Advanced
+    {
+        "name": "Legal Terms",
+        "answers": [
+            "Habeas Corpus", "Pro Bono", "Amicus Curiae", "Res Judicata",
+            "Mens Rea", "Actus Reus", "Prima Facie", "Stare Decisis",
+            "Voir Dire", "Subpoena"
+        ]
+    },
+    {
+        "name": "Types of Court",
+        "answers": [
+            "Supreme Court", "Court of Appeal", "Crown Court",
+            "Magistrates Court", "High Court", "Family Court",
+            "Tribunal", "Coroners Court"
+        ]
+    },
+    {
+        "name": "Famous Trials",
+        "answers": [
+            "Nuremberg Trials", "O J Simpson Trial", "Scopes Monkey Trial",
+            "Trial of Socrates", "Salem Witch Trials", "Oscar Wilde Trial",
+            "Charles Manson Trial", "Dreyfus Affair"
+        ]
+    },
+    
+    # Religion and Mythology - Advanced
+    {
+        "name": "Hindu Deities",
+        "answers": [
+            "Brahma", "Vishnu", "Shiva", "Ganesha", "Krishna",
+            "Lakshmi", "Saraswati", "Hanuman", "Durga", "Kali"
+        ]
+    },
+    {
+        "name": "Norse Gods",
+        "answers": [
+            "Odin", "Thor", "Loki", "Freya", "Frigg",
+            "Baldur", "Heimdall", "Tyr", "Hel", "Fenrir"
+        ]
+    },
+    {
+        "name": "Biblical Figures",
+        "answers": [
+            "Abraham", "Moses", "David", "Solomon", "Noah",
+            "Elijah", "Isaiah", "Jonah", "Daniel", "Job"
+        ]
+    },
+    {
+        "name": "Buddhist Concepts",
+        "answers": [
+            "Nirvana", "Karma", "Dharma", "Samsara", "Enlightenment",
+            "Four Noble Truths", "Eightfold Path", "Bodhisattva", "Sangha"
+        ]
+    },
+    {
+        "name": "Greek Titans",
+        "answers": [
+            "Cronus", "Rhea", "Atlas", "Prometheus", "Hyperion",
+            "Oceanus", "Themis", "Mnemosyne", "Iapetus", "Coeus"
+        ]
+    },
+    
+    # Medicine and Health - Advanced
+    {
+        "name": "Medical Specialties",
+        "answers": [
+            "Cardiology", "Neurology", "Oncology", "Dermatology",
+            "Gastroenterology", "Endocrinology", "Rheumatology",
+            "Nephrology", "Pulmonology", "Haematology"
+        ]
+    },
+    {
+        "name": "Surgical Procedures",
+        "answers": [
+            "Appendectomy", "Cholecystectomy", "Mastectomy",
+            "Hysterectomy", "Coronary Bypass", "Angioplasty",
+            "Arthroscopy", "Laparoscopy", "Biopsy"
+        ]
+    },
+    {
+        "name": "Infectious Diseases",
+        "answers": [
+            "Tuberculosis", "Malaria", "Typhoid", "Cholera",
+            "Influenza", "Measles", "Hepatitis", "Meningitis",
+            "Pneumonia", "Dengue Fever"
+        ]
+    },
+    {
+        "name": "Pharmaceutical Drug Classes",
+        "answers": [
+            "Antibiotics", "Analgesics", "Antihistamines", "Antidepressants",
+            "Beta Blockers", "Statins", "Anticoagulants", "Diuretics",
+            "Corticosteroids", "Immunosuppressants"
+        ]
     }
 ]
