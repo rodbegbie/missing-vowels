@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Barlow', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 30%, #4a7fb5 70%, #6b9fd4 100%);
   min-height: 100vh;
   color: #fff;
@@ -26,11 +26,14 @@ header {
 }
 
 h1 {
-  font-size: 3rem;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .subtitle {
@@ -118,12 +121,15 @@ footer {
 }
 
 .category-badge {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
   background: linear-gradient(90deg, #1a3a5c, #2d5a87);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   text-align: center;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -190,10 +196,10 @@ footer {
 }
 
 .clue-text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  font-family: 'Courier New', monospace;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   color: #ffffff;
   word-break: break-word;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -366,8 +372,9 @@ footer {
 }
 
 .answer-clue {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
   color: #c5ddf5;
 }
 
