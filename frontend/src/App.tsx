@@ -368,18 +368,6 @@ function App(): React.ReactElement {
     }
   }, [selectedDifficulty]);
 
-  const skipClue = useCallback(() => {
-    stopListening();
-    if (round && currentClueIndex < round.clues.length - 1) {
-      setCurrentClueIndex((i) => i + 1);
-      setTranscript("");
-    } else if (round) {
-      // Completed category - load next one
-      setTranscript("");
-      loadNextCategory();
-    }
-  }, [stopListening, round, currentClueIndex, loadNextCategory]);
-
   const revealAnswer = useCallback(
     (correct: boolean) => {
       if (!round || revealed.includes(currentClueIndex)) return;
@@ -439,15 +427,11 @@ function App(): React.ReactElement {
     // Only process game commands if playing and not revealed
     if (!round || revealed.includes(currentClueIndex)) return;
 
-    // Check for pass/skip commands
-    if (
-      normalizedTranscript.includes("pass") ||
-      normalizedTranscript.includes("skip") ||
-      normalizedTranscript.includes("next")
-    ) {
+    // Check for pass command - reveals answer as incorrect
+    if (normalizedTranscript.includes("pass")) {
       stopListening();
       setTranscript("");
-      skipClue();
+      revealAnswer(false);
       return;
     }
 
@@ -466,7 +450,6 @@ function App(): React.ReactElement {
     gameState,
     stopListening,
     playAgain,
-    skipClue,
     revealAnswer,
   ]);
 
@@ -558,7 +541,7 @@ function App(): React.ReactElement {
                 />
                 🎤 Voice Recognition {voiceEnabled ? "On" : "Off"}
               </label>
-              <p className="voice-hint">Say your answer or "Pass" to skip</p>
+              <p className="voice-hint">Say your answer or "Pass"</p>
             </div>
           )}
         </div>
@@ -608,17 +591,16 @@ function App(): React.ReactElement {
           {voiceEnabled && voiceSupported && !isRevealed && (
             <div
               className={`voice-indicator ${isListening ? "listening" : ""}`}
+              onClick={!isListening ? startListening : undefined}
+              style={{ cursor: !isListening ? "pointer" : "default" }}
             >
               <span className="mic-icon">{isListening ? "🎤" : "🎙️"}</span>
               <span className="voice-status">
-                {isListening ? "Listening..." : "Voice paused"}
+                {isListening ? "Listening..." : "Tap to listen"}
               </span>
-              {transcript && <span className="transcript">"{transcript}"</span>}
-              {!isListening && (
-                <button className="btn btn-mic" onClick={startListening}>
-                  🎤 Retry
-                </button>
-              )}
+              <span className="transcript">
+                {transcript ? `"${transcript}"` : "\u00A0"}
+              </span>
             </div>
           )}
 
@@ -635,9 +617,6 @@ function App(): React.ReactElement {
                 onClick={() => revealAnswer(false)}
               >
                 ✗ Show Answer
-              </button>
-              <button className="btn btn-skip" onClick={skipClue}>
-                Skip →
               </button>
             </div>
           )}

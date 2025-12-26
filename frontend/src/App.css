@@ -559,6 +559,8 @@ footer {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   min-width: 250px;
+  min-height: 120px;
+  justify-content: center;
 }
 
 .voice-indicator.listening {
@@ -610,6 +612,7 @@ footer {
   max-width: 300px;
   text-align: center;
   word-break: break-word;
+  min-height: 1.5em;
 }
 
 .btn-mic {
