@@ -3,8 +3,65 @@ import './App.css'
 
 const API_URL = '/api'
 
+// Types
+interface Clue {
+  clue: string
+  answer: string
+}
+
+interface Round {
+  category: string
+  clues: Clue[]
+}
+
+interface Difficulty {
+  level: string
+  name: string
+  count: number
+}
+
+interface UserAnswer {
+  clue: Clue
+  correct: boolean
+  category: string
+}
+
+type GameState = 'menu' | 'playing' | 'results'
+
+// Extend Window interface for SpeechRecognition
+interface SpeechRecognitionEvent extends Event {
+  resultIndex: number
+  results: SpeechRecognitionResultList
+}
+
+interface SpeechRecognitionErrorEvent extends Event {
+  error: string
+}
+
+interface SpeechRecognition extends EventTarget {
+  continuous: boolean
+  interimResults: boolean
+  lang: string
+  onresult: ((event: SpeechRecognitionEvent) => void) | null
+  onend: (() => void) | null
+  onerror: ((event: SpeechRecognitionErrorEvent) => void) | null
+  start(): void
+  stop(): void
+}
+
+interface SpeechRecognitionConstructor {
+  new (): SpeechRecognition
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition?: SpeechRecognitionConstructor
+    webkitSpeechRecognition?: SpeechRecognitionConstructor
+  }
+}
+
 // Normalize text for comparison (lowercase, remove punctuation, extra spaces)
-function normalizeText(text) {
+function normalizeText(text: string): string {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
@@ -12,8 +69,33 @@ function normalizeText(text) {
     .trim()
 }
 
+// Levenshtein distance for fuzzy matching
+function levenshteinDistance(a: string, b: string): number {
+  const matrix: number[][] = []
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i]
+  }
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j
+  }
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1]
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        )
+      }
+    }
+  }
+  return matrix[b.length][a.length]
+}
+
 // Check if spoken answer matches the correct answer (fuzzy matching)
-function checkAnswer(spoken, correct) {
+function checkAnswer(spoken: string, correct: string): boolean {
   const normalizedSpoken = normalizeText(spoken)
   const normalizedCorrect = normalizeText(correct)
   
@@ -43,62 +125,37 @@ function checkAnswer(spoken, correct) {
   return matches >= Math.ceil(correctWords.length * 0.7)
 }
 
-// Levenshtein distance for fuzzy matching
-function levenshteinDistance(a, b) {
-  const matrix = []
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i]
-  }
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j
-  }
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1]
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
-        )
-      }
-    }
-  }
-  return matrix[b.length][a.length]
-}
-
-function App() {
-  const [gameState, setGameState] = useState('menu') // 'menu', 'playing', 'results'
-  const [difficulties, setDifficulties] = useState([])
-  const [selectedDifficulty, setSelectedDifficulty] = useState(null)
-  const [round, setRound] = useState(null)
-  const [currentClueIndex, setCurrentClueIndex] = useState(0)
-  const [revealed, setRevealed] = useState([])
-  const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(60)
-  const [timerActive, setTimerActive] = useState(false)
-  const [userAnswers, setUserAnswers] = useState([])
-  const [categoriesPlayed, setCategoriesPlayed] = useState(0)
+function App(): React.ReactElement {
+  const [gameState, setGameState] = useState<GameState>('menu')
+  const [difficulties, setDifficulties] = useState<Difficulty[]>([])
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null)
+  const [round, setRound] = useState<Round | null>(null)
+  const [currentClueIndex, setCurrentClueIndex] = useState<number>(0)
+  const [revealed, setRevealed] = useState<number[]>([])
+  const [score, setScore] = useState<number>(0)
+  const [timeLeft, setTimeLeft] = useState<number>(60)
+  const [timerActive, setTimerActive] = useState<boolean>(false)
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([])
+  const [categoriesPlayed, setCategoriesPlayed] = useState<number>(0)
   
   // Voice recognition state
-  const [isListening, setIsListening] = useState(false)
-  const [transcript, setTranscript] = useState('')
-  const [voiceSupported, setVoiceSupported] = useState(false)
-  const [voiceEnabled, setVoiceEnabled] = useState(true)
-  const recognitionRef = useRef(null)
+  const [isListening, setIsListening] = useState<boolean>(false)
+  const [transcript, setTranscript] = useState<string>('')
+  const [voiceSupported, setVoiceSupported] = useState<boolean>(false)
+  const [voiceEnabled, setVoiceEnabled] = useState<boolean>(true)
+  const recognitionRef = useRef<SpeechRecognition | null>(null)
 
   // Initialize speech recognition
   useEffect(() => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-    if (SpeechRecognition) {
+    const SpeechRecognitionClass = window.SpeechRecognition || window.webkitSpeechRecognition
+    if (SpeechRecognitionClass) {
       setVoiceSupported(true)
-      const recognition = new SpeechRecognition()
+      const recognition = new SpeechRecognitionClass()
       recognition.continuous = false
       recognition.interimResults = true
       recognition.lang = 'en-GB'
       
-      recognition.onresult = (event) => {
+      recognition.onresult = (event: SpeechRecognitionEvent) => {
         const current = event.resultIndex
         const result = event.results[current]
         const text = result[0].transcript
@@ -109,7 +166,7 @@ function App() {
         setIsListening(false)
       }
       
-      recognition.onerror = (event) => {
+      recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
         console.error('Speech recognition error:', event.error)
         setIsListening(false)
       }
@@ -117,6 +174,40 @@ function App() {
       recognitionRef.current = recognition
     }
   }, [])
+
+  const startListening = useCallback(() => {
+    if (recognitionRef.current && !isListening) {
+      try {
+        setTranscript('')
+        recognitionRef.current.start()
+        setIsListening(true)
+      } catch (e) {
+        console.error('Failed to start recognition:', e)
+      }
+    }
+  }, [isListening])
+
+  const stopListening = useCallback(() => {
+    if (recognitionRef.current && isListening) {
+      try {
+        recognitionRef.current.stop()
+        setIsListening(false)
+      } catch (e) {
+        console.error('Failed to stop recognition:', e)
+      }
+    }
+  }, [isListening])
+
+  const playAgain = useCallback(() => {
+    stopListening()
+    setGameState('menu')
+    setRound(null)
+    setRevealed([])
+    setScore(0)
+    setTranscript('')
+    setCategoriesPlayed(0)
+    setUserAnswers([])
+  }, [stopListening])
 
   // Start listening when a new clue appears or on results screen
   useEffect(() => {
@@ -131,7 +222,62 @@ function App() {
         return () => clearTimeout(timer)
       }
     }
-  }, [currentClueIndex, gameState, voiceEnabled, voiceSupported, revealed])
+  }, [currentClueIndex, gameState, voiceEnabled, voiceSupported, revealed, startListening])
+
+  const skipClue = useCallback(() => {
+    stopListening()
+    if (round && currentClueIndex < round.clues.length - 1) {
+      setCurrentClueIndex(i => i + 1)
+      setTranscript('')
+    } else {
+      // Completed category - load next one
+      setTranscript('')
+      // loadNextCategory will be called separately
+    }
+  }, [stopListening, round, currentClueIndex])
+
+  const loadNextCategory = useCallback(async () => {
+    if (!selectedDifficulty) return
+    try {
+      const res = await fetch(`${API_URL}/round?difficulty=${selectedDifficulty}`)
+      const data: Round = await res.json()
+      setRound(data)
+      setCurrentClueIndex(0)
+      setRevealed([])
+      setCategoriesPlayed(c => c + 1)
+    } catch (err) {
+      console.error('Failed to load next category:', err)
+    }
+  }, [selectedDifficulty])
+
+  const revealAnswer = useCallback((correct: boolean) => {
+    if (!round || revealed.includes(currentClueIndex)) return
+    
+    stopListening()
+    setRevealed([...revealed, currentClueIndex])
+    setUserAnswers(prev => [...prev, { 
+      clue: round.clues[currentClueIndex], 
+      correct,
+      category: round.category
+    }])
+    
+    if (correct) {
+      // 1 point per correct answer
+      setScore(s => s + 1)
+    }
+    
+    // Auto-advance after brief delay
+    setTimeout(() => {
+      if (currentClueIndex < round.clues.length - 1) {
+        setCurrentClueIndex(i => i + 1)
+        setTranscript('')
+      } else {
+        // Completed category - load next one
+        setTranscript('')
+        loadNextCategory()
+      }
+    }, 1500)
+  }, [round, revealed, currentClueIndex, stopListening, loadNextCategory])
 
   // Process transcript when it changes
   useEffect(() => {
@@ -168,42 +314,19 @@ function App() {
       setTranscript('')
       revealAnswer(true)
     }
-  }, [transcript, round, currentClueIndex, revealed, gameState])
-
-  const startListening = useCallback(() => {
-    if (recognitionRef.current && !isListening) {
-      try {
-        setTranscript('')
-        recognitionRef.current.start()
-        setIsListening(true)
-      } catch (e) {
-        console.error('Failed to start recognition:', e)
-      }
-    }
-  }, [isListening])
-
-  const stopListening = useCallback(() => {
-    if (recognitionRef.current && isListening) {
-      try {
-        recognitionRef.current.stop()
-        setIsListening(false)
-      } catch (e) {
-        console.error('Failed to stop recognition:', e)
-      }
-    }
-  }, [isListening])
+  }, [transcript, round, currentClueIndex, revealed, gameState, stopListening, playAgain, skipClue, revealAnswer])
 
   // Fetch difficulties on mount
   useEffect(() => {
     fetch(`${API_URL}/difficulties`)
       .then(res => res.json())
-      .then(data => setDifficulties(data.difficulties))
+      .then((data: { difficulties: Difficulty[] }) => setDifficulties(data.difficulties))
       .catch(err => console.error('Failed to fetch difficulties:', err))
   }, [])
 
   // Timer logic
   useEffect(() => {
-    let interval = null
+    let interval: ReturnType<typeof setInterval> | null = null
     if (timerActive && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft(t => t - 1)
@@ -213,14 +336,16 @@ function App() {
       setTimerActive(false)
       setGameState('results')
     }
-    return () => clearInterval(interval)
+    return () => {
+      if (interval) clearInterval(interval)
+    }
   }, [timerActive, timeLeft, stopListening])
 
-  const startGame = async (difficulty) => {
+  const startGame = async (difficulty: string): Promise<void> => {
     setSelectedDifficulty(difficulty)
     try {
       const res = await fetch(`${API_URL}/round?difficulty=${difficulty}`)
-      const data = await res.json()
+      const data: Round = await res.json()
       setRound(data)
       setCurrentClueIndex(0)
       setRevealed([])
@@ -236,72 +361,7 @@ function App() {
     }
   }
 
-  const loadNextCategory = async () => {
-    try {
-      const res = await fetch(`${API_URL}/round?difficulty=${selectedDifficulty}`)
-      const data = await res.json()
-      setRound(data)
-      setCurrentClueIndex(0)
-      setRevealed([])
-      setCategoriesPlayed(c => c + 1)
-    } catch (err) {
-      console.error('Failed to load next category:', err)
-    }
-  }
-
-  const revealAnswer = (correct) => {
-    if (revealed.includes(currentClueIndex)) return
-    
-    stopListening()
-    setRevealed([...revealed, currentClueIndex])
-    setUserAnswers([...userAnswers, { 
-      clue: round.clues[currentClueIndex], 
-      correct,
-      category: round.category
-    }])
-    
-    if (correct) {
-      // 1 point per correct answer
-      setScore(s => s + 1)
-    }
-    
-    // Auto-advance after brief delay
-    setTimeout(() => {
-      if (currentClueIndex < round.clues.length - 1) {
-        setCurrentClueIndex(i => i + 1)
-        setTranscript('')
-      } else {
-        // Completed category - load next one
-        setTranscript('')
-        loadNextCategory()
-      }
-    }, 1500)
-  }
-
-  const skipClue = () => {
-    stopListening()
-    if (currentClueIndex < round.clues.length - 1) {
-      setCurrentClueIndex(i => i + 1)
-      setTranscript('')
-    } else {
-      // Completed category - load next one
-      setTranscript('')
-      loadNextCategory()
-    }
-  }
-
-  const playAgain = () => {
-    stopListening()
-    setGameState('menu')
-    setRound(null)
-    setRevealed([])
-    setScore(0)
-    setTranscript('')
-    setCategoriesPlayed(0)
-    setUserAnswers([])
-  }
-
-  const toggleVoice = () => {
+  const toggleVoice = (): void => {
     if (voiceEnabled) {
       stopListening()
     }
@@ -433,7 +493,7 @@ function App() {
     const correctCount = userAnswers.filter(a => a.correct).length
     
     // Group answers by category
-    const answersByCategory = userAnswers.reduce((acc, answer) => {
+    const answersByCategory = userAnswers.reduce<Record<string, UserAnswer[]>>((acc, answer) => {
       const cat = answer.category || 'Unknown'
       if (!acc[cat]) acc[cat] = []
       acc[cat].push(answer)

@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
-  entry: './src/main.jsx',
+  entry: './src/main.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: isProduction ? 'assets/[name].[contenthash].js' : 'assets/[name].js',
@@ -17,6 +17,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -86,7 +91,7 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   devServer: {
     static: {
