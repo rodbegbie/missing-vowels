@@ -137,6 +137,7 @@ function App(): React.ReactElement {
   const [timerActive, setTimerActive] = useState<boolean>(false)
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([])
   const [categoriesPlayed, setCategoriesPlayed] = useState<number>(0)
+  const [categoryKey, setCategoryKey] = useState<number>(0)
   
   // Voice recognition state
   const [isListening, setIsListening] = useState<boolean>(false)
@@ -224,18 +225,6 @@ function App(): React.ReactElement {
     }
   }, [currentClueIndex, gameState, voiceEnabled, voiceSupported, revealed, startListening])
 
-  const skipClue = useCallback(() => {
-    stopListening()
-    if (round && currentClueIndex < round.clues.length - 1) {
-      setCurrentClueIndex(i => i + 1)
-      setTranscript('')
-    } else {
-      // Completed category - load next one
-      setTranscript('')
-      // loadNextCategory will be called separately
-    }
-  }, [stopListening, round, currentClueIndex])
-
   const loadNextCategory = useCallback(async () => {
     if (!selectedDifficulty) return
     try {
@@ -245,10 +234,23 @@ function App(): React.ReactElement {
       setCurrentClueIndex(0)
       setRevealed([])
       setCategoriesPlayed(c => c + 1)
+      setCategoryKey(k => k + 1)
     } catch (err) {
       console.error('Failed to load next category:', err)
     }
   }, [selectedDifficulty])
+
+  const skipClue = useCallback(() => {
+    stopListening()
+    if (round && currentClueIndex < round.clues.length - 1) {
+      setCurrentClueIndex(i => i + 1)
+      setTranscript('')
+    } else if (round) {
+      // Completed category - load next one
+      setTranscript('')
+      loadNextCategory()
+    }
+  }, [stopListening, round, currentClueIndex, loadNextCategory])
 
   const revealAnswer = useCallback((correct: boolean) => {
     if (!round || revealed.includes(currentClueIndex)) return
@@ -432,7 +434,7 @@ function App(): React.ReactElement {
         </div>
         
         <header className="game-header">
-          <div className="category-badge">
+          <div key={categoryKey} className="category-badge new-category">
             <span className="category-name">{round.category}</span>
           </div>
         </header>
