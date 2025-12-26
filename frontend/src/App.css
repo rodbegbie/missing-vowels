@@ -5,8 +5,14 @@
 }
 
 body {
-  font-family: 'Barlow', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 30%, #4a7fb5 70%, #6b9fd4 100%);
+  font-family: "Barlow", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #1a3a5c 0%,
+    #2d5a87 30%,
+    #4a7fb5 70%,
+    #6b9fd4 100%
+  );
   min-height: 100vh;
   color: #fff;
 }
@@ -26,7 +32,7 @@ header {
 }
 
 h1 {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   color: #ffffff;
@@ -45,7 +51,10 @@ h1 {
 
 .title-letter {
   display: inline-block;
-  transition: opacity 0.5s ease, margin 0.5s ease, width 0.4s ease;
+  transition:
+    opacity 0.5s ease,
+    margin 0.5s ease,
+    width 0.4s ease;
 }
 
 .title-vowel {
@@ -128,11 +137,21 @@ h1 {
   cursor: not-allowed;
 }
 
-.difficulty-1 { border-left: 4px solid #90EE90; }
-.difficulty-2 { border-left: 4px solid #87CEEB; }
-.difficulty-3 { border-left: 4px solid #FFD700; }
-.difficulty-4 { border-left: 4px solid #FFA500; }
-.difficulty-5 { border-left: 4px solid #FF6B6B; }
+.difficulty-1 {
+  border-left: 4px solid #90ee90;
+}
+.difficulty-2 {
+  border-left: 4px solid #87ceeb;
+}
+.difficulty-3 {
+  border-left: 4px solid #ffd700;
+}
+.difficulty-4 {
+  border-left: 4px solid #ffa500;
+}
+.difficulty-5 {
+  border-left: 4px solid #ff6b6b;
+}
 
 .diff-name {
   font-size: 1.2rem;
@@ -159,7 +178,11 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: linear-gradient(180deg, rgba(26, 58, 92, 0.95) 0%, rgba(26, 58, 92, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(26, 58, 92, 0.95) 0%,
+    rgba(26, 58, 92, 0) 100%
+  );
   z-index: 100;
 }
 
@@ -172,8 +195,9 @@ footer {
   border-radius: 8px;
 }
 
-.top-timer, .top-score {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+.top-timer,
+.top-score {
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 3rem;
   font-weight: 700;
   color: #ffffff;
@@ -181,13 +205,18 @@ footer {
 }
 
 .top-timer.urgent {
-  color: #FF6B6B;
+  color: #ff6b6b;
   animation: pulse-urgent 0.5s infinite;
 }
 
 @keyframes pulse-urgent {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .top-label {
@@ -209,7 +238,7 @@ footer {
 }
 
 .category-badge {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
   background: linear-gradient(90deg, #1a3a5c, #2d5a87);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
@@ -243,11 +272,14 @@ footer {
   }
 }
 
-
-
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* Game Area */
@@ -262,7 +294,11 @@ footer {
 }
 
 .clue-card {
-  background: linear-gradient(145deg, rgba(26, 58, 92, 0.8), rgba(45, 90, 135, 0.8));
+  background: linear-gradient(
+    145deg,
+    rgba(26, 58, 92, 0.8),
+    rgba(45, 90, 135, 0.8)
+  );
   border-radius: 20px;
   padding: 3rem;
   width: 100%;
@@ -278,7 +314,7 @@ footer {
 }
 
 .clue-text {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 3rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -293,13 +329,19 @@ footer {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .answer-text {
   font-size: 1.8rem;
-  color: #90EE90;
+  color: #90ee90;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -327,9 +369,9 @@ footer {
 }
 
 .btn-correct {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: #fff;
-  border: 2px solid #66BB6A;
+  border: 2px solid #66bb6a;
 }
 
 .btn-wrong {
@@ -366,7 +408,7 @@ footer {
 }
 
 .progress-dot.done {
-  background: #90EE90;
+  background: #90ee90;
 }
 
 /* Results */
@@ -445,16 +487,16 @@ footer {
 
 .answers-list li.correct {
   background: rgba(144, 238, 144, 0.2);
-  border-left: 3px solid #90EE90;
+  border-left: 3px solid #90ee90;
 }
 
 .answers-list li.missed {
   background: rgba(255, 107, 107, 0.2);
-  border-left: 3px solid #FF6B6B;
+  border-left: 3px solid #ff6b6b;
 }
 
 .answer-clue {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: "Barlow Condensed", "Barlow", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   color: #c5ddf5;
@@ -525,8 +567,13 @@ footer {
 }
 
 @keyframes pulse-bg {
-  0%, 100% { background: rgba(76, 175, 80, 0.2); }
-  50% { background: rgba(76, 175, 80, 0.35); }
+  0%,
+  100% {
+    background: rgba(76, 175, 80, 0.2);
+  }
+  50% {
+    background: rgba(76, 175, 80, 0.35);
+  }
 }
 
 .mic-icon {
@@ -538,8 +585,13 @@ footer {
 }
 
 @keyframes pulse-mic {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .voice-status {
@@ -548,7 +600,7 @@ footer {
 }
 
 .voice-indicator.listening .voice-status {
-  color: #90EE90;
+  color: #90ee90;
 }
 
 .transcript {
@@ -578,19 +630,19 @@ footer {
   h1 {
     font-size: 2rem;
   }
-  
+
   .clue-text {
     font-size: 1.5rem;
   }
-  
+
   .clue-card {
     padding: 2rem;
   }
-  
+
   .controls {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }

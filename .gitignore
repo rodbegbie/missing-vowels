@@ -11,3 +11,4 @@ frontend/node_modules/
 
 # Build output (optional - can include if you want)
 frontend/dist/
+node_modules/

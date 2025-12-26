@@ -1,0 +1,23 @@
+{
+  "name": "missing-vowels",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "format": "cd frontend && npx prettier --write 'src/**/*.{ts,tsx,css}'",
+    "format:backend": "cd backend && .venv/bin/black app.py categories.py"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{ts,tsx,css}": [
+      "prettier --write"
+    ],
+    "backend/*.py": [
+      "backend/.venv/bin/black"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.5.3"
+  }
+}
