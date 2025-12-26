@@ -6347,6 +6347,8 @@ CATEGORIES: list[CategoryData] = [
             "The Knot",
             "Contacts",
             "A Light Dusting of Nonsense",
+            "The Taskmaster One Hundred Tasks Book",
+            "Bring Me the Head of the Taskmaster",
         ],
     },
 ]
