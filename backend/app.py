@@ -10,6 +10,28 @@ static_folder = os.path.join(os.path.dirname(__file__), '..', 'frontend', 'dist'
 app = Flask(__name__, static_folder=static_folder, static_url_path='')
 CORS(app)
 
+def has_vowels(text):
+    """Check if text contains at least one vowel."""
+    vowels = 'aeiouAEIOU'
+    return any(c in vowels for c in text)
+
+def filter_categories(categories):
+    """Filter out answers without vowels and categories with < 5 valid answers."""
+    filtered = []
+    for cat in categories:
+        # Filter answers that have at least one vowel
+        valid_answers = [a for a in cat['answers'] if has_vowels(a)]
+        # Only include category if it has at least 5 valid answers
+        if len(valid_answers) >= 5:
+            filtered.append({
+                'name': cat['name'],
+                'answers': valid_answers
+            })
+    return filtered
+
+# Filter categories on load
+FILTERED_CATEGORIES = filter_categories(CATEGORIES)
+
 @app.route('/')
 def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
@@ -137,15 +159,15 @@ def calculate_difficulty(category):
     else:
         return 5  # Hard: long, obscure, specialist
 
-# Pre-calculate difficulties
-for cat in CATEGORIES:
+# Pre-calculate difficulties for filtered categories
+for cat in FILTERED_CATEGORIES:
     cat['difficulty'] = calculate_difficulty(cat)
 
 @app.route('/api/difficulties', methods=['GET'])
 def get_difficulties():
     """Return available difficulty levels with category counts."""
     difficulty_counts = {}
-    for cat in CATEGORIES:
+    for cat in FILTERED_CATEGORIES:
         d = cat['difficulty']
         difficulty_counts[d] = difficulty_counts.get(d, 0) + 1
     
@@ -165,12 +187,12 @@ def get_round():
     difficulty = request.args.get('difficulty', type=int, default=2)
     
     # Filter categories by difficulty
-    matching_cats = [c for c in CATEGORIES if c['difficulty'] == difficulty]
+    matching_cats = [c for c in FILTERED_CATEGORIES if c['difficulty'] == difficulty]
     
     # If no exact match, find closest
     if not matching_cats:
         for offset in range(1, 5):
-            matching_cats = [c for c in CATEGORIES if c['difficulty'] in [difficulty - offset, difficulty + offset]]
+            matching_cats = [c for c in FILTERED_CATEGORIES if c['difficulty'] in [difficulty - offset, difficulty + offset]]
             if matching_cats:
                 break
     
@@ -205,7 +227,7 @@ def get_categories():
     return jsonify({
         'categories': [
             {'name': c['name'], 'difficulty': c['difficulty'], 'answer_count': len(c['answers'])}
-            for c in CATEGORIES
+            for c in FILTERED_CATEGORIES
         ]
     })
 
