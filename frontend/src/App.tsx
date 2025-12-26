@@ -125,44 +125,66 @@ function checkAnswer(spoken: string, correct: string): boolean {
   return matches >= Math.ceil(correctWords.length * 0.7)
 }
 
+// Generate valid groupings for 9 consonants (2-3 spaces, groups of 2+ letters)
+function generateGrouping(): number[] {
+  // Valid groupings for 9 consonants with 2-3 spaces, all groups >= 2
+  const validGroupings = [
+    [2, 2, 2, 3], // MS SN GV WLS
+    [2, 2, 3, 2], // MS SN GVW LS
+    [2, 3, 2, 2], // MS SNG VW LS
+    [3, 2, 2, 2], // MSS NG VW LS
+    [3, 3, 3],    // MSS NGV WLS
+    [3, 2, 4],    // MSS NG VWLS
+    [2, 3, 4],    // MS SNG VWLS
+    [4, 3, 2],    // MSSN GVW LS
+    [2, 4, 3],    // MS SNGV WLS
+    [3, 4, 2],    // MSS NGVW LS
+  ]
+  return validGroupings[Math.floor(Math.random() * validGroupings.length)]
+}
+
 // Animated title component for the menu screen
 function AnimatedTitle(): React.ReactElement {
-  const [phase, setPhase] = useState<'full' | 'fading' | 'condensed'>('full')
+  const [phase, setPhase] = useState<'full' | 'fading' | 'collapsed' | 'condensed'>('full')
   
-  // Original title and the condensed version
-  // "MISSING VOWELS" -> "MSS NGV WLS" (vowels removed, regrouped)
+  // Original title
   const fullText = 'MISSING VOWELS'
   const vowels = new Set(['A', 'E', 'I', 'O', 'U'])
   
-  // Final grouping: "MSS NGV WLS" (vowels removed, regrouped with 2-3 spaces)
+  // Generate random grouping once on mount
+  const grouping = useMemo(() => generateGrouping(), [])
   
   useEffect(() => {
+    // 1s: start fading vowels (0.5s fade)
     const fadeTimer = setTimeout(() => setPhase('fading'), 1000)
-    const condenseTimer = setTimeout(() => setPhase('condensed'), 1600)
+    // 1.5s: collapse vowels to zero width
+    const collapseTimer = setTimeout(() => setPhase('collapsed'), 1500)
+    // 1.9s: add spaces between groups
+    const condenseTimer = setTimeout(() => setPhase('condensed'), 1900)
     return () => {
       clearTimeout(fadeTimer)
+      clearTimeout(collapseTimer)
       clearTimeout(condenseTimer)
     }
   }, [])
+  
+  // Build consonant positions from grouping
+  const consonantPositions = useMemo(() => {
+    const positions: { group: number; pos: number }[] = []
+    let idx = 0
+    for (let g = 0; g < grouping.length; g++) {
+      for (let p = 0; p < grouping[g]; p++) {
+        positions.push({ group: g, pos: p })
+        idx++
+      }
+    }
+    return positions
+  }, [grouping])
   
   // Build letter elements with animation classes
   const letters = useMemo(() => {
     const result: React.ReactElement[] = []
     let consonantIndex = 0
-    
-    // Map consonants to their final positions
-    // MSS NGV WLS = positions within groups
-    const consonantPositions = [
-      { group: 0, pos: 0 }, // M
-      { group: 0, pos: 1 }, // S
-      { group: 0, pos: 2 }, // S
-      { group: 1, pos: 0 }, // N
-      { group: 1, pos: 1 }, // G
-      { group: 1, pos: 2 }, // V
-      { group: 2, pos: 0 }, // W
-      { group: 2, pos: 1 }, // L
-      { group: 2, pos: 2 }, // S
-    ]
     
     for (let i = 0; i < fullText.length; i++) {
       const char = fullText[i]
@@ -171,16 +193,18 @@ function AnimatedTitle(): React.ReactElement {
         result.push(
           <span 
             key={i} 
-            className={`title-space ${phase === 'condensed' ? 'hidden' : ''}`}
+            className={`title-space ${phase === 'collapsed' || phase === 'condensed' ? 'hidden' : ''}`}
           >
             {' '}
           </span>
         )
       } else if (vowels.has(char)) {
+        const vowelClass = phase === 'full' ? '' : 
+                          phase === 'fading' ? 'fade-out' : 'collapse'
         result.push(
           <span 
             key={i} 
-            className={`title-letter title-vowel ${phase !== 'full' ? 'fade-out' : ''}`}
+            className={`title-letter title-vowel ${vowelClass}`}
           >
             {char}
           </span>
@@ -193,7 +217,7 @@ function AnimatedTitle(): React.ReactElement {
         result.push(
           <span 
             key={i} 
-            className={`title-letter title-consonant ${phase === 'condensed' ? 'condensed' : ''} ${isGroupStart && phase === 'condensed' ? 'group-start' : ''}`}
+            className={`title-letter title-consonant ${isGroupStart && phase === 'condensed' ? 'group-start' : ''}`}
           >
             {char}
           </span>
@@ -202,7 +226,7 @@ function AnimatedTitle(): React.ReactElement {
     }
     
     return result
-  }, [phase])
+  }, [phase, consonantPositions])
   
   return (
     <h1 className="animated-title">
