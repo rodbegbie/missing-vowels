@@ -3,10 +3,18 @@ import "./App.css";
 
 const API_URL = "/api";
 
+// ROT13 decode function
+function rot13(text: string): string {
+  return text.replace(/[a-zA-Z]/g, (char) => {
+    const base = char <= "Z" ? 65 : 97;
+    return String.fromCharCode(((char.charCodeAt(0) - base + 13) % 26) + base);
+  });
+}
+
 // Types
 interface Clue {
   clue: string;
-  answer: string;
+  answer: string; // ROT13 encoded from API
 }
 
 interface Round {
@@ -312,7 +320,7 @@ function App(): React.ReactElement {
         ) {
           // Get all possible answers for current category as hints
           const phrases: SpeechRecognitionPhrase[] = round.clues.map((c) => ({
-            phrase: c.answer.toLowerCase(),
+            phrase: rot13(c.answer).toLowerCase(),
             boost: 1,
           }));
           // Add "pass" as a valid phrase
@@ -458,7 +466,7 @@ function App(): React.ReactElement {
 
     // Check if answer is correct
     const currentClue = round.clues[currentClueIndex];
-    if (checkAnswer(transcript, currentClue.answer)) {
+    if (checkAnswer(transcript, rot13(currentClue.answer))) {
       stopListening();
       setTranscript("");
       revealAnswer(true);
@@ -604,7 +612,7 @@ function App(): React.ReactElement {
             <div className="clue-text">{currentClue.clue}</div>
             {isRevealed && (
               <div className="answer-reveal">
-                <div className="answer-text">{currentClue.answer}</div>
+                <div className="answer-text">{rot13(currentClue.answer)}</div>
               </div>
             )}
           </div>
@@ -706,7 +714,7 @@ function App(): React.ReactElement {
                   <li key={i} className={answer.correct ? "correct" : "missed"}>
                     <span className="answer-clue">{answer.clue.clue}</span>
                     <span className="answer-solution">
-                      {answer.clue.answer}
+                      {rot13(answer.clue.answer)}
                     </span>
                   </li>
                 ))}

@@ -2,8 +2,14 @@ from flask import Flask, Response, jsonify, request, send_from_directory
 from flask_cors import CORS
 import random
 import os
+import codecs
 from typing import TypedDict
 from categories import CATEGORIES, CategoryData
+
+
+def rot13(text: str) -> str:
+    """Encode/decode text using ROT13."""
+    return codecs.encode(text, "rot_13")
 
 
 class Category(TypedDict, total=False):
@@ -271,7 +277,9 @@ def get_round() -> tuple[Response, int] | Response:
     clues: list[Clue] = []
     for answer in answers:
         formatted, vowel_count = format_missing_vowels(answer)
-        clues.append(Clue(clue=formatted, answer=answer, vowels_removed=vowel_count))
+        clues.append(
+            Clue(clue=formatted, answer=rot13(answer), vowels_removed=vowel_count)
+        )
 
     return jsonify(
         {
