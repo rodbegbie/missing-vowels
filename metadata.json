@@ -1,0 +1,24 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYKZJGJ2FH6VPGW58P5MR6XM",
+  "strategy": "manual-commit",
+  "branch": "worktree-biome-migration",
+  "checkpoints_count": 3,
+  "files_touched": null,
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 318,
+    "cache_creation_tokens": 670540,
+    "cache_read_tokens": 29880889,
+    "output_tokens": 132121,
+    "api_call_count": 162
+  }
+}
