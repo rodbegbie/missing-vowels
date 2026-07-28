@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "format": "cd frontend && node_modules/.bin/biome check --write src",
+    "format": "cd frontend && node_modules/.bin/biome format --write src",
     "format:backend": "cd backend && .venv/bin/ruff format app.py categories.py"
   },
   "devDependencies": {

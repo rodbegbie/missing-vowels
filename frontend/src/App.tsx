@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const API_URL = "/api";
+const VOWELS = new Set(["A", "E", "I", "O", "U"]);
 
 // ROT13 decode function
 function rot13(text: string): string {
@@ -176,7 +177,6 @@ function AnimatedTitle(): React.ReactElement {
 
   // Original title
   const fullText = "MISSING VOWELS";
-  const vowels = new Set(["A", "E", "I", "O", "U"]);
 
   // Generate random grouping once on mount
   const grouping = useMemo(() => generateGrouping(), []);
@@ -223,7 +223,7 @@ function AnimatedTitle(): React.ReactElement {
             {" "}
           </span>,
         );
-      } else if (vowels.has(char)) {
+      } else if (VOWELS.has(char)) {
         const vowelClass =
           phase === "full" ? "" : phase === "fading" ? "fade-out" : "collapse";
         result.push(
@@ -248,7 +248,7 @@ function AnimatedTitle(): React.ReactElement {
     }
 
     return result;
-  }, [phase, consonantPositions, vowels.has]);
+  }, [phase, consonantPositions]);
 
   return <h1 className="animated-title">{letters}</h1>;
 }

@@ -144,8 +144,10 @@ missing-vowels/
 │   │   └── main.tsx        # Entry point
 │   ├── dist/               # Production build output
 │   ├── package.json        # Frontend dependencies
+│   ├── biome.json          # Biome formatter/linter config
 │   └── webpack.config.cjs  # Webpack configuration
 ├── package.json            # Root dev tools (husky, lint-staged)
+├── .lintstagedrc.mjs       # Pre-commit file-to-command mapping
 ├── missing-vowels.service  # Systemd service configuration
 └── README.md
 ```

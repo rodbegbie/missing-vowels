@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --mode development --config webpack.config.cjs",
     "build": "NODE_ENV=production webpack --mode production --config webpack.config.cjs",
-    "lint": "biome lint .",
+    "lint": "biome check .",
     "format": "biome format --write .",
     "preview": "webpack serve --mode production --config webpack.config.cjs",
     "prepare": "husky"

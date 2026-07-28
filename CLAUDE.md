@@ -25,7 +25,7 @@ npm run format    # biome format --write
 
 Root (from repo root):
 ```bash
-npm run format          # biome format on frontend/src/**/*.{ts,tsx,css}
+npm run format          # biome format --write on frontend/src (formatting only, not lint)
 npm run format:backend  # ruff format on backend
 ```
 
