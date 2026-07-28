@@ -4,12 +4,17 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 
 ## 🎯 Features
 
-- **Multiple Difficulty Levels**: Choose from different difficulty settings that affect game duration
-- **Diverse Categories**: Over 100 categories with thousands of clues across various topics
+- **Multiple Difficulty Levels**: Five levels (Easy to Hard) that control
+  which categories you're served, based on answer length, vowel density,
+  and topic obscurity
+- **Diverse Categories**: Hundreds of categories with thousands of clues
+  across various topics
 - **Voice Recognition**: Optional speech recognition for hands-free gameplay
-- **Smart Answer Checking**: Fuzzy matching algorithm that accepts close answers
-- **Real-time Scoring**: Points based on speed and accuracy
-- **Results Summary**: Detailed breakdown of performance at the end of each game
+- **Smart Answer Checking**: Fuzzy matching algorithm that accepts close
+  answers
+- **Scoring**: One point per correct answer within the 60-second round
+- **Results Summary**: Detailed breakdown of performance at the end of
+  each game
 
 ## 🛠 Tech Stack
 
@@ -33,7 +38,7 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 
 ## 📋 Prerequisites
 
-- Python 3.13+
+- Python 3.12+
 - Node.js 18+ and npm
 - UV (Python package manager): `pip install uv`
 
@@ -61,22 +66,33 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
    ```
 
 3. **Run the development servers**
-   
+
+   `backend/app.py` and the frontend dev server both default to port
+   8000, and the dev server proxies `/api` to port 8001 — as shipped,
+   they collide. Either edit `backend/app.py`'s `app.run(port=...)` to
+   8001 before starting it, or skip the dev server entirely and use
+   the [production build](#production-build) workflow below, which
+   doesn't have this conflict.
+
+   With the backend moved to port 8001:
+
    In one terminal (backend):
+
    ```bash
    cd backend
    uv run python app.py
    ```
-   
+
    In another terminal (frontend):
+
    ```bash
    cd frontend
    npm run dev
    ```
 
 4. **Access the application**
-   - Development: http://localhost:3000
-   - Backend API: http://localhost:8000
+   - Development (hot-reloading frontend): <http://localhost:8000>
+   - Backend API (direct): <http://localhost:8001>/api
 
 ### Production Build
 
@@ -146,8 +162,8 @@ missing-vowels/
 
 ### Scoring
 
-- Points are awarded based on how quickly you answer
-- Faster answers = more points
+- One point per correct answer, regardless of how quickly you answer
+- Every round runs for a fixed 60 seconds
 - Review your performance in the results screen
 
 ## 🔧 Development Commands
@@ -181,40 +197,49 @@ git commit
 
 ## 🧪 API Endpoints
 
-- `GET /api/difficulties` - Get available difficulty levels
-- `POST /api/game` - Start a new game with selected difficulty
-  - Body: `{"difficulty": "medium"}`
-  - Returns: Array of rounds with categories and clues
+- `GET /api/difficulties` - Get available difficulty levels (1-5) with
+  a category count for each
+- `GET /api/round?difficulty=N` - Get a round: a random category at
+  difficulty `N` with up to 4 clues. Answers are ROT13-encoded; decode
+  them client-side before displaying
+- `GET /api/categories` - List all categories with their computed
+  difficulty and answer count
 
 ## 🎨 Customization
 
 ### Adding Categories
 
-Edit `backend/categories.py` to add new categories:
+Add an entry to the `CATEGORIES` list in `backend/categories.py`:
 
 ```python
-CATEGORIES.append(CategoryData(
-    name="Your Category Name",
-    answers=[
+{
+    "name": "Your Category Name",
+    "obscurity_modifier": 0.1,
+    "answers": [
         "Answer 1",
         "Answer 2",
         # ...
     ],
-    difficulty=2,  # 1-5 scale
-    obscurity_modifier=1.0  # Difficulty multiplier
-))
+},
 ```
+
+There's no `difficulty` field to set — a category needs at least 5
+answers that survive the vowel/digit filter, or it's dropped entirely
+at startup. `obscurity_modifier` nudges the computed difficulty up or
+down for topics that are harder or easier than their answer length
+alone would suggest.
 
 ### Adjusting Difficulty
 
-Modify the difficulty settings in `backend/app.py`:
+Difficulty (1-5) isn't stored per category — `calculate_difficulty()`
+in `backend/app.py` computes it at startup from each answer's length,
+vowel count, and word count, plus the category's
+`obscurity_modifier`. To retune how a category is scored, adjust its
+`obscurity_modifier` rather than setting a difficulty directly.
 
-```python
-DIFFICULTIES: list[dict[str, str | int]] = [
-    {"level": "easy", "name": "Easy (120s)", "count": 120},
-    # Adjust count for different durations
-]
-```
+Round length is a fixed 60 seconds for every difficulty, set in
+`frontend/src/App.tsx` (`setTimeLeft(60)`); difficulty only changes
+which categories are served, not how long the round runs.
 
 ## 📝 License
 
