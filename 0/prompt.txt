@@ -1,0 +1,25 @@
+/init
+
+---
+
+Let's try running the app and see if it's working.
+
+---
+
+Fix the docs to be accurate
+
+---
+
+Commit and push the changes.
+
+---
+
+OK, we're going to upgrade some of the tooling around here.  First of all, let's replace prettier with biome for javascript formatting.
+
+---
+
+looks good
+
+---
+
+carry on

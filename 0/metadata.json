@@ -1,0 +1,224 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYKWVY41Q1PW5XSA8J6EY6FS",
+  "session_id": "d2d48c10-5f8c-4a0a-9abe-d3420a6982a9",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-28T08:18:45.086547Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "turn_id": "a480d89736ae",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 202,
+    "cache_creation_tokens": 316747,
+    "cache_read_tokens": 14455347,
+    "output_tokens": 84877,
+    "api_call_count": 103
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-init-2026-07-28T07:48:20.718332Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "init"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "7cd60125aaad",
+      "timestamp": "2026-07-28T07:48:20.718332Z",
+      "native": {
+        "command": "/init"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/init",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01DiQNWhWmtjNn1yAwe4gVj6",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "init"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a480d89736ae",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 23,
+        "end": 24,
+        "entry_ids": [
+          "5d8ecf8f-474c-4ea4-b180-c63132c7982c"
+        ],
+        "tool_use_id": "toolu_01DiQNWhWmtjNn1yAwe4gVj6"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01DiQNWhWmtjNn1yAwe4gVj6"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: init",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_016kMatiF2WhZ66msVqDdc8g",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "run"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a480d89736ae",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 149,
+        "end": 150,
+        "entry_ids": [
+          "2684797e-2c7a-4fa8-9758-680105310a51"
+        ],
+        "tool_use_id": "toolu_016kMatiF2WhZ66msVqDdc8g"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_016kMatiF2WhZ66msVqDdc8g"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: run",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01LTWmmNNJ3eQX5ZxuJFgVxR",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "markdown"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a480d89736ae",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 307,
+        "end": 308,
+        "entry_ids": [
+          "4f1950e5-2d05-4a7c-9d66-5f98a525b085"
+        ],
+        "tool_use_id": "toolu_01LTWmmNNJ3eQX5ZxuJFgVxR"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01LTWmmNNJ3eQX5ZxuJFgVxR"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: markdown",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01VZfuq8A8zCywf6am2pb8Sx",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:brainstorming"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a480d89736ae",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 495,
+        "end": 496,
+        "entry_ids": [
+          "8c62238c-1404-46da-a90f-e2823b57362a"
+        ],
+        "tool_use_id": "toolu_01VZfuq8A8zCywf6am2pb8Sx"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01VZfuq8A8zCywf6am2pb8Sx"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:brainstorming",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01XBVHJaCfmugiEzV3Ub43tQ",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:writing-plans"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a480d89736ae",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 595,
+        "end": 596,
+        "entry_ids": [
+          "6e226b2b-85e8-4815-a49e-a16513aebc65"
+        ],
+        "tool_use_id": "toolu_01XBVHJaCfmugiEzV3Ub43tQ"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01XBVHJaCfmugiEzV3Ub43tQ"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:writing-plans",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 6
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 125,
+      "user_lines_removed": 1,
+      "agent_lines_added": 1,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".agent-traces/.active-session.d2d48c10-5f8c-4a0a-9abe-d3420a6982a9": 1,
+        ".agent-traces/.pending-calls.d2d48c10-5f8c-4a0a-9abe-d3420a6982a9.json": 1,
+        ".agent-traces/.pending-calls.json": 1,
+        ".agent-traces/d2d48c10-5f8c-4a/events.ndjson": 103,
+        ".agent-traces/d2d48c10-5f8c-4a/meta.json": 19
+      },
+      "user_removed_per_file": {
+        ".agent-traces/.pending-calls.json": 1
+      }
+    }
+  ]
+}
