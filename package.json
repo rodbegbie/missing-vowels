@@ -7,15 +7,6 @@
     "format": "cd frontend && node_modules/.bin/biome format --write src",
     "format:backend": "cd backend && .venv/bin/ruff format app.py categories.py"
   },
-  "lint-staged": {
-    "frontend/src/**/*.{ts,tsx,css}": [
-      "frontend/node_modules/.bin/biome check --write"
-    ],
-    "backend/*.py": [
-      "backend/.venv/bin/ruff format",
-      "backend/.venv/bin/ty check"
-    ]
-  },
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2"
