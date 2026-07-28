@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYKZB1WM6QD1FCKQ8K9CQWYW",
+  "strategy": "manual-commit",
+  "branch": "worktree-biome-migration",
+  "checkpoints_count": 3,
+  "files_touched": [
+    ".lintstagedrc.mjs"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 310,
+    "cache_creation_tokens": 666966,
+    "cache_read_tokens": 28640700,
+    "output_tokens": 130192,
+    "api_call_count": 158
+  }
+}
