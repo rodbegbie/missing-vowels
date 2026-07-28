@@ -12,7 +12,8 @@ export default {
         return file.replace(/^frontend\//, '');
       })
       .join(' ');
-    return `cd frontend && node_modules/.bin/biome check --write ${relativePaths}`;
+    // Use biome lint which properly blocks on errors and applies safe fixes
+    return `cd frontend && node_modules/.bin/biome lint --write ${relativePaths}`;
   },
   'backend/*.py': [
     'backend/.venv/bin/ruff format',
