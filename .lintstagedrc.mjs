@@ -2,8 +2,13 @@ export default {
   'frontend/src/**/*.{ts,tsx,css}': (files) => {
     const relativePaths = files
       .map((file) => {
-        // files come in as git root-relative paths, need to convert to frontend-relative
-        // e.g. 'frontend/src/App.tsx' -> 'src/App.tsx'
+        // lint-staged passes absolute paths; extract the relative path within frontend/
+        // e.g. '/path/to/repo/frontend/src/App.tsx' -> 'src/App.tsx'
+        const match = file.match(/frontend\/(.+)$/);
+        if (match) {
+          return match[1];
+        }
+        // Fallback for relative paths (shouldn't happen but just in case)
         return file.replace(/^frontend\//, '');
       })
       .join(' ');
