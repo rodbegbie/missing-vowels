@@ -33,7 +33,7 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 ### Development Tools
 - Husky for Git hooks
 - lint-staged for pre-commit checks
-- Prettier for frontend formatting
+- Biome for frontend formatting and linting
 - Ruff for Python formatting and linting
 
 ## 📋 Prerequisites
@@ -145,7 +145,7 @@ missing-vowels/
 │   ├── dist/               # Production build output
 │   ├── package.json        # Frontend dependencies
 │   └── webpack.config.cjs  # Webpack configuration
-├── package.json            # Root dev tools (husky, prettier)
+├── package.json            # Root dev tools (husky, lint-staged)
 ├── missing-vowels.service  # Systemd service configuration
 └── README.md
 ```
@@ -174,7 +174,7 @@ cd frontend
 npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
-npm run lint     # Run ESLint
+npm run lint     # Run Biome lint
 ```
 
 ### Backend
