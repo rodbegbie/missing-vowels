@@ -7,3 +7,7 @@ Let's try running the app and see if it's working.
 ---
 
 Fix the docs to be accurate
+
+---
+
+Commit and push the changes.
