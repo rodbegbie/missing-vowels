@@ -259,6 +259,37 @@
         "label": "Skill: superpowers:using-git-worktrees",
         "default_collapsed": true
       }
+    },
+    {
+      "id": "claude-skill-toolu_01WCqfquSepUMQx6oo5vdd3g",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:finishing-a-development-branch"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "57777d722632",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 2169,
+        "end": 2170,
+        "entry_ids": [
+          "8b881eaa-726e-47eb-8083-89ff7622a04a"
+        ],
+        "tool_use_id": "toolu_01WCqfquSepUMQx6oo5vdd3g"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01WCqfquSepUMQx6oo5vdd3g"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:finishing-a-development-branch",
+        "default_collapsed": true
+      }
     }
   ],
   "session_metrics": {
