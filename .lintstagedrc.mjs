@@ -8,11 +8,7 @@ export default {
         return match ? match[1] : file.replace(/^frontend\//, '');
       })
       .join(' ');
-    // First lint (which blocks on errors), then format for safe fixes
-    return [
-      `cd frontend && node_modules/.bin/biome lint ${relativePaths}`,
-      `cd frontend && node_modules/.bin/biome format --write ${relativePaths}`,
-    ];
+    return `cd frontend && node_modules/.bin/biome check --write ${relativePaths}`;
   },
   'backend/*.py': [
     'backend/.venv/bin/ruff format',
