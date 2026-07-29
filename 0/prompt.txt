@@ -580,3 +580,7 @@ squash and merge pr 2
 ---
 
 Create a branch for updating the Python dependencies.
+
+---
+
+Sure. Delete it. Then Add `ruff check` in addition to `ruff format` in the linting configuration
