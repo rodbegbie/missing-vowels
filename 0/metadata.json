@@ -1,0 +1,250 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYR1AATDX16PX2SVEQ9NHZCM",
+  "session_id": "d15c6304-929c-4b97-b451-d4008e555c90",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-29T22:53:34.678793Z",
+  "branch": "chore/pnpm-migration",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".gitignore"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5[1m]",
+  "turn_id": "3710f0314b26",
+  "checkpoint_transcript_start": 297,
+  "transcript_lines_at_start": 297,
+  "compact_transcript_start": 47,
+  "token_usage": {
+    "input_tokens": 24,
+    "cache_creation_tokens": 19960,
+    "cache_read_tokens": 1328665,
+    "output_tokens": 3678,
+    "api_call_count": 13
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01CMT9Nk7h1EW9unc4ZJsK6n",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:brainstorming"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "3710f0314b26",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 146,
+        "end": 147,
+        "entry_ids": [
+          "49ec9bda-8762-40d1-9357-9a02be0c27f2"
+        ],
+        "tool_use_id": "toolu_01CMT9Nk7h1EW9unc4ZJsK6n"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01CMT9Nk7h1EW9unc4ZJsK6n"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:brainstorming",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_013FPnhCBhqxuK1HXwFncUCy",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "markdown"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "3710f0314b26",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 212,
+        "end": 213,
+        "entry_ids": [
+          "8c17b697-9cc1-4d1b-819c-19ff9eae497d"
+        ],
+        "tool_use_id": "toolu_013FPnhCBhqxuK1HXwFncUCy"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_013FPnhCBhqxuK1HXwFncUCy"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: markdown",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01EAy7afkraDnsUyF3YScNXb",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:writing-plans"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "3710f0314b26",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 247,
+        "end": 248,
+        "entry_ids": [
+          "25eeb556-1218-42c6-ad0f-2b1631f34a6c"
+        ],
+        "tool_use_id": "toolu_01EAy7afkraDnsUyF3YScNXb"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01EAy7afkraDnsUyF3YScNXb"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:writing-plans",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01DFetthyNPF73cL5Gho5Ws6",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:subagent-driven-development"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "3710f0314b26",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 302,
+        "end": 303,
+        "entry_ids": [
+          "f6acacc9-af5b-464d-9cf3-0d7f072e3645"
+        ],
+        "tool_use_id": "toolu_01DFetthyNPF73cL5Gho5Ws6"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01DFetthyNPF73cL5Gho5Ws6"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:subagent-driven-development",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01U3aDbx1n6zakEdRQmTfhVN",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:using-git-worktrees"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "3710f0314b26",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 313,
+        "end": 314,
+        "entry_ids": [
+          "3c2d6ff8-20dd-467c-abb3-1bbe6b9b0999"
+        ],
+        "tool_use_id": "toolu_01U3aDbx1n6zakEdRQmTfhVN"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01U3aDbx1n6zakEdRQmTfhVN"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:using-git-worktrees",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 6
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-29T22:53:34.652204Z",
+    "agent_lines": 3,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 3,
+    "total_lines_changed": 3,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 21546,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".agent-traces/.active-session.d15c6304-929c-4b97-b451-d4008e555c90": 1,
+        ".agent-traces/.active-session.d2d48c10-5f8c-4a0a-9abe-d3420a6982a9": 1,
+        ".agent-traces/.pending-calls.d15c6304-929c-4b97-b451-d4008e555c90.json": 1,
+        ".agent-traces/.pending-calls.d2d48c10-5f8c-4a0a-9abe-d3420a6982a9.json": 1,
+        ".agent-traces/.pending-calls.json": 1,
+        ".agent-traces/d15c6304-929c-4b/events.ndjson": 87,
+        ".agent-traces/d15c6304-929c-4b/meta.json": 19,
+        ".agent-traces/d2d48c10-5f8c-4a/events.ndjson": 157,
+        ".agent-traces/d2d48c10-5f8c-4a/meta.json": 19,
+        ".claude/worktrees/biome-migration/.claude/settings.json": 84,
+        ".claude/worktrees/biome-migration/.entire/.gitignore": 5,
+        ".claude/worktrees/biome-migration/.entire/settings.json": 9,
+        ".claude/worktrees/biome-migration/.gitignore": 14,
+        ".claude/worktrees/biome-migration/.husky/pre-commit": 4,
+        ".claude/worktrees/biome-migration/.lintstagedrc.mjs": 18,
+        ".claude/worktrees/biome-migration/.pi/extensions/entire/index.ts": 127,
+        ".claude/worktrees/biome-migration/CLAUDE.md": 58,
+        ".claude/worktrees/biome-migration/README.md": 281,
+        ".claude/worktrees/biome-migration/backend/.python-version": 1,
+        ".claude/worktrees/biome-migration/backend/app.py": 311,
+        ".claude/worktrees/biome-migration/backend/categories.py": 7122,
+        ".claude/worktrees/biome-migration/backend/pyproject.toml": 15,
+        ".claude/worktrees/biome-migration/backend/uv.lock": 237,
+        ".claude/worktrees/biome-migration/docs/superpowers/plans/2026-07-28-biome-migration.md": 768,
+        ".claude/worktrees/biome-migration/docs/superpowers/specs/2026-07-28-biome-migration-design.md": 130,
+        ".claude/worktrees/biome-migration/frontend/.gitignore": 24,
+        ".claude/worktrees/biome-migration/frontend/biome.json": 24,
+        ".claude/worktrees/biome-migration/frontend/index.html": 14,
+        ".claude/worktrees/biome-migration/frontend/package-lock.json": 9577,
+        ".claude/worktrees/biome-migration/frontend/package.json": 43,
+        ".claude/worktrees/biome-migration/frontend/public/vite.svg": 1,
+        ".claude/worktrees/biome-migration/frontend/src/App.css": 652,
+        ".claude/worktrees/biome-migration/frontend/src/App.tsx": 757,
+        ".claude/worktrees/biome-migration/frontend/src/assets/react.svg": 1,
+        ".claude/worktrees/biome-migration/frontend/src/index.css": 13,
+        ".claude/worktrees/biome-migration/frontend/src/main.tsx": 15,
+        ".claude/worktrees/biome-migration/frontend/tsconfig.json": 22,
+        ".claude/worktrees/biome-migration/frontend/webpack.config.cjs": 117,
+        ".claude/worktrees/biome-migration/missing-vowels.service": 15,
+        ".claude/worktrees/biome-migration/package-lock.json": 786,
+        ".claude/worktrees/biome-migration/package.json": 14
+      }
+    }
+  ]
+}
