@@ -1,4 +1,4 @@
 # --shell is required: .lintstagedrc.mjs's frontend task returns a "cd frontend && ..."
 # command string. Without --shell, lint-staged space-splits it instead of running it
 # through a shell, spawning a literal `cd` binary and silently never running Biome.
-npx lint-staged --shell
+pnpm exec lint-staged --shell
