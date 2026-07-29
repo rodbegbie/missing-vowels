@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYR52J5YBFF84Z30XPGPY6FD",
+  "strategy": "manual-commit",
+  "branch": "feature/test-suite",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "docs/superpowers/specs/2026-07-29-test-suite-design.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 33,
+    "cache_creation_tokens": 111462,
+    "cache_read_tokens": 1080310,
+    "output_tokens": 11720,
+    "api_call_count": 17
+  }
+}
