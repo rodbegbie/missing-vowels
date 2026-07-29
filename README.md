@@ -39,7 +39,7 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 ## 📋 Prerequisites
 
 - Python 3.12+
-- Node.js 18+ and npm
+- Node.js 18+ and pnpm
 - UV (Python package manager): `pip install uv`
 
 ## 🚀 Quick Start
@@ -54,13 +54,9 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 
 2. **Install dependencies**
    ```bash
-   # Install root-level dependencies (dev tools)
-   npm install
-   
-   # Install frontend dependencies
-   cd frontend
-   npm install
-   cd ..
+   # Installs both root dev tools and frontend dependencies
+   # (single pnpm workspace)
+   pnpm install
    
    # Backend dependencies are managed by UV
    ```
@@ -87,7 +83,7 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 
    ```bash
    cd frontend
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Access the application**
@@ -99,7 +95,7 @@ A web-based word puzzle game inspired by the BBC's "Only Connect" Missing Vowels
 1. **Build the frontend**
    ```bash
    cd frontend
-   npm run build
+   pnpm run build
    ```
 
 2. **Run the backend** (serves both API and static frontend)
@@ -173,10 +169,10 @@ missing-vowels/
 ### Frontend
 ```bash
 cd frontend
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run Biome lint
+pnpm run dev      # Start development server
+pnpm run build    # Build for production
+pnpm run preview  # Preview production build
+pnpm run lint     # Run Biome lint
 ```
 
 ### Backend
@@ -188,10 +184,10 @@ uv run python app.py  # Run Flask server
 ### Code Formatting
 ```bash
 # Format frontend (from root)
-npm run format
+pnpm run format
 
 # Format backend (from root)
-npm run format:backend
+pnpm run format:backend
 
 # Or commit and let husky run formatters automatically
 git commit
@@ -272,8 +268,7 @@ lsof -ti:8000 | xargs kill -9
 ```bash
 # Clean and reinstall dependencies
 rm -rf node_modules frontend/node_modules
-npm install
-cd frontend && npm install
+pnpm install
 ```
 
 ## 📧 Support
