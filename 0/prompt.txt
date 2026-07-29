@@ -588,3 +588,7 @@ Sure. Delete it. Then Add `ruff check` in addition to `ruff format` in the linti
 ---
 
 Upgrade the dependencies on ty and ruff to the latest versions, then make sure linting still passes. Fix things if it doesn't.
+
+---
+
+OK, now upgrade flask to the latest versions
