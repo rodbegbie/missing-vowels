@@ -12,6 +12,7 @@ Backend (from `backend/`):
 ```bash
 uv run python app.py       # run Flask server (port 8000)
 .venv/bin/ruff format app.py categories.py   # format
+.venv/bin/ruff check app.py categories.py    # lint
 .venv/bin/ty check                            # type check
 ```
 
@@ -27,11 +28,12 @@ Root (from repo root):
 ```bash
 pnpm run format          # biome format --write on frontend/src (formatting only, not lint)
 pnpm run format:backend  # ruff format on backend
+pnpm run lint:backend    # ruff check on backend
 ```
 
 There is no test suite (no pytest/vitest/jest configured) — verify changes by running the app manually.
 
-Pre-commit (husky + lint-staged) runs `biome check --write` (format + lint + import sort) on frontend files and `ruff format` + `ty check` on backend `.py` files. Don't bypass this.
+Pre-commit (husky + lint-staged) runs `biome check --write` (format + lint + import sort) on frontend files and `ruff check` + `ruff format` + `ty check` on backend `.py` files. Don't bypass this.
 
 ## Architecture
 

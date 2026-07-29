@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky",
     "format": "cd frontend && node_modules/.bin/biome format --write src",
-    "format:backend": "cd backend && .venv/bin/ruff format app.py categories.py"
+    "format:backend": "cd backend && .venv/bin/ruff format app.py categories.py",
+    "lint:backend": "cd backend && .venv/bin/ruff check app.py categories.py"
   },
   "devDependencies": {
     "husky": "^9.1.7",

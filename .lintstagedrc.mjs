@@ -12,6 +12,7 @@ export default {
     return `cd frontend && node_modules/.bin/biome check --write ${relativePaths}`;
   },
   "backend/*.py": [
+    "backend/.venv/bin/ruff check",
     "backend/.venv/bin/ruff format",
     "backend/.venv/bin/ty check",
   ],
