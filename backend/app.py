@@ -1,9 +1,11 @@
+import codecs
+import os
+import random
+from typing import TypedDict
+
 from flask import Flask, Response, jsonify, request, send_from_directory
 from flask_cors import CORS
-import random
-import os
-import codecs
-from typing import TypedDict
+
 from categories import CATEGORIES, CategoryData
 
 
@@ -68,14 +70,14 @@ FILTERED_CATEGORIES: list[Category] = filter_categories(CATEGORIES)
 
 @app.route("/")
 def serve_index() -> Response:
-    return send_from_directory(app.static_folder, "index.html")  # type: ignore[arg-type]
+    return send_from_directory(static_folder, "index.html")
 
 
 @app.route("/<path:path>")
 def serve_static(path: str) -> Response:
-    if os.path.exists(os.path.join(app.static_folder, path)):  # type: ignore[arg-type]
-        return send_from_directory(app.static_folder, path)  # type: ignore[arg-type]
-    return send_from_directory(app.static_folder, "index.html")  # type: ignore[arg-type]
+    if os.path.exists(os.path.join(static_folder, path)):
+        return send_from_directory(static_folder, path)
+    return send_from_directory(static_folder, "index.html")
 
 
 def remove_vowels(text: str) -> tuple[str, int]:
