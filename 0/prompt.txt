@@ -1,0 +1,582 @@
+<task-notification>
+<task-id>a26ff160a3d061547</task-id>
+<tool-use-id>toolu_01BUN8TykMrww1cYW13jykKb</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a26ff160a3d061547.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 1: pnpm workspace" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Task 1 Complete
+
+**Status:** DONE_WITH_CONCERNS
+
+**Commit created:**
+- `bf2b27e Convert to a pnpm workspace`
+
+**Verification summary:** All three verification checks pass; pnpm workspace functional with both root and frontend projects integrated; 25 packages across 2 projects; biome executable and tested.
+
+**Concerns:**
+- `pnpm-workspace.yaml` was auto-modified by pnpm to add an `allowBuilds` field for esbuild — not in the brief's spec but harmless and doesn't affect functionality.
+
+**Report file:** `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-1-report.md`</result>
+<usage><subagent_tokens>33135</subagent_tokens><tool_uses>22</tool_uses><duration_ms>140716</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a26ff160a3d061547</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a26ff160a3d061547.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 1: pnpm workspace" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Task 1: pnpm Workspace Conversion — FIXED
+
+**Status:** DONE
+
+**Commit created:**
+- `6a091f6 Convert to a pnpm workspace` (amended from `bf2b27e`)
+
+**Verification summary:** All three Step 6 checks pass; pnpm-workspace.yaml now contains valid `esbuild: true` (no placeholder strings); clean `pnpm install` completes in 4.2s with esbuild postinstall executing successfully; workspace has 25 packages across 2 projects; biome executable verified.
+
+**Concerns:** None. Build script approval issue identified and resolved.
+
+**Report file:** `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-1-report.md` (updated with fix note)</result>
+<usage><subagent_tokens>43969</subagent_tokens><tool_uses>18</tool_uses><duration_ms>123165</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>aa72376f150813e6a</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/aa72376f150813e6a.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 1 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+
+✅ Spec compliant with all listed requirements. Verified against the diff:
+
+- `pnpm-workspace.yaml` created, root package `packages: [frontend]` present (diff: `.../review-dd47e64..6a091f6.diff:17218-17222`).
+- `package.json` root: `"packageManager": "pnpm@11.5.1"` added, exact version pinned, placed immediately after `"private": true,` as specified (diff line `10448`).
+- `frontend/package.json`: `"prepare": "husky"` script removed, `husky`/`lint-staged` devDependencies removed, all other scripts/deps left untouched — resulting file matches the brief's Step 3 expected content exactly (diff lines `9603-9646`).
+- `package-lock.json` (root) and `frontend/package-lock.json` both show `deleted file mode 100644` (diff lines `9647-9652`, `16-20`).
+- `pnpm-lock.yaml` created new at root, 6748 lines, `lockfileVersion: '9.0'` (diff lines `10459-10467`).
+- File-changed list is exactly the six files the brief scoped: `frontend/package-lock.json`, `frontend/package.json`, `package-lock.json`, `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml` — no stray files, no `node_modules` committed (diff header stat block, top of diff file).
+- Single commit `6a091f6 "Convert to a pnpm workspace"` — matches the brief's Step 7 commit message.
+- `pnpm-workspace.yaml` `allowBuilds.esbuild: true` is a **real boolean, not a placeholder** — confirmed both in the diff (`17222`) and independently via web search: pnpm 11 removed `onlyBuiltDependencies`/`ignoredBuiltDependencies` in favor of `allowBuilds`, a package-name→boolean map in `pnpm-workspace.yaml`; unapproved builds get written with a placeholder value until explicitly set to `true`/`false`. The implementer's fix-round claim is correct and matches upstream pnpm 11 behavior, not an invention.
+
+⚠️ Cannot verify from diff: whether `pnpm install` at repo root actually resolves `frontend/node_modules/.bin/biome` and other tool binaries in a live environment — this depends on `node_modules/` contents, which aren't tracked in git and thus not in the diff. The report's manual verification output (Step 6 commands, `biome --version` → `2.5.6`, `pnpm list --depth=0` → "25 packages in 2 projects") is the only evidence; I did not re-run these myself per the task's instructions, and have no reason from the diff to doubt them.
+
+### Strengths
+
+- Clean, minimal diffs on `package.json` and `frontend/package.json` — each is a single, surgical change with no unrelated formatting churn (diff lines `10443-10458`, `9603-9646`).
+- Correctly identified and resolved the `allowBuilds` placeholder issue in the follow-up round rather than leaving `esbuild: set this to true or false` committed — this was verified against upstream pnpm docs/behavior, not just asserted.
+- File scope discipline: only the six files the brief named were touched; no drive-by edits to `.lintstagedrc.mjs`, `.gitignore`, or CI config, consistent with the global constraints stating none of those need changes.
+- The husky/lint-staged de-duplication in `frontend/package.json` matches the brief's rationale precisely (root owns the git hook; frontend's copy was a mismatched version).
+
+### Issues
+
+#### Important (Should Fix)
+
+None.
+
+#### Minor (Nice to Have)
+
+- Report lines `128`, `143`: the fix round was applied via `git commit --amend` (`bf2b27e` → `6a091f6`) rather than a new commit. Rod's global git conventions (`~/.claude/rules/version-control.md`) state commits should not be amended except on explicit request. The end state (one clean commit) is fine for a not-yet-merged task branch, but worth a note since it's a repeated pattern to watch for in later tasks.
+- `pnpm-workspace.yaml`'s final content (`packages` + `allowBuilds`) is not literally what the brief's Step 1 snippet specified (`packages: - frontend` only). This is not a defect — `allowBuilds` is a required addition for `pnpm install` to complete non-interactively in pnpm 11 given esbuild's postinstall script — but it is a deviation from the literal brief text worth flagging so the plan/design doc gets updated for future re-runs of this task.
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** The diff is a faithful, narrowly-scoped implementation of the brief — correct file set, correct packageManager pin, correct workspace config, lockfiles swapped cleanly, and the one real risk called out in the review brief (a placeholder value in `allowBuilds`) was checked against the diff and confirmed genuinely fixed to a valid boolean, not merely claimed fixed.</result>
+<usage><subagent_tokens>48695</subagent_tokens><tool_uses>11</tool_uses><duration_ms>105413</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>ae1c138eff5559d14</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/ae1c138eff5559d14.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 2: pre-commit hook pnpm" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Summary
+
+**Status:** DONE
+
+**Commit created:** `cdd4d7a` – Run pre-commit hook via pnpm exec
+
+**Verification:** `pnpm exec lint-staged --version` resolved successfully and printed version 15.5.2.
+
+**Self-review:** All steps completed. Only `.husky/pre-commit` modified. Comment preserved. New commit created (not amended). No concerns.
+
+**Report file:** `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-2-report.md`</result>
+<usage><subagent_tokens>24787</subagent_tokens><tool_uses>7</tool_uses><duration_ms>49964</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>acb4882c1b172655c</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/acb4882c1b172655c.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 2 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+
+✅ Spec compliant
+
+- `.husky/pre-commit:4` — `npx lint-staged --shell` → `pnpm exec lint-staged --shell`, matching the brief's Step 1 exactly.
+- Explanatory comment (`.husky/pre-commit:1-3`) preserved verbatim, untouched by the diff.
+- Only `.husky/pre-commit` touched — no changes to `pnpm-workspace.yaml`, `package.json`, or any other file, per the global constraint.
+- Diff contains exactly one commit (`cdd4d7a "Run pre-commit hook via pnpm exec"`) on top of base `6a091f6` — a new commit, not an amend, satisfying Rod's version-control convention.
+- Verification evidence in the report (Step 2: `pnpm exec lint-staged --version` → `15.5.2`) is accepted per task instructions; no reason to doubt it given the change is a one-line, low-risk invocation swap.
+- No CI workflows exist in this repo to update — consistent with global constraints, nothing missed there.
+
+### Strengths
+
+- Minimal, surgical diff: exactly the one-line change requested, nothing more.
+- Comment block explaining the `--shell` gotcha (`.husky/pre-commit:1-3`) left completely intact — no drift or rewording.
+- Commit message matches the brief's suggested message verbatim.
+- Used a new commit rather than amending, as required.
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+None.
+
+#### Minor (Nice to Have)
+
+None — the change is a single-line, fully scoped edit with no leftover `npm`/`npx` references anywhere in the file.
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** The diff is a single-line, exactly-as-specified change (`.husky/pre-commit:4`), preserves the load-bearing comment verbatim, touches no other files, and was committed as a new commit rather than an amend — fully compliant with both the task brief and the global constraints.</result>
+<usage><subagent_tokens>35873</subagent_tokens><tool_uses>3</tool_uses><duration_ms>21539</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a840e4d8531a2ff3b</task-id>
+<tool-use-id>toolu_01HH9JKSsKUC1UkqKeHmkas2</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a840e4d8531a2ff3b.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 3: README.md pnpm" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Final Report
+
+**Status:** DONE
+
+**Commits created:**
+- e141068 — Update README.md commands from npm to pnpm
+
+**Verification summary:**
+All 7 edits applied; grep confirms no standalone npm commands remain.
+
+**Self-review findings:**
+No issues. All markdown valid, only README.md touched, new commit created, formatting preserved.
+
+**Report file:**
+/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-3-report.md</result>
+<usage><subagent_tokens>32513</subagent_tokens><tool_uses>16</tool_uses><duration_ms>98041</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>aceddb8bdb8804f3e</task-id>
+<tool-use-id>toolu_01EFuSaC5muQuK8hHJmSkkEs</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/aceddb8bdb8804f3e.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 3 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>No non-breaking spaces found. All checks complete.
+
+### Spec Compliance
+
+✅ Spec compliant
+
+- All 7 steps from the task brief verified against the diff, each an exact
+  match to the brief's specified before/after text:
+  - Step 1 (prerequisites, README.md:42): `npm` → `pnpm` ✓
+  - Step 2 (install collapse, README.md:55-61): two-step npm install
+    collapsed into single `pnpm install`, comment wording matches brief
+    verbatim ✓
+  - Step 3 (dev server, README.md:86): `npm run dev` → `pnpm run dev` ✓
+  - Step 4 (build, README.md:98): `npm run build` → `pnpm run build` ✓
+  - Step 5 (Development Commands, README.md:172-175): all 4 commands
+    converted ✓
+  - Step 6 (Code Formatting, README.md:187,190): both commands converted ✓
+  - Step 7 (Build Errors, README.md:270-271): two-step npm install/cd
+    collapsed to single `pnpm install`, matches brief exactly ✓
+- `grep -n "npm" README.md` run directly against the working tree (not
+  trusting the report) returns only lines containing `pnpm` — no stray
+  `npm ` occurrences anywhere in the file, including outside the touched
+  hunks.
+- Diff stat matches report claim: 1 file changed, 13 insertions(+), 18
+  deletions(-).
+- Only README.md touched; no code/config files in the diff — satisfies
+  "documentation-only change."
+- No wording/content changes beyond the npm→pnpm conversion and the
+  install-step collapse — no "extra" scope creep found.
+- Single new commit `e141068` "Update README.md commands from npm to
+  pnpm" on top of base `cdd4d7a`; not an amend (base commit `cdd4d7a` is
+  untouched, one clean commit added).
+
+### Strengths
+
+- All 7 edits match the brief's literal before/after text exactly,
+  including the exact new comment wording specified for Step 2
+  (README.md:57-58).
+- Verification grep was actually run and its result correctly reported;
+  independent re-run confirms no stray `npm` references anywhere in the
+  file, not just in the touched hunks.
+- Left pre-existing, out-of-scope issues alone (e.g. missing blank line
+  between `### Frontend` heading and the following code fence at
+  README.md:168-169; long pre-existing lines at README.md:3,153,276) —
+  correctly avoided expanding scope to "fix" unrelated markdown, which
+  the global constraints implicitly forbid ("Extra" changes disallowed).
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+None.
+
+#### Minor (Nice to Have)
+
+- README.md:60 retains a line consisting of three trailing spaces inside
+  the collapsed install code fence (blank separator line before `#
+  Backend dependencies are managed by UV`). This trailing whitespace is
+  pre-existing (present as unchanged context in the diff, not introduced
+  by this task) so it isn't this task's fault, but since the implementer
+  was already editing this exact block it would have been a costless
+  drive-by cleanup. Not blocking.
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** All 7 specified edits are present, textually exact, and
+scoped correctly; a direct re-grep of the working tree confirms zero
+remaining `npm` references and the file still ends in exactly one
+newline with no tabs or non-breaking spaces introduced. Nothing here
+needs to change before merge.</result>
+<usage><subagent_tokens>44660</subagent_tokens><tool_uses>10</tool_uses><duration_ms>85641</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a35cb0aba4a73c14a</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a35cb0aba4a73c14a.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 4: CLAUDE.md pnpm" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Summary
+
+**Status:** DONE
+
+**Commit created:** e124a2b – Update CLAUDE.md commands from npm to pnpm
+
+**Verification result:** All 3 edits applied; grep confirms no `npm ` references remain (7 replacements: 4 in Frontend, 2 in Root, 1 in Gotchas)
+
+**Self-review:** All checks pass — correct edits, clean markdown, only CLAUDE.md touched, new commit (not amended), verification passes
+
+**Report file:** `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-4-report.md`</result>
+<usage><subagent_tokens>27895</subagent_tokens><tool_uses>11</tool_uses><duration_ms>62804</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a87073e51104a72e1</task-id>
+<tool-use-id>toolu_01CUc6rXSucQNhprzuJQ5wpp</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a87073e51104a72e1.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 4 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Confirmed: single new commit `e124a2b`, not amended (base `e141068` is a distinct prior commit still in history). Only file touched: `CLAUDE.md`, 7 insertions/7 deletions, matching the diff and the report.
+
+Verified live grep on current `CLAUDE.md`: all 7 `npm ` occurrences (4 in Frontend block, 2 in Root block, 1 in Gotchas) now read `pnpm `, and no stray `npm` references remain anywhere in the file. File ends with exactly one trailing newline (`...automatically.\n`, confirmed via hex dump).
+
+### Spec Compliance
+
+✅ Spec compliant — all three edits from the brief (Frontend commands block, Root commands block, Gotchas mention) were applied exactly as specified, verbatim to the brief's before/after snippets. CLAUDE.md:20-23, CLAUDE.md:28-29, CLAUDE.md:56.
+
+### Strengths
+
+- Diff touches only the lines called out in the brief — no drive-by wording changes, no scope creep into README.md or other files (that was handled in a separate prior commit `e141068`, correctly out of scope here).
+- Code fence structure is untouched — edits are confined to lines inside already-open ` ```bash ` blocks; no fence delimiters were added, removed, or reflowed.
+- New commit created cleanly on top of the correct base, not an amend (`git log` shows `e141068` as a distinct ancestor, `e124a2b` as a new child commit).
+- File still ends with exactly one trailing newline.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The report's stated verification command (`grep -n " npm " CLAUDE.md`, task-4-report.md:17) differs from the brief's specified command (`grep -n "npm " CLAUDE.md`, task-4-brief.md:75) — the implementer changed the pattern to dodge false-positive matches inside "pnpm" and noted this explicitly. The reasoning is sound and the outcome (no stray `npm` references) checks out independently, but it's technically a deviation from the brief's literal Step 4 instruction. Worth flagging only for future brief-writers (the plain-string grep as written would always false-positive against "pnpm" containing "npm").
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** All three specified edits are present, correctly scoped, and match the brief verbatim; independent verification (fresh grep, hex dump of file tail, commit ancestry check) confirms the report's claims rather than merely trusting them.</result>
+<usage><subagent_tokens>39513</subagent_tokens><tool_uses>7</tool_uses><duration_ms>31709</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a74d363f783aba57e</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a74d363f783aba57e.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 5: end-to-end verification" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>**Status:** DONE_WITH_CONCERNS
+
+No commits created — the Step 4 trial commit was correctly declined by lint-staged because Biome reformatted the trivial whitespace change back to nothing (net-zero diff), per the brief's explicit guidance to skip creating an empty commit in that case.
+
+All 5 verification steps pass: format, format:backend, frontend lint+build, pre-commit hook (confirmed running via `pnpm exec lint-staged --shell` with no "command not found" errors), and no stray `package-lock.json` files on this branch.
+
+Concerns (all minor, non-blocking, none are defects from Tasks 1-4):
+- `find` for Step 5 initially returned two `package-lock.json` hits, but they're inside `.claude/worktrees/biome-migration` — a separate, unrelated registered git worktree on a different branch. Re-scoped search confirms the actual `chore/pnpm-migration` tree is clean.
+- Pre-existing untracked `.agent-traces/` and `.claude/worktrees/` dirs meant I used `git add frontend/src/App.tsx` instead of the brief's literal `git add -A` to avoid sweeping unrelated files into the trial commit.
+- Lint-staged left a harmless backup stash entry after the intentionally-aborted commit.
+- Non-fatal `GITHUB_NPM_TOKEN` env warning and a Biome schema-version info notice, both pre-existing/unrelated.
+
+Full report: `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/task-5-report.md`</result>
+<usage><subagent_tokens>51565</subagent_tokens><tool_uses>22</tool_uses><duration_ms>156600</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a32a9e6f1db2f31f1</task-id>
+<tool-use-id>toolu_018zjWzRxcf9zUyFcubtEgeq</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a32a9e6f1db2f31f1.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 5 (verification results)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+
+✅ Spec compliant. All five verification steps in the brief were executed, and independently re-running each one reproduces the report's claimed results exactly (matching exit codes and, in most cases, near-identical output).
+
+Independent re-run results:
+
+1. `pnpm run format` (root) — exit 0, `Formatted 4 files in 4ms. No fixes applied.` Matches report.
+2. `pnpm run format:backend` (root) — `backend/.venv` exists, ran fine — exit 0, `2 files left unchanged`. Matches report.
+3. `cd frontend &amp;&amp; pnpm run lint` — exit 0, same info-level `biome.json` schema-version notice (2.5.5 declared vs 2.5.6 CLI), `Found 1 info.` Matches report.
+4. `cd frontend &amp;&amp; pnpm run build` — exit 0, webpack compiled successfully, `frontend/dist` refreshed (assets/index.html timestamps updated to this run). Matches report.
+5. `find . -name "package-lock.json" -not -path "*/node_modules/*"` — returns exactly the two hits under `.claude/worktrees/biome-migration/` that the report describes; `git worktree list` confirms that's a separate registered worktree on branch `worktree-biome-migration` (HEAD `36f4af7`), unrelated to this branch. With `-not -path "*/.claude/worktrees/*"` added, output is empty — confirmed clean.
+
+Git state check: `git log --oneline -6` shows tip `e124a2b Update CLAUDE.md commands from npm to pnpm`, no new commits added. `git status` shows a clean working tree with only the two pre-existing untracked directories (`.agent-traces/`, `.claude/worktrees/`). `git stash list` is **empty** — the lint-staged automatic-backup stash entry the report flagged as a residual artifact is no longer present, so that concern is already resolved (not something the controller needs to clean up).
+
+`.husky/pre-commit` content (`pnpm exec lint-staged --shell`) matches what the report's Step 4 narrative describes invoking, corroborating the claimed trial-commit output is plausible.
+
+### Strengths
+
+- Report's Step 4 handling is correct: per the brief's explicit fallback guidance, when Biome collapsed the trivial whitespace edit back to nothing, the implementer skipped forcing an empty commit rather than fabricating one with `--allow-empty`, and documented the lint-staged failure output as evidence the hook fired correctly under pnpm.
+- Report's Step 5 investigation went a level deeper than the brief required — it identified that the two `package-lock.json` hits belonged to an unrelated, separately-registered git worktree, verified this with `git worktree list`, and reran the search excluding that path rather than just asserting "unrelated."
+- Reported command outputs are verbatim-reproducible; nothing was fabricated or rounded off.
+- Correctly distinguished genuine pre-existing environmental noise (the `GITHUB_NPM_TOKEN` warning, the Biome schema-version info notice) from actual defects, and didn't scope-creep into fixing either.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The report states the lint-staged backup stash entry was "left in place rather than run `git stash drop`" — but `git stash list` is now empty. This isn't a defect in the implementer's work (the report accurately described state at the time it was written), just a note that the concern raised in the report is already moot as of this review.
+
+### Assessment
+
+**Task quality:** Approved
+
+**Reasoning:** Every claimed command output and exit code was independently reproduced, the working tree and git log are exactly as claimed (clean, tip at `e124a2b`), and the Step 4 edge case was handled per the brief's explicit instructions rather than papered over with a forced empty commit.</result>
+<usage><subagent_tokens>42360</subagent_tokens><tool_uses>10</tool_uses><duration_ms>61495</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>ab91e3c486ce5b6d0</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/ab91e3c486ce5b6d0.output</output-file>
+<status>completed</status>
+<summary>Agent "Final whole-branch review: pnpm migration" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>## Review: `chore/pnpm-migration` (10eb251..e124a2b)
+
+### Strengths
+
+- **The migration is genuinely complete and verified working.** I re-ran the verification myself on this checkout: `pnpm install --frozen-lockfile` → "Scope: all 2 workspace projects / Already up to date" (lockfile and manifests are in sync, no drift committed); `pnpm run format` → exit 0; `frontend`'s `pnpm run lint` → exit 0; `pnpm run build` → `webpack 5.109.2 compiled successfully`; `pnpm exec lint-staged --version` → `15.5.2` (root's version, the correct one). Working tree stayed clean throughout.
+- **The workspace resolves the way the spec predicted.** `pnpm-lock.yaml` has exactly two importers (`.` with husky+lint-staged, `frontend` with the app deps). Critically, the isolated `node_modules` layout did *not* break the two hardcoded binary paths — `frontend/node_modules/.bin/biome` and `node_modules/.bin/lint-staged` both exist as real symlinks, so `.lintstagedrc.mjs` and root's `format` script needed no change, exactly as the spec's out-of-scope reasoning claimed. That was the highest-risk assumption in the design and it held.
+- **The duplicate-dependency cleanup is the right call and was done properly.** `frontend/package.json` loses `husky`, `lint-staged@^16.2.7` (which mismatched root's `^15.5.2`) and the redundant `"prepare": "husky"`. Root keeps `"prepare": "husky"`, `.husky/_` is present, so hook installation still happens on a root install.
+- **Doc updates are thorough, not just find-and-replace.** The README install step was genuinely *restructured* (four commands and a `cd ..` collapsed into one `pnpm install` with an explanatory comment), and the Build Errors troubleshooting block was correspondingly collapsed rather than left as a stale two-step. Repo-wide grep for `\bnpm\b`/`\bnpx\b`/`package-lock` finds zero hits in tracked files outside `docs/superpowers/` (historical planning artifacts, correctly left alone). `missing-vowels.service` is pure `uv`/Python — no Node references, nothing to update there. The only remaining literal is `frontend/.gitignore`'s `npm-debug.log*`, which is a harmless generic pattern already superseded by root's `*.log`.
+- **`allowBuilds: esbuild: true` is a real, correctly-formed pnpm 11 setting, not a guess.** I verified against the installed pnpm 11.5.1 dist: it contains 70 references to `allowBuilds`, including the emitting error (`… needs to execute build scripts but is not in the "allowBuilds" allowlist`) and the hint (`Add the package to "allowBuilds" in your project's pnpm-workspace.yaml`). So the deviation from the plan's literal Step 1 content was necessary and the syntax is right.
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+**1. The lockfile regeneration silently bumped 13 of 14 direct dependencies — and the plan never says so.**
+
+`/Users/rod/build/missing-vowels/pnpm-lock.yaml` vs the deleted `frontend/package-lock.json`:
+
+| package | npm (main) | pnpm (HEAD) |
+| --- | --- | --- |
+| react / react-dom | 19.2.3 | 19.2.8 |
+| @biomejs/biome | 2.5.5 | 2.5.6 |
+| webpack | 5.104.1 | 5.109.2 |
+| @babel/core | 7.28.5 | 7.29.7 |
+| terser-webpack-plugin | 5.3.16 | 5.6.1 |
+| ts-loader | 9.5.4 | 9.6.2 |
+| @types/react | 19.2.7 | 19.2.17 |
+| @types/node | 25.0.3 | 25.9.5 |
+| webpack-dev-server, css-loader, html-webpack-plugin, vite, esbuild | … | all bumped |
+
+Only `typescript` (5.9.3) stayed put. Every bump is semver-legal under the existing `^` ranges, so this is inherent to throwing away a lockfile — it isn't a mistake. But it means a branch labelled "change the package manager" also ships a full dependency float, in a repo with **no automated test suite**. The manual verification (build + lint + format) is the only safety net, and it doesn't exercise the app at runtime.
+
+Why it matters: if something regresses in the game next week, nobody will suspect the pnpm branch. Fix: don't revert anything — just add one line to the PR/commit description or the plan doc stating that regenerating the lockfile re-resolved all `^` ranges to latest, listing the notable jumps (terser-webpack-plugin 5.3→5.6 is the largest). Ideally also do one manual smoke run of the app (`cd frontend &amp;&amp; pnpm run build`, then `cd backend &amp;&amp; uv run python app.py`, load a round) before merge, since Task 5 verified the *build* but not the *running game* against 13 upgraded packages.
+
+**2. `allowBuilds: esbuild: true` approves a build script for a dependency the project does not use.**
+
+`/Users/rod/build/missing-vowels/pnpm-workspace.yaml:3-4`. Confirmed: `vite@^7.2.4` and `@vitejs/plugin-react@^5.1.1` appear *only* in `frontend/package.json` — grep across `frontend/` (excluding `node_modules`/`dist`) finds no other reference; the app builds with `webpack.config.cjs`. These are dead devDependencies, **pre-existing on main** (this branch didn't add them), so the deferred-item suspicion is correct: they are the source of `esbuild@0.28.1`, and esbuild's postinstall is the only thing `allowBuilds` is there to satisfy.
+
+esbuild itself is low-risk (evanw/esbuild, `install.js` just validates/links the platform binary; the binary is present and 10.5 MB, so the script did run). So this isn't a security *incident*. But pnpm 11's approval gate exists precisely to make you ask "do I need this package's postinstall?", and here the honest answer is "I don't need this package at all." Granting a permanent build-script exemption to satisfy dead weight is the wrong direction, and it will silently outlive whoever remembers why.
+
+Fix — a genuinely small change, either in this branch or an immediate follow-up: drop `vite` and `@vitejs/plugin-react` from `frontend/package.json`, re-run `pnpm install`, and delete the `allowBuilds` block entirely. esbuild almost certainly disappears from the tree with them (its only lockfile references are peer entries on the vite-related packages). If you'd rather keep the migration branch surgical, keep `allowBuilds` but add a YAML comment saying why — see Recommendations.
+
+#### Minor (Nice to Have)
+
+**3. `pnpm run lint` now emits a new diagnostic.** `frontend/biome.json:2` pins `"$schema": ".../2.5.5/schema.json"` but pnpm resolved `@biomejs/biome@2.5.6`, so lint output now ends with `Found 1 info` and `Run the command biome migrate`. Exit code is still 0, so nothing breaks, but the branch made a previously-silent command noisy. One-character fix: bump the schema URL to 2.5.6 (or run `biome migrate`). Direct consequence of issue 1, worth folding into the same touch.
+
+**4. Nothing tells an existing developer to clear their npm-era `node_modules`.** Someone pulling this branch has an npm-built `node_modules/` and `frontend/node_modules/` on disk plus deleted lockfiles. pnpm generally detects and recreates a foreign `node_modules`, and README's Build Errors section does document `rm -rf node_modules frontend/node_modules &amp;&amp; pnpm install` — but that's filed under Troubleshooting, so you only find it after tripping. A one-line note in the PR description ("existing clones: `rm -rf node_modules frontend/node_modules` before your first `pnpm install`") costs nothing.
+
+**5. Nothing prevents a contributor from running `npm install` and reintroducing a `package-lock.json`.** `"packageManager": "pnpm@11.5.1"` steers pnpm users but is inert against npm, and there's no CI to catch it. Optional guard: a root `"preinstall": "npx only-allow pnpm"` script, or just accept the risk on a single-contributor personal project. Flagging for awareness, not asking for it.
+
+**6. `.gitignore` `.superpowers/` is unrelated scope creep** (`/Users/rod/build/missing-vowels/.gitignore:14-15`, commit `dd47e64`). The design spec explicitly says ".gitignore needs no change", and this entry has nothing to do with pnpm. It is justified on its own merits — the SDD scratch workspace (including this review's own diff file) lives there and shouldn't be tracked — and it's 3 lines with a clear comment. Fine to merge, but it belongs in the commit description so future archaeology doesn't wonder. Note that `.agent-traces/` and `.claude/worktrees/` remain untracked-and-unignored (pre-existing, not this branch's job).
+
+### Deferred Minor Triage
+
+1. **`git commit --amend` on Task 1** — **Fine as-is, non-issue.** Verified: `chore/pnpm-migration` has no upstream (`fatal: no upstream configured`) and does not exist on `origin`. The amend rewrote only local, unpublished history. Zero merge impact.
+2. **`allowBuilds` beyond the plan's literal Step 1** — **Deviation was correct; the doc gap is worth closing, but see issue 2 for the better fix.** I confirmed `allowBuilds` is a real pnpm 11.5.1 workspace setting. Rather than annotate the plan (a historical artifact nobody re-runs), put the explanation where it will actually be read: a comment in `pnpm-workspace.yaml`. Best outcome is deleting the key along with the dead vite deps.
+3. **Pre-existing trailing whitespace at `README.md:60`** — **Fine as-is, don't fix.** Confirmed pre-existing: it's an unmodified context line in the diff hunk, and it's the *only* trailing-whitespace line in any of the touched files. Fixing it adds diff noise to an otherwise clean doc commit for zero rendered-output change.
+4. **Task brief's `grep -n "npm " CLAUDE.md` false-positiving on "pnpm "** — **Fine as-is; note it in the plan if you're editing that file anyway.** The implementer correctly used a tighter pattern. This is a flaw in the *plan's verification step*, not the implementation. I re-verified with `\bnpm\b` across the repo: zero hits in tracked files outside `docs/superpowers/`.
+
+### Recommendations
+
+1. **Before merge:** one manual smoke run of the actual game (build the frontend, start the backend, play a round) to cover the 13 dependency bumps that the build-only verification can't catch.
+2. **Before merge (cheap):** mention the dependency float and the "delete your old node_modules" step in the PR description.
+3. **Immediately after merge (or in this branch if you prefer):** remove `vite` + `@vitejs/plugin-react`, re-run `pnpm install`, delete the `allowBuilds` block, and bump `biome.json`'s schema to 2.5.6. That's a tidy follow-up that resolves issues 2 and 3 together and leaves `pnpm-workspace.yaml` at the plan's original two-line content.
+4. **If you keep `allowBuilds`,** annotate it so the next person doesn't have to reverse-engineer it:
+
+   ```yaml
+   # esbuild (transitive via the vite devDependency) runs a postinstall that
+   # links its platform binary. pnpm 11 requires explicit approval per package.
+   allowBuilds:
+     esbuild: true
+   ```
+
+### Assessment
+
+**Ready to merge?** Yes
+
+**Reasoning:** The migration is correct, complete, and independently verified working end-to-end on this checkout — the workspace resolves, both binary paths that the design flagged as risky still work, the hook runs the right lint-staged, and no npm artifacts survive in tracked files. The two Important findings are about *disclosure and hygiene* (an undocumented dependency float, and a build-script exemption granted for an unused dep) rather than defects in the migration itself; neither blocks merge, but the dependency float deserves a line in the PR description and a manual smoke test given this repo has no test suite.</result>
+<usage><subagent_tokens>88413</subagent_tokens><tool_uses>10</tool_uses><duration_ms>283503</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a63d76cac4a33f8b9</task-id>
+<tool-use-id>toolu_01Fq5ohHGbaRNFwtERECyQG7</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/a63d76cac4a33f8b9.output</output-file>
+<status>completed</status>
+<summary>Agent "Fix wave: final review findings" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Commit succeeded cleanly (pre-commit hook ran, no matching lint-staged tasks for these files, no bypass used).
+
+- **Status:** DONE
+- Commit: `097dcfc` — "Remove unused vite deps and sync biome schema version"
+- Verification: `pnpm run format`, `format:backend`, `lint`, and `build` all exit 0; esbuild confirmed absent from lockfile and a clean `node_modules` reinstall; biome lint now silent (no schema-migration diagnostic)
+- Concern (non-blocking, noted in report): a stale unreferenced `esbuild@0.28.1` dir lingered in pnpm's virtual store after the first install/`pnpm prune` — only a full `rm -rf node_modules &amp;&amp; pnpm install` fully swept it; final state confirmed clean
+- Report: `/Users/rod/build/missing-vowels/.superpowers/sdd/2026-07-29-pnpm-migration/final-fix-report.md`</result>
+<usage><subagent_tokens>55255</subagent_tokens><tool_uses>36</tool_uses><duration_ms>204058</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>adcf2b5bd4a907943</task-id>
+<tool-use-id>toolu_01NupLHZxMo9YDTeju6YXQTZ</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/d15c6304-929c-4b97-b451-d4008e555c90/tasks/adcf2b5bd4a907943.output</output-file>
+<status>completed</status>
+<summary>Agent "Scoped re-review: final fix wave" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>All key dependencies still resolve correctly. Full diff review complete — the only files touched are `frontend/biome.json`, `frontend/package.json`, `pnpm-lock.yaml`, and `pnpm-workspace.yaml`; the lockfile deletions are exclusively vite/@vitejs-plugin-react/esbuild/rollup and their exclusive transitive deps (react-refresh, tinyglobby, fdir, @rolldown/pluginutils, @types/babel__* used only by the vite plugin). Nothing shared with webpack's toolchain (postcss, terser, css-minimizer-webpack-plugin, etc.) was removed.
+
+### Finding 1: allowBuilds/vite removal
+**Verdict:** ADDRESSED
+- `pnpm-workspace.yaml` now contains only `packages:\n  - frontend` — `grep -n allowBuilds pnpm-workspace.yaml` finds nothing.
+- `grep -n -i vite frontend/package.json` finds nothing; diff confirms `"vite": "^7.2.4"` and `"@vitejs/plugin-react": "^5.1.1"` removed from devDependencies.
+- No resolved `esbuild@x.y.z:` package block remains in `pnpm-lock.yaml` (`grep -n "^  esbuild@" pnpm-lock.yaml` → none). 7 remaining `esbuild` string matches are pre-existing optional `peerDependencies`/`peerDependenciesMeta` declarations on `css-minimizer-webpack-plugin` and `html-webpack-plugin`'s minify chain (lines 1333/1345/2016/2037/2716/2737/6029) — confirmed present in the base commit too (base had 88 esbuild hits total, all from the same category plus the actual esbuild package/platform-variant blocks now gone).
+- `pnpm run build` (webpack) exits 0 and compiles successfully, confirming nothing load-bearing was removed.
+
+### Finding 2: biome.json schema bump
+**Verdict:** ADDRESSED
+- `frontend/biome.json:2` now reads `"$schema": "https://biomejs.dev/schemas/2.5.6/schema.json"`.
+- Installed version confirmed via `frontend/node_modules/.bin/biome --version` → `2.5.6`, matching.
+- `cd frontend &amp;&amp; pnpm run lint` → `biome check .` → `Checked 11 files in 32ms. No fixes applied.` exit 0, no "Found N info" schema-migration diagnostic.
+
+### New Breakage
+None found.
+- The lockfile deletion block is entirely vite/@vitejs-plugin-react/esbuild/rollup and their exclusive transitive deps (react-refresh, tinyglobby, fdir, @rolldown/pluginutils, @types/babel__core and friends used only by the vite React plugin). Nothing shared with the webpack toolchain (postcss, terser, css-minimizer-webpack-plugin, html-webpack-plugin, etc.) was touched.
+- `pnpm list --filter frontend react webpack @biomejs/biome typescript` confirms all four resolve correctly (react@19.2.8, webpack@5.109.2, @biomejs/biome@2.5.6, typescript@5.9.3).
+- `pnpm run build` compiles successfully (webpack 5.109.2, exit 0); `pnpm run lint` exits 0 clean.
+- Commit history is a single new commit `097dcfc` on top of `e124a2b` (not an amend) — `git merge-base --is-ancestor e124a2b HEAD` confirms `e124a2b` is still an ancestor, unchanged (`git cat-file -t e124a2b` → `commit`, log shows original message "Update CLAUDE.md commands from npm to pnpm" intact).
+
+### Overall Verdict
+All findings addressed, no new breakage. Fix wave is clean — safe to proceed.</result>
+<usage><subagent_tokens>71691</subagent_tokens><tool_uses>14</tool_uses><duration_ms>68447</duration_ms></usage>
+</task-notification>
+
+---
+
+squash and merge pr 2
+
+---
+
+Create a branch for updating the Python dependencies.
