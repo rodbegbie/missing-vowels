@@ -584,3 +584,7 @@ Create a branch for updating the Python dependencies.
 ---
 
 Sure. Delete it. Then Add `ruff check` in addition to `ruff format` in the linting configuration
+
+---
+
+Upgrade the dependencies on ty and ruff to the latest versions, then make sure linting still passes. Fix things if it doesn't.
