@@ -17,16 +17,16 @@ uv run python app.py       # run Flask server (port 8000)
 
 Frontend (from `frontend/`):
 ```bash
-npm run dev       # webpack dev server (port 8000, proxies /api to :8001 — see Gotchas)
-npm run build     # production build to frontend/dist
-npm run lint      # biome lint
-npm run format    # biome format --write
+pnpm run dev       # webpack dev server (port 8000, proxies /api to :8001 — see Gotchas)
+pnpm run build     # production build to frontend/dist
+pnpm run lint      # biome lint
+pnpm run format    # biome format --write
 ```
 
 Root (from repo root):
 ```bash
-npm run format          # biome format --write on frontend/src (formatting only, not lint)
-npm run format:backend  # ruff format on backend
+pnpm run format          # biome format --write on frontend/src (formatting only, not lint)
+pnpm run format:backend  # ruff format on backend
 ```
 
 There is no test suite (no pytest/vitest/jest configured) — verify changes by running the app manually.
@@ -53,6 +53,6 @@ Pre-commit (husky + lint-staged) runs `biome check --write` (format + lint + imp
 
 ## Gotchas
 
-- **Dev port mismatch**: `webpack.config.cjs` dev server listens on port 8000 and proxies `/api` to `http://localhost:8001`, but `app.py` hardcodes `port=8000`. Running both dev servers as documented will collide. Either run the backend on 8001 for local dev (edit `app.py`'s `app.run` call) or serve through the production path (`npm run build` in `frontend/`, then run `app.py` alone on 8000 to serve the built static files + API together).
+- **Dev port mismatch**: `webpack.config.cjs` dev server listens on port 8000 and proxies `/api` to `http://localhost:8001`, but `app.py` hardcodes `port=8000`. Running both dev servers as documented will collide. Either run the backend on 8001 for local dev (edit `app.py`'s `app.run` call) or serve through the production path (`pnpm run build` in `frontend/`, then run `app.py` alone on 8000 to serve the built static files + API together).
 - `README.md`'s "API Endpoints" section is stale — it documents `POST /api/game`, which doesn't exist. The real endpoints are `/api/difficulties`, `/api/round`, `/api/categories` as described above.
 - Category difficulty is derived, not authored — adding a category to `categories.py` only requires `name`, `answers` (5+ that survive the vowel/digit filter), and optionally `obscurity_modifier`; difficulty is computed automatically.
