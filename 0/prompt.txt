@@ -1,0 +1,21 @@
+Update to use pnpm instead of npm for JS dependencies
+
+---
+
+Squash and merge PR 1
+
+---
+
+GH is at https://github.com/rodbegbie/missing-vowels/pull/1
+
+---
+
+refresh main.
+
+---
+
+Update to use pnpm instead of npm for JS dependencies
+
+---
+
+Looks good.
