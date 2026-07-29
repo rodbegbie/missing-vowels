@@ -13,3 +13,6 @@ dev = [
     "ruff>=0.14.0",
     "ty>=0.0.7",
 ]
+
+[tool.ruff.lint.isort]
+known-first-party = ["categories"]
