@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const API_URL = "/api";
+const VOWELS = new Set(["A", "E", "I", "O", "U"]);
 
 // ROT13 decode function
 function rot13(text: string): string {
@@ -176,7 +177,6 @@ function AnimatedTitle(): React.ReactElement {
 
   // Original title
   const fullText = "MISSING VOWELS";
-  const vowels = new Set(["A", "E", "I", "O", "U"]);
 
   // Generate random grouping once on mount
   const grouping = useMemo(() => generateGrouping(), []);
@@ -198,11 +198,9 @@ function AnimatedTitle(): React.ReactElement {
   // Build consonant positions from grouping
   const consonantPositions = useMemo(() => {
     const positions: { group: number; pos: number }[] = [];
-    let idx = 0;
     for (let g = 0; g < grouping.length; g++) {
       for (let p = 0; p < grouping[g]; p++) {
         positions.push({ group: g, pos: p });
-        idx++;
       }
     }
     return positions;
@@ -225,7 +223,7 @@ function AnimatedTitle(): React.ReactElement {
             {" "}
           </span>,
         );
-      } else if (vowels.has(char)) {
+      } else if (VOWELS.has(char)) {
         const vowelClass =
           phase === "full" ? "" : phase === "fading" ? "fade-out" : "collapse";
         result.push(
@@ -550,6 +548,7 @@ function App(): React.ReactElement {
             {difficulties.map((d) => (
               <button
                 key={d.level}
+                type="button"
                 className={`difficulty-btn difficulty-${d.level}`}
                 onClick={() => startGame(d.level)}
                 disabled={d.count === 0}
@@ -618,6 +617,8 @@ function App(): React.ReactElement {
           </div>
 
           {voiceEnabled && voiceSupported && !isRevealed && (
+            // biome-ignore lint/a11y/noStaticElementInteractions: voice toggle mirrors the checkbox above it; full keyboard support is a separate follow-up
+            // biome-ignore lint/a11y/useKeyWithClickEvents: voice toggle mirrors the checkbox above it; full keyboard support is a separate follow-up
             <div
               className={`voice-indicator ${isListening ? "listening" : ""}`}
               onClick={!isListening ? startListening : undefined}
@@ -636,12 +637,14 @@ function App(): React.ReactElement {
           {!isRevealed && (
             <div className="controls">
               <button
+                type="button"
                 className="btn btn-correct"
                 onClick={() => revealAnswer(true)}
               >
                 ✓ Got It!
               </button>
               <button
+                type="button"
                 className="btn btn-wrong"
                 onClick={() => revealAnswer(false)}
               >
@@ -654,6 +657,7 @@ function App(): React.ReactElement {
         <div className="progress-bar">
           {round.clues.map((_, i) => (
             <div
+              // biome-ignore lint/suspicious/noArrayIndexKey: clues are a fixed-length, non-reordering array for the round
               key={i}
               className={`progress-dot ${i === currentClueIndex ? "current" : ""} ${revealed.includes(i) ? "done" : ""}`}
             />
@@ -711,6 +715,7 @@ function App(): React.ReactElement {
               <h3>{category}</h3>
               <ul className="answers-list">
                 {answers.map((answer, i) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: answers are a fixed, non-reordering list built once per results screen
                   <li key={i} className={answer.correct ? "correct" : "missed"}>
                     <span className="answer-clue">{answer.clue.clue}</span>
                     <span className="answer-solution">
@@ -722,7 +727,11 @@ function App(): React.ReactElement {
             </div>
           ))}
 
-          <button className="btn btn-play-again" onClick={playAgain}>
+          <button
+            type="button"
+            className="btn btn-play-again"
+            onClick={playAgain}
+          >
             Play Again
           </button>
 

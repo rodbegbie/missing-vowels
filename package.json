@@ -4,21 +4,11 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "format": "cd frontend && npx prettier --write 'src/**/*.{ts,tsx,css}'",
+    "format": "cd frontend && node_modules/.bin/biome format --write src",
     "format:backend": "cd backend && .venv/bin/ruff format app.py categories.py"
-  },
-  "lint-staged": {
-    "frontend/src/**/*.{ts,tsx,css}": [
-      "prettier --write"
-    ],
-    "backend/*.py": [
-      "backend/.venv/bin/ruff format",
-      "backend/.venv/bin/ty check"
-    ]
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
-    "prettier": "^3.5.3"
+    "lint-staged": "^15.5.2"
   }
 }

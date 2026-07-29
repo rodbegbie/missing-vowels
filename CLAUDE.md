@@ -19,18 +19,19 @@ Frontend (from `frontend/`):
 ```bash
 npm run dev       # webpack dev server (port 8000, proxies /api to :8001 — see Gotchas)
 npm run build     # production build to frontend/dist
-npm run lint      # eslint
+npm run lint      # biome lint
+npm run format    # biome format --write
 ```
 
 Root (from repo root):
 ```bash
-npm run format          # prettier on frontend/src/**/*.{ts,tsx,css}
+npm run format          # biome format --write on frontend/src (formatting only, not lint)
 npm run format:backend  # ruff format on backend
 ```
 
 There is no test suite (no pytest/vitest/jest configured) — verify changes by running the app manually.
 
-Pre-commit (husky + lint-staged) runs prettier on frontend files and `ruff format` + `ty check` on backend `.py` files. Don't bypass this.
+Pre-commit (husky + lint-staged) runs `biome check --write` (format + lint + import sort) on frontend files and `ruff format` + `ty check` on backend `.py` files. Don't bypass this.
 
 ## Architecture
 
