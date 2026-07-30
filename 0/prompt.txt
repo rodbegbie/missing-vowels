@@ -1,0 +1,320 @@
+<task-notification>
+<task-id>a8379cbea95ac330f</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a8379cbea95ac330f.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 2: filter_categories tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+**Commit:** b9261000652cf612b1fa2d5103e78929795637c1
+
+**Test summary:** pytest 6 passed in 0.01s, ty check passed, ruff check passed, ruff format verified.
+
+**Concerns:** None. All type checks, linting, and formatting gates now pass. The fixture construction pattern now matches TypedDict requirements and aligns with Task 4's proven approach.</result>
+<usage><subagent_tokens>53472</subagent_tokens><tool_uses>17</tool_uses><duration_ms>106912</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a72cecdd487a810b3</task-id>
+<tool-use-id>toolu_01JBi9cfWQpSt8dXXYBwwqBd</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a72cecdd487a810b3.output</output-file>
+<status>completed</status>
+<summary>Agent "Re-review Task 2 fix round 1" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>All independently confirmed clean. This checkout wasn't mutated (only ran read-only checks against the current worktree state, which already reflects the fix commit).
+
+### Finding Verdict
+
+- **ty check rejects plain dict fixtures** — ADDRESSED. All six fixtures in `backend/tests/test_filtering.py` (lines 7, 22, 34, 46, 56, 66) were converted from plain `dict` literals to `CategoryData(...)` constructor calls, with `from categories import CategoryData` added at line 2. Field values are unchanged from the original fixtures — only the construction syntax changed. `CategoryData` is confirmed as the correct `TypedDict` (`backend/categories.py:6-9`, `total=False`, fields `name`, `answers`, `obscurity_modifier`) matching `filter_categories`'s parameter type. Independently reran `uv run ty check tests/test_filtering.py` → "All checks passed!" and `uv run pytest tests/test_filtering.py -v` → 6/6 passed, confirming the report's claims.
+
+### New Breakage in the Fix Diff
+
+None. The diff is a mechanical, symmetric syntax swap (`{...}` → `CategoryData(...)`) with no field/value changes, no new imports beyond the necessary `CategoryData`, no logic changes, and no new assertions removed or altered. `ruff check` also passed independently.
+
+### Out-of-Scope Observations
+
+The diff also touches `docs/superpowers/plans/2026-07-29-test-suite.md` to update Task 2 (and pre-emptively Task 3's `make_category` helper to use `Category(...)` instead of a `dict`-typed helper) — this is plan-doc bookkeeping outside the fix diff's actual code scope and was explicitly flagged by the task as expected context, not a new fix. No issues noted in it.
+
+### Verdict
+
+**Fix round:** All findings addressed, no new Critical/Important breakage.</result>
+<usage><subagent_tokens>43485</subagent_tokens><tool_uses>5</tool_uses><duration_ms>27897</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a125a25cf435d83c8</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a125a25cf435d83c8.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 3: calculate_difficulty tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>**DONE**
+
+**Commit:** `5ab2eb4bc70a968f43841234951123c10da67161`
+
+**Test summary:** 6/6 pytest tests passed, ty check clean, ruff check clean.
+
+**No concerns.** The implementation matches the brief exactly, all validation gates pass, and the commit is clean.</result>
+<usage><subagent_tokens>26204</subagent_tokens><tool_uses>9</tool_uses><duration_ms>50946</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a531bf4570366d7d8</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a531bf4570366d7d8.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 3 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Infrastructure (`conftest.py`, `pythonpath`) already exists from prior tasks, so this task correctly relied on it without duplicating setup. Test file structure is consistent with sibling test files.
+
+Everything checks out. Here's the final review.
+
+### Spec Compliance
+- ✅ Spec compliant. `backend/tests/test_difficulty.py` was created exactly as specified in the brief: `make_category()` helper using the `Category(...)` TypedDict constructor call (not a plain dict literal), a parametrized `test_difficulty_bands` test covering bands 1–5, and `test_six_or_fewer_answers_gets_a_ten_percent_score_discount` covering the ≤6-answers discount branch. Single commit with the exact requested message (`5ab2eb4bc70a968f43841234951123c10da67161`).
+
+### Strengths
+- The critical lesson from Task 2's fix round was correctly applied: `backend/tests/test_difficulty.py:23-27` constructs fixtures via `Category(name=..., obscurity_modifier=..., answers=...)`, not a plain `dict`, satisfying `ty check` against the `TypedDict`-typed `calculate_difficulty(category: Category)` parameter.
+- All three gates were independently re-run in this review (not just trusted from the report) and genuinely pass: `uv run ty check tests/test_difficulty.py` → "All checks passed!", `uv run pytest tests/test_difficulty.py -v` → 6/6 passed, `uv run ruff check` and `uv run ruff format --check` both clean.
+- The numeric difficulty-band assertions were independently verified against the real `calculate_difficulty` implementation in `backend/app.py:158-208` by running the actual function with the same fixtures — all five band values (1–5) and both discount-test values (2 and 3) match exactly, including a genuinely tight boundary case: the undiscounted-answers test lands at `avg_score ≈ 0.9011`, just above the `&lt; 0.9` band-2 cutoff (`app.py:201`), which is a well-chosen test of that discount's effect rather than a coincidence.
+- No new test infrastructure was needed or duplicated — `backend/tests/conftest.py` and `pythonpath = ["."]` in `pyproject.toml` (already present from earlier tasks) make `from app import Category, calculate_difficulty` resolve cleanly.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- Test coverage is narrow: it exercises exactly the two behaviors called out in the brief (band thresholds, ≤6-answer discount) but not other scoring factors in `calculate_difficulty` (e.g., `word_score` from multi-word answers, or `obscurity_modifier` defaulting via `.get("obscurity_modifier", 0)` when the key is omitted entirely from a `Category`). This is scope-as-specified, not a defect — the brief didn't ask for broader coverage.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The implementation matches the brief exactly, correctly avoids the Task 2 `TypedDict`/dict-literal pitfall, and every claimed gate (ty check, pytest, ruff check/format) was independently re-verified to genuinely pass — including hand-checking the numeric band and discount assertions against the real `calculate_difficulty` math, which held up exactly, even at a tight boundary.</result>
+<usage><subagent_tokens>44005</subagent_tokens><tool_uses>8</tool_uses><duration_ms>59009</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a36bddfb36c4068c2</task-id>
+<tool-use-id>toolu_01LWMLYC69mohpoeVNAciLjD</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a36bddfb36c4068c2.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 4: route integration tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+**Commit:** `73991644b457f372aec60bf2b02fc63aac8802df`
+
+**Test summary:** 12 new route tests PASSED, full suite 38 PASSED, ty check CLEAN, ruff check CLEAN
+
+No concerns — all gates passed, code matches brief exactly, no type or linting errors.</result>
+<usage><subagent_tokens>31215</subagent_tokens><tool_uses>9</tool_uses><duration_ms>79352</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a6d0bb4cad01738b2</task-id>
+<tool-use-id>toolu_01NXrfoGh1ucaVyYWuQnZdja</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a6d0bb4cad01738b2.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 4 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant. The diff (`backend/tests/test_routes.py`, 92 lines, 1 file) is a verbatim implementation of the brief's Step 1 code block — no deviations, no extra files, no scope creep. It consumes exactly the interfaces the brief named: the `client` fixture from `backend/tests/conftest.py` (Task 1), and `app` module / `Category` / `rot13` from `backend/app.py` (`backend/tests/test_routes.py:5-6`, `:36`).
+- No ⚠️ items — everything claimed in the report is independently verifiable from the diff and from running the suite.
+
+### Strengths
+- Independently re-ran `uv run ty check tests/test_routes.py`, `uv run ruff check tests/test_routes.py`, and `uv run pytest -v` from `backend/` in this worktree: type check clean, lint clean, full suite 38/38 passed. Ran `tests/test_routes.py` five times back-to-back to probe for randomness-induced flakiness — 12/12 passed every time.
+- Traced the widening-search test against the real route logic in `backend/app.py:246-268`. With `Easy=1, Hard=5` and a request for `difficulty=3`: offset 1 checks `[2,4]` (no match), offset 2 checks `[1,5]` (both match) — the comment at `test_routes.py:48-49` accurately describes `get_round()`'s actual loop behavior, and the assertion (`category in {"Easy","Hard"}`) is correct regardless of which one `random.choice` picks, so the test isn't flaky.
+- 404 test (`test_routes.py:55-59`) correctly matches `app.py:267-268`: an empty `FILTERED_CATEGORIES` makes every offset iteration find nothing, falling through to `404` with `{"error": "No categories found"}`.
+- Clue-count boundary is covered on both sides: 5-answer category caps at 4 (`test_routes.py:26-37`, matching `random.sample(answers, min(4, len(answers)))` in `app.py:274-276`), and a 4-answer category also returns exactly 4, not fewer (`test_routes.py:40-44`).
+- `Category(...)` is constructed via the TypedDict call form everywhere (`test_routes.py:11-16`), correctly avoiding the plain-dict-literal rejection `ty` flagged in Task 2.
+- Monkeypatching is correctly scoped: every test uses pytest's function-scoped `monkeypatch` fixture (either directly or via the `spread_categories` fixture wrapping it), which auto-restores `FILTERED_CATEGORIES` after each test — confirmed by the later, unmocked smoke tests (`test_routes.py:82-92`) passing cleanly after the mocked tests run.
+- `test_categories_lists_name_difficulty_and_answer_count` (`test_routes.py:74-79`) correctly encodes that `/api/categories` preserves `FILTERED_CATEGORIES` list order rather than sorting, matching `app.py:295-309`.
+- `make_category()` helper (`test_routes.py:9-16`) avoids repetition across six tests without over-abstracting.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- No coverage for `/api/round` with a missing or non-numeric `difficulty` param (defaults to `2` per `app.py:249`) or a difficulty far enough out of range that even offset 4 finds nothing against a small mocked set. Not required by the brief's interface list; would be incremental hardening only.
+- The two "real, unmocked data" smoke tests (`test_routes.py:82-92`) couple the suite to the current contents of `categories.py` — if a future edit to `categories.py` shifts the difficulty distribution such that a band goes to zero, this test suite (not `categories.py`) would fail first. This is inherent to the brief's own Step 1 code, not something the implementer introduced, and is a reasonable regression tripwire, not a defect.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The implementation is a verbatim, verified match of the brief; independently re-running ty check, ruff, and the full pytest suite (including repeated runs to rule out flakiness) confirms all 12 new tests pass and correctly reflect `/api/round`'s actual widening-search, clue-capping, and 404 logic in `backend/app.py`.</result>
+<usage><subagent_tokens>54663</subagent_tokens><tool_uses>12</tool_uses><duration_ms>93579</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a83129dfee72e5560</task-id>
+<tool-use-id>toolu_01LBiCUyC8SkDUZudLV2B9vS</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a83129dfee72e5560.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 5: frontend test harness" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Working tree clean — the report file lives under a gitignored planning directory, as expected. Task complete.
+
+DONE
+Commit: `80e0c3c99da9174263d7fac385c29a19202e6319`
+Test summary: 14/14 pass (`pnpm test helpers.test.ts`); Biome lint clean (`pnpm run lint`, 15 files, 0 fixes)
+Deviations:
+1. Brief's Step 9 says `git add frontend/pnpm-lock.yaml` but this is a pnpm workspace with a single root-level `pnpm-lock.yaml` (no `frontend/pnpm-lock.yaml` exists) — staged the root lockfile instead.
+2. `pnpm install`/`pnpm test` initially hard-failed (`ERR_PNPM_IGNORED_BUILDS`) because `unrs-resolver` (a native-build transitive dep of `jest-resolve`, pulled in by jest/ts-jest) needed build approval under pnpm's newer policy. Set `unrs-resolver: true` in `pnpm-workspace.yaml` (auto-generated placeholder) and committed that change too — not in the brief's file list but required for anyone to `pnpm install` on this branch.
+
+Concerns: none — `jest.config.cjs` worked exactly as specified once the pnpm build-approval issue was resolved; full details and self-review in the report file.</result>
+<usage><subagent_tokens>74291</subagent_tokens><tool_uses>46</tool_uses><duration_ms>258778</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a061463aa3a9ae525</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a061463aa3a9ae525.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 5 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>This confirms the base tsconfig uses `module: "ESNext"` and `jsx: "react-jsx"`, exactly matching the CLAUDE.md's note about why jest.config.cjs needs the commonjs override (jsx was already react-jsx, so only module needed overriding — consistent with what's in the diff).
+
+All verification complete. Here's my report.
+
+### Spec Compliance
+- ✅ Spec compliant
+
+All items verified directly against the diff and confirmed by running the tests/lint in the worktree:
+
+- **App.tsx**: exactly 5 changed lines (5 removed `function ...`, 5 added `export function ...`), one per named helper (`rot13` at old line 8, `normalizeText` ~79, `levenshteinDistance` ~88, `checkAnswer` ~113, `generateGrouping` ~155). Diff hunks show zero other changes to bodies, comments, or surrounding code (`frontend/src/App.tsx` diff, review-diff lines 96–199).
+- **jest.config.cjs** (review-diff lines 18–43): byte-identical to the brief's block — `testEnvironment: "jsdom"`, `roots: ["&lt;rootDir&gt;/src"]`, ts-jest transform with `module: "commonjs"` + `jsx: "react-jsx"` override, `.css` → `styleMock.js` mapper, `setupFilesAfterEnv` wired to `setupTests.ts`. Confirmed the override is necessary: `frontend/tsconfig.json` has `"module": "ESNext"` (would break CJS-based Jest) but already has `"jsx": "react-jsx"`.
+- **helpers.test.ts** (review-diff lines 206–290): byte-identical to the brief's test file, same describe blocks and expected values.
+- **styleMock.js** / **setupTests.ts**: byte-identical to brief.
+- **package.json**: `"test": "jest"` script added; all 7 devDependencies added at the exact versions specified, inserted alphabetically, no other lines touched.
+- **pnpm-lock.yaml**: importers section shows exactly the expected new top-level deps (jest, ts-jest, jest-environment-jsdom, the three `@testing-library/*` packages, `@types/jest`) at matching specifiers; no unrelated dependency churn beyond ordinary transitive resolution.
+- Ran `pnpm test helpers.test.ts` from `frontend/` in the worktree: **14/14 tests pass**. Ran `pnpm run lint`: **clean** (`Checked 15 files ... No fixes applied`).
+
+### Strengths
+
+- Both reported deviations are correct and well-reasoned, and I independently verified each:
+  1. **Root-level `pnpm-lock.yaml`** — confirmed via `pnpm-workspace.yaml` (`packages: [frontend]`) that this is a single-lockfile workspace; there is no `frontend/pnpm-lock.yaml` to have staged. Committing the root lockfile is the only correct choice.
+  2. **`pnpm-workspace.yaml` → `allowBuilds: { unrs-resolver: true }`** — confirmed `unrs-resolver@1.12.2` is a real transitive dependency of `jest-resolve@30.4.1` (pulled in by `jest`), with a native `napi-postinstall` build step (review-diff lines 2952, 4992–5000, 5865). I deleted `frontend/node_modules` and reran `pnpm install` from clean: it succeeded without `ERR_PNPM_IGNORED_BUILDS`, and `node_modules/.pnpm/unrs-resolver@1.12.2` plus its platform binding were present at the workspace root, confirming the postinstall actually ran. Tests still passed 14/14 afterward. This is a legitimate, necessary fix — without it nobody could `pnpm install` on this branch — and scoped to exactly the one package that needed approval.
+- No stray/unrelated files in the diff — exactly the 8 files the brief's file list (adjusted for the two deviations) implies.
+- devDependency ordering, script placement, and formatting all pre-satisfied Biome's pre-commit hook (implementer's report claims zero changes from the `--write` pass; consistent with my clean `pnpm run lint` run).
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The implementer's report describes the `pnpm-workspace.yaml` change as going into "an `onlyBuiltDependencies`-style section," but the actual generated key is `allowBuilds` (a different, newer pnpm mechanism — see `pnpm-workspace.yaml` diff, review-diff lines 6026–6034). The code itself is correct and empirically verified working; this is only a slightly imprecise description in the prose report, not a defect in the shipped config.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** Every in-scope file matches the brief exactly (App.tsx changes are a clean, minimal `export`-only diff; test/config files are byte-identical to spec), both necessary deviations are sound and independently verified to work via a clean-install reproduction, and the full test suite plus lint pass locally.</result>
+<usage><subagent_tokens>61507</subagent_tokens><tool_uses>25</tool_uses><duration_ms>191664</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a689594a5e4582ed8</task-id>
+<tool-use-id>toolu_01JE1wxXZwFoo24ZU5rN8CrA</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a689594a5e4582ed8.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 6: menu/game-flow tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+790532dd8e643a090edb56521e7ed420553e7389
+7/7 tests passed
+Mechanical adjustment: none to test logic/timers; ran `pnpm run format` (Biome) after writing files to wrap a few long lines — whitespace only, no behavior change; re-verified tests + lint green after.
+No concerns.</result>
+<usage><subagent_tokens>69538</subagent_tokens><tool_uses>20</tool_uses><duration_ms>208225</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>ad077dee307661ae0</task-id>
+<tool-use-id>toolu_01QFYovqwffqC5FNBULFZHa2</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/ad077dee307661ae0.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 6 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant
+
+**Verified specifics:**
+- `testUtils.ts` exports exactly the brief's interface — `jsonResponse`, `installFetchMock`, `queueFetchResponse`, `difficultiesResponse`, `mask`, `makeRound`, `MockSpeechRecognition` (with `static instances`, `static reset()`, `emitResult`) — at `frontend/src/__tests__/testUtils.ts:1-82`, byte-for-byte identical to the brief except Biome's line-wrapping of `makeRound(...)`/`queueFetchResponse(...)` call sites, which I confirmed against the diff.
+- Masked-clue-before-reveal / real-answer-after-reveal guard is genuine, not incidental: `mask("CaseOne")` → `"CSN"` (uppercase, vowels stripped) while the reveal shows `rot13(rot13("CaseOne"))` = `"CaseOne"` — two visually distinct strings, so `App.test.tsx:62-63` (`getByText(round.clues[0].clue)` present, `queryByText("CaseOne")` absent) and `App.test.tsx:76` (`findByText("CaseOne")` present post-reveal) are testing the real ROT13 round-trip through `App.tsx`'s `.answer-text` div (`App.tsx:611-616`), gated correctly by `isRevealed`.
+- "Loads next category" test genuinely reaches the last-clue branch: with a 3-clue round, `App.tsx:420` (`currentClueIndex &lt; round.clues.length - 1`) is false only at index 2 (`2 &lt; 2`). The test reveals index 0, advances, reveals index 1, advances, and only queues the next-category fetch response before the **third** `Got It!` click (`App.test.tsx:106-134`), matching that exact final-index transition into `loadNextCategory()` (`App.tsx:381-396`). Confirmed this isn't accidentally triggered early.
+- Timer assertions match `App.tsx`'s timer effect (`App.tsx:494-508`) exactly: `timeLeft` starts at 60 (set in `startGame`, `App.tsx:519`), decrements by 1 per 1000ms interval tick, and the `else if (timeLeft === 0)` branch flips `gameState` to `"results"` after 60 ticks — matching the `60`→`59` (`App.test.tsx:145-149`) and 60000ms→`"Time's Up!"` (`App.tsx:687`, `App.test.tsx:160-164`) assertions.
+
+I independently ran both verification commands in the worktree:
+```
+$ pnpm test App.test.tsx  → Tests: 7 passed, 7 total
+$ pnpm run lint           → Checked 17 files. No fixes applied.
+```
+Both match the implementer's report exactly.
+
+### Strengths
+- `testUtils.ts` shared correctly across menu/game-flow tests, no copy-paste of fetch-mocking boilerplate (`App.test.tsx:20-25` imports the shared helpers).
+- `startGame()` helper (`App.test.tsx:36-43`) DRYs up the repeated "install mock → render → click Easy → wait for first clue" sequence used by 6 of 7 tests.
+- The "loads next category" test is the strongest piece of the suite — it deliberately walks through all three clue reveals to land exactly on the boundary condition (`round.clues.length - 1`) rather than assuming any reveal triggers the next-category fetch, which is precisely the kind of off-by-one this test exists to guard against.
+- Fake-timer isolation via `beforeEach`/`afterEach` (`App.test.tsx:27-34`) is correctly scoped per test, and every direct `jest.advanceTimersByTime` call is wrapped in `act()` — no "not wrapped in act" warnings surfaced in verbose test output.
+- Assertions are specific to real state transitions (score text content, category name, masked-vs-plaintext clue text) rather than generic "something rendered" checks.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- `jest.restoreAllMocks()` in `afterEach` (`App.test.tsx:32`) has no effect on `global.fetch` — `installFetchMock` assigns a fresh `jest.fn()` directly to `global.fetch` rather than via `jest.spyOn`, so `restoreAllMocks` doesn't restore/unmock it. Harmless in practice since every test calls `installFetchMock` again before use, but it's slightly misleading — a reader could assume it provides fetch cleanup it doesn't actually provide.
+- `difficultiesResponse.difficulties[].level` is typed `1`/`5` (number) in the mock (`testUtils.ts:56-59`) while `App.tsx`'s `Difficulty.level` is declared `string` (`App.tsx:27`). No compile or runtime failure results (the mock payload flows through `fetch().json()` as `unknown`), but it's a latent inconsistency future test authors (Tasks 7/8) could copy without noticing.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The diff matches the brief exactly (formatting-only deviation, verified against the diff), the regression guard and the last-clue/`loadNextCategory` boundary are genuinely exercised against real `App.tsx` logic rather than assumed, and I independently confirmed `pnpm test App.test.tsx` (7/7 pass) and `pnpm run lint` (clean) in the worktree.</result>
+<usage><subagent_tokens>68004</subagent_tokens><tool_uses>19</tool_uses><duration_ms>215069</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a0d77bcd5d53bf740</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a0d77bcd5d53bf740.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 7: results screen tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+Commit: 4d701d54425b982d84fcac80c59d8dc4ebfb1825
+Test summary: 2/2 passed (App.results.test.tsx); full suite 23/23 actual tests pass (2 pre-existing non-test files misreported as empty suites, unrelated to this task)
+Adjustment: replaced the brief's single `act(() =&gt; jest.advanceTimersByTime(60000))` with a 60×1000ms stepped `advanceToTimeUp()` helper — the single large advance let the countdown interval overshoot past `timeLeft === 0` before React flushed the effect that triggers the results-screen transition, so the test never reached "Time's Up!". Assertions unchanged; root cause documented in a code comment.
+Concerns: none — lint clean, self-review clean.</result>
+<usage><subagent_tokens>64728</subagent_tokens><tool_uses>24</tool_uses><duration_ms>233274</duration_ms></usage>
+</task-notification>
