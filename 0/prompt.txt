@@ -1,0 +1,729 @@
+<task-notification>
+<task-id>a8379cbea95ac330f</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a8379cbea95ac330f.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 2: filter_categories tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+**Commit:** b9261000652cf612b1fa2d5103e78929795637c1
+
+**Test summary:** pytest 6 passed in 0.01s, ty check passed, ruff check passed, ruff format verified.
+
+**Concerns:** None. All type checks, linting, and formatting gates now pass. The fixture construction pattern now matches TypedDict requirements and aligns with Task 4's proven approach.</result>
+<usage><subagent_tokens>53472</subagent_tokens><tool_uses>17</tool_uses><duration_ms>106912</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a72cecdd487a810b3</task-id>
+<tool-use-id>toolu_01JBi9cfWQpSt8dXXYBwwqBd</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a72cecdd487a810b3.output</output-file>
+<status>completed</status>
+<summary>Agent "Re-review Task 2 fix round 1" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>All independently confirmed clean. This checkout wasn't mutated (only ran read-only checks against the current worktree state, which already reflects the fix commit).
+
+### Finding Verdict
+
+- **ty check rejects plain dict fixtures** — ADDRESSED. All six fixtures in `backend/tests/test_filtering.py` (lines 7, 22, 34, 46, 56, 66) were converted from plain `dict` literals to `CategoryData(...)` constructor calls, with `from categories import CategoryData` added at line 2. Field values are unchanged from the original fixtures — only the construction syntax changed. `CategoryData` is confirmed as the correct `TypedDict` (`backend/categories.py:6-9`, `total=False`, fields `name`, `answers`, `obscurity_modifier`) matching `filter_categories`'s parameter type. Independently reran `uv run ty check tests/test_filtering.py` → "All checks passed!" and `uv run pytest tests/test_filtering.py -v` → 6/6 passed, confirming the report's claims.
+
+### New Breakage in the Fix Diff
+
+None. The diff is a mechanical, symmetric syntax swap (`{...}` → `CategoryData(...)`) with no field/value changes, no new imports beyond the necessary `CategoryData`, no logic changes, and no new assertions removed or altered. `ruff check` also passed independently.
+
+### Out-of-Scope Observations
+
+The diff also touches `docs/superpowers/plans/2026-07-29-test-suite.md` to update Task 2 (and pre-emptively Task 3's `make_category` helper to use `Category(...)` instead of a `dict`-typed helper) — this is plan-doc bookkeeping outside the fix diff's actual code scope and was explicitly flagged by the task as expected context, not a new fix. No issues noted in it.
+
+### Verdict
+
+**Fix round:** All findings addressed, no new Critical/Important breakage.</result>
+<usage><subagent_tokens>43485</subagent_tokens><tool_uses>5</tool_uses><duration_ms>27897</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a125a25cf435d83c8</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a125a25cf435d83c8.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 3: calculate_difficulty tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>**DONE**
+
+**Commit:** `5ab2eb4bc70a968f43841234951123c10da67161`
+
+**Test summary:** 6/6 pytest tests passed, ty check clean, ruff check clean.
+
+**No concerns.** The implementation matches the brief exactly, all validation gates pass, and the commit is clean.</result>
+<usage><subagent_tokens>26204</subagent_tokens><tool_uses>9</tool_uses><duration_ms>50946</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a531bf4570366d7d8</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a531bf4570366d7d8.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 3 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Infrastructure (`conftest.py`, `pythonpath`) already exists from prior tasks, so this task correctly relied on it without duplicating setup. Test file structure is consistent with sibling test files.
+
+Everything checks out. Here's the final review.
+
+### Spec Compliance
+- ✅ Spec compliant. `backend/tests/test_difficulty.py` was created exactly as specified in the brief: `make_category()` helper using the `Category(...)` TypedDict constructor call (not a plain dict literal), a parametrized `test_difficulty_bands` test covering bands 1–5, and `test_six_or_fewer_answers_gets_a_ten_percent_score_discount` covering the ≤6-answers discount branch. Single commit with the exact requested message (`5ab2eb4bc70a968f43841234951123c10da67161`).
+
+### Strengths
+- The critical lesson from Task 2's fix round was correctly applied: `backend/tests/test_difficulty.py:23-27` constructs fixtures via `Category(name=..., obscurity_modifier=..., answers=...)`, not a plain `dict`, satisfying `ty check` against the `TypedDict`-typed `calculate_difficulty(category: Category)` parameter.
+- All three gates were independently re-run in this review (not just trusted from the report) and genuinely pass: `uv run ty check tests/test_difficulty.py` → "All checks passed!", `uv run pytest tests/test_difficulty.py -v` → 6/6 passed, `uv run ruff check` and `uv run ruff format --check` both clean.
+- The numeric difficulty-band assertions were independently verified against the real `calculate_difficulty` implementation in `backend/app.py:158-208` by running the actual function with the same fixtures — all five band values (1–5) and both discount-test values (2 and 3) match exactly, including a genuinely tight boundary case: the undiscounted-answers test lands at `avg_score ≈ 0.9011`, just above the `&lt; 0.9` band-2 cutoff (`app.py:201`), which is a well-chosen test of that discount's effect rather than a coincidence.
+- No new test infrastructure was needed or duplicated — `backend/tests/conftest.py` and `pythonpath = ["."]` in `pyproject.toml` (already present from earlier tasks) make `from app import Category, calculate_difficulty` resolve cleanly.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- Test coverage is narrow: it exercises exactly the two behaviors called out in the brief (band thresholds, ≤6-answer discount) but not other scoring factors in `calculate_difficulty` (e.g., `word_score` from multi-word answers, or `obscurity_modifier` defaulting via `.get("obscurity_modifier", 0)` when the key is omitted entirely from a `Category`). This is scope-as-specified, not a defect — the brief didn't ask for broader coverage.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The implementation matches the brief exactly, correctly avoids the Task 2 `TypedDict`/dict-literal pitfall, and every claimed gate (ty check, pytest, ruff check/format) was independently re-verified to genuinely pass — including hand-checking the numeric band and discount assertions against the real `calculate_difficulty` math, which held up exactly, even at a tight boundary.</result>
+<usage><subagent_tokens>44005</subagent_tokens><tool_uses>8</tool_uses><duration_ms>59009</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a36bddfb36c4068c2</task-id>
+<tool-use-id>toolu_01LWMLYC69mohpoeVNAciLjD</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a36bddfb36c4068c2.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 4: route integration tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+**Commit:** `73991644b457f372aec60bf2b02fc63aac8802df`
+
+**Test summary:** 12 new route tests PASSED, full suite 38 PASSED, ty check CLEAN, ruff check CLEAN
+
+No concerns — all gates passed, code matches brief exactly, no type or linting errors.</result>
+<usage><subagent_tokens>31215</subagent_tokens><tool_uses>9</tool_uses><duration_ms>79352</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a6d0bb4cad01738b2</task-id>
+<tool-use-id>toolu_01NXrfoGh1ucaVyYWuQnZdja</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a6d0bb4cad01738b2.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 4 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant. The diff (`backend/tests/test_routes.py`, 92 lines, 1 file) is a verbatim implementation of the brief's Step 1 code block — no deviations, no extra files, no scope creep. It consumes exactly the interfaces the brief named: the `client` fixture from `backend/tests/conftest.py` (Task 1), and `app` module / `Category` / `rot13` from `backend/app.py` (`backend/tests/test_routes.py:5-6`, `:36`).
+- No ⚠️ items — everything claimed in the report is independently verifiable from the diff and from running the suite.
+
+### Strengths
+- Independently re-ran `uv run ty check tests/test_routes.py`, `uv run ruff check tests/test_routes.py`, and `uv run pytest -v` from `backend/` in this worktree: type check clean, lint clean, full suite 38/38 passed. Ran `tests/test_routes.py` five times back-to-back to probe for randomness-induced flakiness — 12/12 passed every time.
+- Traced the widening-search test against the real route logic in `backend/app.py:246-268`. With `Easy=1, Hard=5` and a request for `difficulty=3`: offset 1 checks `[2,4]` (no match), offset 2 checks `[1,5]` (both match) — the comment at `test_routes.py:48-49` accurately describes `get_round()`'s actual loop behavior, and the assertion (`category in {"Easy","Hard"}`) is correct regardless of which one `random.choice` picks, so the test isn't flaky.
+- 404 test (`test_routes.py:55-59`) correctly matches `app.py:267-268`: an empty `FILTERED_CATEGORIES` makes every offset iteration find nothing, falling through to `404` with `{"error": "No categories found"}`.
+- Clue-count boundary is covered on both sides: 5-answer category caps at 4 (`test_routes.py:26-37`, matching `random.sample(answers, min(4, len(answers)))` in `app.py:274-276`), and a 4-answer category also returns exactly 4, not fewer (`test_routes.py:40-44`).
+- `Category(...)` is constructed via the TypedDict call form everywhere (`test_routes.py:11-16`), correctly avoiding the plain-dict-literal rejection `ty` flagged in Task 2.
+- Monkeypatching is correctly scoped: every test uses pytest's function-scoped `monkeypatch` fixture (either directly or via the `spread_categories` fixture wrapping it), which auto-restores `FILTERED_CATEGORIES` after each test — confirmed by the later, unmocked smoke tests (`test_routes.py:82-92`) passing cleanly after the mocked tests run.
+- `test_categories_lists_name_difficulty_and_answer_count` (`test_routes.py:74-79`) correctly encodes that `/api/categories` preserves `FILTERED_CATEGORIES` list order rather than sorting, matching `app.py:295-309`.
+- `make_category()` helper (`test_routes.py:9-16`) avoids repetition across six tests without over-abstracting.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- No coverage for `/api/round` with a missing or non-numeric `difficulty` param (defaults to `2` per `app.py:249`) or a difficulty far enough out of range that even offset 4 finds nothing against a small mocked set. Not required by the brief's interface list; would be incremental hardening only.
+- The two "real, unmocked data" smoke tests (`test_routes.py:82-92`) couple the suite to the current contents of `categories.py` — if a future edit to `categories.py` shifts the difficulty distribution such that a band goes to zero, this test suite (not `categories.py`) would fail first. This is inherent to the brief's own Step 1 code, not something the implementer introduced, and is a reasonable regression tripwire, not a defect.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The implementation is a verbatim, verified match of the brief; independently re-running ty check, ruff, and the full pytest suite (including repeated runs to rule out flakiness) confirms all 12 new tests pass and correctly reflect `/api/round`'s actual widening-search, clue-capping, and 404 logic in `backend/app.py`.</result>
+<usage><subagent_tokens>54663</subagent_tokens><tool_uses>12</tool_uses><duration_ms>93579</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a83129dfee72e5560</task-id>
+<tool-use-id>toolu_01LBiCUyC8SkDUZudLV2B9vS</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a83129dfee72e5560.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 5: frontend test harness" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Working tree clean — the report file lives under a gitignored planning directory, as expected. Task complete.
+
+DONE
+Commit: `80e0c3c99da9174263d7fac385c29a19202e6319`
+Test summary: 14/14 pass (`pnpm test helpers.test.ts`); Biome lint clean (`pnpm run lint`, 15 files, 0 fixes)
+Deviations:
+1. Brief's Step 9 says `git add frontend/pnpm-lock.yaml` but this is a pnpm workspace with a single root-level `pnpm-lock.yaml` (no `frontend/pnpm-lock.yaml` exists) — staged the root lockfile instead.
+2. `pnpm install`/`pnpm test` initially hard-failed (`ERR_PNPM_IGNORED_BUILDS`) because `unrs-resolver` (a native-build transitive dep of `jest-resolve`, pulled in by jest/ts-jest) needed build approval under pnpm's newer policy. Set `unrs-resolver: true` in `pnpm-workspace.yaml` (auto-generated placeholder) and committed that change too — not in the brief's file list but required for anyone to `pnpm install` on this branch.
+
+Concerns: none — `jest.config.cjs` worked exactly as specified once the pnpm build-approval issue was resolved; full details and self-review in the report file.</result>
+<usage><subagent_tokens>74291</subagent_tokens><tool_uses>46</tool_uses><duration_ms>258778</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a061463aa3a9ae525</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a061463aa3a9ae525.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 5 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>This confirms the base tsconfig uses `module: "ESNext"` and `jsx: "react-jsx"`, exactly matching the CLAUDE.md's note about why jest.config.cjs needs the commonjs override (jsx was already react-jsx, so only module needed overriding — consistent with what's in the diff).
+
+All verification complete. Here's my report.
+
+### Spec Compliance
+- ✅ Spec compliant
+
+All items verified directly against the diff and confirmed by running the tests/lint in the worktree:
+
+- **App.tsx**: exactly 5 changed lines (5 removed `function ...`, 5 added `export function ...`), one per named helper (`rot13` at old line 8, `normalizeText` ~79, `levenshteinDistance` ~88, `checkAnswer` ~113, `generateGrouping` ~155). Diff hunks show zero other changes to bodies, comments, or surrounding code (`frontend/src/App.tsx` diff, review-diff lines 96–199).
+- **jest.config.cjs** (review-diff lines 18–43): byte-identical to the brief's block — `testEnvironment: "jsdom"`, `roots: ["&lt;rootDir&gt;/src"]`, ts-jest transform with `module: "commonjs"` + `jsx: "react-jsx"` override, `.css` → `styleMock.js` mapper, `setupFilesAfterEnv` wired to `setupTests.ts`. Confirmed the override is necessary: `frontend/tsconfig.json` has `"module": "ESNext"` (would break CJS-based Jest) but already has `"jsx": "react-jsx"`.
+- **helpers.test.ts** (review-diff lines 206–290): byte-identical to the brief's test file, same describe blocks and expected values.
+- **styleMock.js** / **setupTests.ts**: byte-identical to brief.
+- **package.json**: `"test": "jest"` script added; all 7 devDependencies added at the exact versions specified, inserted alphabetically, no other lines touched.
+- **pnpm-lock.yaml**: importers section shows exactly the expected new top-level deps (jest, ts-jest, jest-environment-jsdom, the three `@testing-library/*` packages, `@types/jest`) at matching specifiers; no unrelated dependency churn beyond ordinary transitive resolution.
+- Ran `pnpm test helpers.test.ts` from `frontend/` in the worktree: **14/14 tests pass**. Ran `pnpm run lint`: **clean** (`Checked 15 files ... No fixes applied`).
+
+### Strengths
+
+- Both reported deviations are correct and well-reasoned, and I independently verified each:
+  1. **Root-level `pnpm-lock.yaml`** — confirmed via `pnpm-workspace.yaml` (`packages: [frontend]`) that this is a single-lockfile workspace; there is no `frontend/pnpm-lock.yaml` to have staged. Committing the root lockfile is the only correct choice.
+  2. **`pnpm-workspace.yaml` → `allowBuilds: { unrs-resolver: true }`** — confirmed `unrs-resolver@1.12.2` is a real transitive dependency of `jest-resolve@30.4.1` (pulled in by `jest`), with a native `napi-postinstall` build step (review-diff lines 2952, 4992–5000, 5865). I deleted `frontend/node_modules` and reran `pnpm install` from clean: it succeeded without `ERR_PNPM_IGNORED_BUILDS`, and `node_modules/.pnpm/unrs-resolver@1.12.2` plus its platform binding were present at the workspace root, confirming the postinstall actually ran. Tests still passed 14/14 afterward. This is a legitimate, necessary fix — without it nobody could `pnpm install` on this branch — and scoped to exactly the one package that needed approval.
+- No stray/unrelated files in the diff — exactly the 8 files the brief's file list (adjusted for the two deviations) implies.
+- devDependency ordering, script placement, and formatting all pre-satisfied Biome's pre-commit hook (implementer's report claims zero changes from the `--write` pass; consistent with my clean `pnpm run lint` run).
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The implementer's report describes the `pnpm-workspace.yaml` change as going into "an `onlyBuiltDependencies`-style section," but the actual generated key is `allowBuilds` (a different, newer pnpm mechanism — see `pnpm-workspace.yaml` diff, review-diff lines 6026–6034). The code itself is correct and empirically verified working; this is only a slightly imprecise description in the prose report, not a defect in the shipped config.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** Every in-scope file matches the brief exactly (App.tsx changes are a clean, minimal `export`-only diff; test/config files are byte-identical to spec), both necessary deviations are sound and independently verified to work via a clean-install reproduction, and the full test suite plus lint pass locally.</result>
+<usage><subagent_tokens>61507</subagent_tokens><tool_uses>25</tool_uses><duration_ms>191664</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a689594a5e4582ed8</task-id>
+<tool-use-id>toolu_01JE1wxXZwFoo24ZU5rN8CrA</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a689594a5e4582ed8.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 6: menu/game-flow tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+790532dd8e643a090edb56521e7ed420553e7389
+7/7 tests passed
+Mechanical adjustment: none to test logic/timers; ran `pnpm run format` (Biome) after writing files to wrap a few long lines — whitespace only, no behavior change; re-verified tests + lint green after.
+No concerns.</result>
+<usage><subagent_tokens>69538</subagent_tokens><tool_uses>20</tool_uses><duration_ms>208225</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>ad077dee307661ae0</task-id>
+<tool-use-id>toolu_01QFYovqwffqC5FNBULFZHa2</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/ad077dee307661ae0.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 6 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant
+
+**Verified specifics:**
+- `testUtils.ts` exports exactly the brief's interface — `jsonResponse`, `installFetchMock`, `queueFetchResponse`, `difficultiesResponse`, `mask`, `makeRound`, `MockSpeechRecognition` (with `static instances`, `static reset()`, `emitResult`) — at `frontend/src/__tests__/testUtils.ts:1-82`, byte-for-byte identical to the brief except Biome's line-wrapping of `makeRound(...)`/`queueFetchResponse(...)` call sites, which I confirmed against the diff.
+- Masked-clue-before-reveal / real-answer-after-reveal guard is genuine, not incidental: `mask("CaseOne")` → `"CSN"` (uppercase, vowels stripped) while the reveal shows `rot13(rot13("CaseOne"))` = `"CaseOne"` — two visually distinct strings, so `App.test.tsx:62-63` (`getByText(round.clues[0].clue)` present, `queryByText("CaseOne")` absent) and `App.test.tsx:76` (`findByText("CaseOne")` present post-reveal) are testing the real ROT13 round-trip through `App.tsx`'s `.answer-text` div (`App.tsx:611-616`), gated correctly by `isRevealed`.
+- "Loads next category" test genuinely reaches the last-clue branch: with a 3-clue round, `App.tsx:420` (`currentClueIndex &lt; round.clues.length - 1`) is false only at index 2 (`2 &lt; 2`). The test reveals index 0, advances, reveals index 1, advances, and only queues the next-category fetch response before the **third** `Got It!` click (`App.test.tsx:106-134`), matching that exact final-index transition into `loadNextCategory()` (`App.tsx:381-396`). Confirmed this isn't accidentally triggered early.
+- Timer assertions match `App.tsx`'s timer effect (`App.tsx:494-508`) exactly: `timeLeft` starts at 60 (set in `startGame`, `App.tsx:519`), decrements by 1 per 1000ms interval tick, and the `else if (timeLeft === 0)` branch flips `gameState` to `"results"` after 60 ticks — matching the `60`→`59` (`App.test.tsx:145-149`) and 60000ms→`"Time's Up!"` (`App.tsx:687`, `App.test.tsx:160-164`) assertions.
+
+I independently ran both verification commands in the worktree:
+```
+$ pnpm test App.test.tsx  → Tests: 7 passed, 7 total
+$ pnpm run lint           → Checked 17 files. No fixes applied.
+```
+Both match the implementer's report exactly.
+
+### Strengths
+- `testUtils.ts` shared correctly across menu/game-flow tests, no copy-paste of fetch-mocking boilerplate (`App.test.tsx:20-25` imports the shared helpers).
+- `startGame()` helper (`App.test.tsx:36-43`) DRYs up the repeated "install mock → render → click Easy → wait for first clue" sequence used by 6 of 7 tests.
+- The "loads next category" test is the strongest piece of the suite — it deliberately walks through all three clue reveals to land exactly on the boundary condition (`round.clues.length - 1`) rather than assuming any reveal triggers the next-category fetch, which is precisely the kind of off-by-one this test exists to guard against.
+- Fake-timer isolation via `beforeEach`/`afterEach` (`App.test.tsx:27-34`) is correctly scoped per test, and every direct `jest.advanceTimersByTime` call is wrapped in `act()` — no "not wrapped in act" warnings surfaced in verbose test output.
+- Assertions are specific to real state transitions (score text content, category name, masked-vs-plaintext clue text) rather than generic "something rendered" checks.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- `jest.restoreAllMocks()` in `afterEach` (`App.test.tsx:32`) has no effect on `global.fetch` — `installFetchMock` assigns a fresh `jest.fn()` directly to `global.fetch` rather than via `jest.spyOn`, so `restoreAllMocks` doesn't restore/unmock it. Harmless in practice since every test calls `installFetchMock` again before use, but it's slightly misleading — a reader could assume it provides fetch cleanup it doesn't actually provide.
+- `difficultiesResponse.difficulties[].level` is typed `1`/`5` (number) in the mock (`testUtils.ts:56-59`) while `App.tsx`'s `Difficulty.level` is declared `string` (`App.tsx:27`). No compile or runtime failure results (the mock payload flows through `fetch().json()` as `unknown`), but it's a latent inconsistency future test authors (Tasks 7/8) could copy without noticing.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The diff matches the brief exactly (formatting-only deviation, verified against the diff), the regression guard and the last-clue/`loadNextCategory` boundary are genuinely exercised against real `App.tsx` logic rather than assumed, and I independently confirmed `pnpm test App.test.tsx` (7/7 pass) and `pnpm run lint` (clean) in the worktree.</result>
+<usage><subagent_tokens>68004</subagent_tokens><tool_uses>19</tool_uses><duration_ms>215069</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a0d77bcd5d53bf740</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a0d77bcd5d53bf740.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 7: results screen tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+Commit: 4d701d54425b982d84fcac80c59d8dc4ebfb1825
+Test summary: 2/2 passed (App.results.test.tsx); full suite 23/23 actual tests pass (2 pre-existing non-test files misreported as empty suites, unrelated to this task)
+Adjustment: replaced the brief's single `act(() =&gt; jest.advanceTimersByTime(60000))` with a 60×1000ms stepped `advanceToTimeUp()` helper — the single large advance let the countdown interval overshoot past `timeLeft === 0` before React flushed the effect that triggers the results-screen transition, so the test never reached "Time's Up!". Assertions unchanged; root cause documented in a code comment.
+Concerns: none — lint clean, self-review clean.</result>
+<usage><subagent_tokens>64728</subagent_tokens><tool_uses>24</tool_uses><duration_ms>233274</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a83129dfee72e5560</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a83129dfee72e5560.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 5: frontend test harness" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+Commit: `3a42020e41db58d1ce2ced82bb6f1efee4ef125b`
+`pnpm test` (bare, from frontend/): Test Suites: 3 passed, 3 total / Tests: 23 passed, 23 total, exit 0 clean
+No concerns — Biome lint also clean (18 files, no fixes needed), report file updated with fix-round entry.</result>
+<usage><subagent_tokens>78916</subagent_tokens><tool_uses>11</tool_uses><duration_ms>64741</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>ab5b0291e52b8eb31</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/ab5b0291e52b8eb31.output</output-file>
+<status>completed</status>
+<summary>Agent "Re-review Task 5 fix round 1" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Both independently confirmed: clean 0 exit, all 3 suites/23 tests passing, Biome clean.
+
+### Finding Verdict
+
+- **Jest testMatch picks up non-test files, breaking bare `pnpm test`** — ADDRESSED. `frontend/jest.config.cjs:5` now sets `testMatch: ["&lt;rootDir&gt;/src/**/*.test.{ts,tsx}"]`, replacing Jest's default (which also matches any file under `__tests__/`). This excludes `frontend/src/__tests__/setupTests.ts` and `frontend/src/__tests__/testUtils.ts` from being treated as test suites while still matching all three real test files (`helpers.test.ts`, `App.test.tsx`, `App.results.test.tsx`). Independently ran `pnpm test` from `frontend/`:
+
+```
+Test Suites: 3 passed, 3 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        0.694 s, estimated 1 s
+Ran all test suites.
+EXIT:0
+```
+
+Clean 0 exit, matches the report's claim exactly.
+
+### New Breakage in the Fix Diff
+
+None. The diff is a single-line addition to `frontend/jest.config.cjs:5`. Confirmed the glob `src/**/*.test.{ts,tsx}` still matches all three existing real test files (verified by listing `.ts`/`.tsx` files under `frontend/src` and cross-checking against the pattern), and `pnpm run lint` remains clean (`Checked 18 files in 30ms. No fixes applied.`, EXIT:0).
+
+### Out-of-Scope Observations
+
+`[WARN] Failed to replace env in config: ${GITHUB_NPM_TOKEN}` appears on every pnpm invocation in this worktree (test and lint alike) but does not affect exit codes or results — pre-existing pnpm/.npmrc config noise, unrelated to this fix.
+
+### Verdict
+
+**Fix round:** All findings addressed, no new Critical/Important breakage.</result>
+<usage><subagent_tokens>38044</subagent_tokens><tool_uses>8</tool_uses><duration_ms>33311</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a201139ebba92d59f</task-id>
+<tool-use-id>toolu_016pLvV3Tpu3w4CBwCJBDtqs</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a201139ebba92d59f.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 7 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Worktree is clean. Now compiling the final review.
+
+### Spec Compliance
+- ✅ Spec compliant
+
+Both tests from the brief are present, unmodified in intent, and exercise exactly the described scenarios:
+- `frontend/src/__tests__/App.results.test.tsx:44-77` — score/correct/missed/category counts + per-category answers.
+- `frontend/src/__tests__/App.results.test.tsx:79-97` — Play Again resets to menu.
+
+Verified against the live `App.tsx`:
+- **3-clue round avoids `loadNextCategory`**: confirmed in `frontend/src/App.tsx:398-431` (`revealAnswer`). With `round.clues.length === 3`, revealing index 0 advances to 1, revealing index 1 advances to 2 (`1 &lt; 2` is true) — `loadNextCategory` only fires when the *last* index (2) is revealed, which the test never does. `makeRound("UK Prime Ministers", ["CaseOne", "CaseTwo", "CaseThree"])` (`testUtils.ts:37-47`) produces exactly 3 clues, so this holds.
+- **Assertions match markup exactly**: `App.tsx:670-728` — `.final-score` renders `score` (1 correct → `"1"`), `.result-value` renders `correctCount` (1), `userAnswers.length - correctCount` (missed = 1), and `categoriesPlayed` (stays 1, since `loadNextCategory` never fires and only it increments that counter). The `["1","1","1"]` assertion is not a coincidence — it's mechanically forced by the reveal sequence chosen. Category name and rot13-decoded answer text (`"CaseOne"`, `"CaseTwo"`) are rendered via `answer-solution` (`App.tsx:721-723`), matching the `getByText` assertions.
+- **Play Again**: `playAgain()` (`App.tsx:348-357`) sets `gameState` to `"menu"`, which renders "Select Difficulty" (`App.tsx:546`). Matches.
+
+No missing, extra, or misunderstood requirements found.
+
+### Strengths
+- Correctly reuses `installFetchMock`, `difficultiesResponse`, `makeRound` from Task 6's `testUtils.ts` — no duplicated mock plumbing.
+- The `advanceToTimeUp()` deviation is a real, necessary fix, not a shortcut — I independently reproduced the bug it fixes (see below).
+- The in-code comment on `advanceToTimeUp()` (`App.results.test.tsx:30-35`) accurately explains the mechanism and will save the next person from rediscovering it.
+- Assertions are specific: exact text content on `.final-score`, an ordered array match on `.result-value` (`["1","1","1"]`), not just "isTruthy"-style checks.
+- Diff is exactly the one file the brief asked for — no incidental changes.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The counterfactual I ran shows the single-`act()` 60000ms advance actually *does* work for the bare "click Easy, jump straight to time-up" case — the bug only manifests once an earlier `setTimeout`-driven reveal (the 1500ms auto-advance) has interleaved with the round timer, before the big jump (confirmed below). The in-file comment states the mechanism generally ("advancing past 60s in one `act()` lets the interval free-run past zero") without noting this is conditioned on that interleaving; a reader might expect the same failure from the second test alone (which has no reveal beforehand) and be confused why it needed the same helper. Not worth a comment rewrite, but worth knowing it's not a universal fake-timer/React law — it's specific to this component's interval-recreation-via-dependency-array pattern once another timer has fired first.
+
+### Verification performed
+- Ran `pnpm test App.results.test.tsx` in the worktree: 2/2 pass.
+- Ran the full `pnpm test`: 3 suites / 23 tests pass, no regressions.
+- Ran `pnpm run lint`: clean.
+- Built two throwaway counterfactual test files (created, run, then deleted — worktree confirmed clean via `git status --porcelain` before and after) to test the claimed deviation:
+  - A minimal scenario (click Easy, single `advanceTimersByTime(60000)`, no prior reveals) **passed** — reaches results fine with a single big advance.
+  - The actual first test's full scenario (two reveals with a 1500ms gap, then single `advanceTimersByTime(60000)`) **failed** exactly as the report describes — `"Time's Up!"` never appears. This confirms the deviation is real and necessary in the case it's applied to, not a fabricated justification.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The diff matches the brief's test scenarios and markup exactly, the 3-clue/2-reveal design provably avoids `loadNextCategory` per the real `revealAnswer` logic, and the reported timer-advance deviation is independently confirmed as a genuine fix rather than a weakening — assertions are untouched and specific.</result>
+<usage><subagent_tokens>57066</subagent_tokens><tool_uses>21</tool_uses><duration_ms>16831061</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>aa195b5730a6aae4a</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/aa195b5730a6aae4a.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 8: voice recognition tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+a33e7fd
+This file's tests 3/3 pass; bare `pnpm test` full-suite: 4 suites / 26 tests pass cleanly.
+Adjustments: (1) awaited the Easy-button click (`await screen.findByRole`) instead of the brief's synchronous `getByRole`, since the checkbox resolves before the difficulties fetch flushes, causing a race; (2) used the existing stepped `advanceToTimeUp()` helper (from `App.results.test.tsx`) instead of a single 60000ms advance for the results-screen test, per the brief's own guidance; (3) dropped the brief's `biome-ignore lint/performance/noDelete` comment since Biome flagged it as an unused suppression in this config — removing it made `pnpm run lint` fully clean.
+No concerns — lint clean, full suite green, commit contains only the new test file via the normal (non-bypassed) pre-commit hook.</result>
+<usage><subagent_tokens>59696</subagent_tokens><tool_uses>27</tool_uses><duration_ms>176928</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a18478ffa10a138fd</task-id>
+<tool-use-id>toolu_01Swth8Hh2vQxv6RvdpBdRNG</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a18478ffa10a138fd.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 8 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Confirmed: the revealed answer renders `rot13(currentClue.answer)` verbatim as `"CaseOne"`, matching the test's `findByText("CaseOne")` assertion exactly. All spec-compliance and quality checks are verified against the real implementation, not just the report's claims.
+
+### Spec Compliance
+- ✅ Spec compliant
+
+All three brief-mandated tests are present and pass, exercise genuine app logic (not stubbed-out), and independently reproduce/verify against `App.tsx`:
+- `frontend/src/__tests__/App.voice.test.tsx:72-85` — matching transcript ("case one") reveals `"CaseOne"` and `.top-score` → "1". Traced through the real fuzzy-match path (`checkAnswer`/word-level Levenshtein in `App.tsx:113-152`) rather than the trivial exact-match branch — genuinely exercises the near-miss matching logic the CLAUDE.md describes.
+- `App.voice.test.tsx:87-100` — "pass" reveals as incorrect, `.top-score` stays "0" (`App.tsx:458-463`).
+- `App.voice.test.tsx:102-121` — "new game" voice command on results screen returns to menu (`App.tsx:440-451`).
+
+The voice checkbox is toggled on the menu screen before `startGame` (`App.voice.test.tsx:61-66`), matching the real component's constraint that the checkbox only renders inside the `gameState === "menu"` block (`App.tsx:562-574`). `MockSpeechRecognition.instances[0]` is correctly used as the single persistent instance across all three tests, matching `recognitionRef`'s mount-once `useEffect(..., [])` (`App.tsx:280-308`).
+
+All three reported deviations were independently verified as real, necessary, and non-weakening:
+1. **`findByRole` for Easy button** — reverted this one line to the brief's literal `getByRole` in a scratch copy and reran; all 3 tests failed with `Unable to find role="button"` exactly as claimed. The `await` is required because the difficulties fetch resolves on a microtask tick after the checkbox's `voiceSupported` state (set synchronously in a separate mount effect) is already visible. Assertion intent (click Easy) is unchanged.
+2. **`advanceToTimeUp()` duplication** — byte-for-byte identical to `App.results.test.tsx`'s helper, correctly ported with a comment pointing at the original, and matches the real interleaved-`setTimeout` scenario (voice's 300ms `startListening` timer plus the round's `setInterval`) that the brief itself warned about.
+3. **Dropped `biome-ignore` comment** — reinstated it in a scratch copy and ran `biome check`; it reproduces the exact `suppressions/unused` warning claimed. Removal was correct and necessary for a clean lint.
+
+Independently ran `pnpm test App.voice.test.tsx` (3/3 pass), bare `pnpm test` (4 suites / 26 tests pass), and `pnpm run lint` (clean, no warnings) — all confirmed. Working tree was restored to its original committed state after these verification probes; `git status`/`git diff` on the test file show no residual changes.
+
+### Strengths
+- Tests exercise real fuzzy-matching and timer-interaction logic rather than shallow happy-path assertions — e.g. "case one" only passes via the word-level Levenshtein branch, not a trivial string-equality shortcut.
+- `afterEach` cleanup (`App.voice.test.tsx:32-38`) mirrors the brief exactly: real timers restored, mocks restored, `MockSpeechRecognition.reset()`, and the `window.SpeechRecognition` global deleted — good test isolation, no risk of leaking a mock recognition class into other test files.
+- Report's deviations are honestly and specifically documented (including the "ran it and watched it fail first" methodology), and every claim checked out under independent re-verification.
+- Diff is purely additive (1 new file, 105 lines) — no incidental edits to unrelated files.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- `advanceToTimeUp()` is now duplicated verbatim in two test files (`App.results.test.tsx` and `App.voice.test.tsx`). The implementer's comment pointing at the sibling file is a reasonable mitigation, and extracting it to `testUtils.ts` was outside this task's brief/scope (testUtils is owned by Task 6), so this is not a blocker — but worth folding into a later cleanup pass if a third consumer ever appears.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** All three required tests exist, pass, and were independently confirmed to exercise real app behavior rather than mocked-out shortcuts; every claimed deviation was reproduced and verified as genuinely necessary with no weakened assertions.</result>
+<usage><subagent_tokens>62241</subagent_tokens><tool_uses>25</tool_uses><duration_ms>194178</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>afdd8df78cdae5102</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/afdd8df78cdae5102.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 9: CI workflow" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>**DONE** | Commit: `134b600` | YAML validation: pyyaml unavailable; visual indentation check passed | No concerns — workflow will be validated by GitHub Actions when pushed.</result>
+<usage><subagent_tokens>24865</subagent_tokens><tool_uses>6</tool_uses><duration_ms>43507</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a0ff07d8c7b045d90</task-id>
+<tool-use-id>toolu_01MRuhcfydtNMUjM1QxWwunT</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a0ff07d8c7b045d90.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 9 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant. `.github/workflows/test.yml` (`.claude/worktrees/test-suite/.github/workflows/test.yml`) matches the brief's Step 1 YAML verbatim — trigger config, both jobs, and commands are byte-for-byte what was specified.
+- ⚠️ Cannot verify from diff: actual execution in GitHub Actions (whether `uv sync --locked` succeeds against the committed `backend/uv.lock`, whether the frontend Jest suite actually passes under this exact job config) — only provable once pushed, as the brief itself acknowledges.
+
+### Strengths
+- Verified against actual repo structure, not just literal transcription: `frontend/package.json:2` has `"name": "frontend"`, and `pnpm-workspace.yaml` lists `frontend` as the sole workspace package — so `pnpm --filter frontend test` (test.yml:22) correctly targets it, and `frontend/package.json`'s `"test": "jest"` script exists.
+- `working-directory: backend` (test.yml:14,16) correctly locates `backend/pyproject.toml` and `backend/uv.lock`, both present and populated.
+- Root-level `pnpm install --frozen-lockfile` (test.yml:21) with no working-directory override correctly picks up the root `pnpm-lock.yaml` (287KB, present) for the single-member workspace.
+- Step ordering in the frontend job — `pnpm/action-setup@v4` before `actions/setup-node@v4` with `cache: pnpm` (test.yml:18-20) — follows pnpm's documented pattern (setup-node's pnpm cache detection needs pnpm on PATH first).
+- No explicit `version:` pinned for `pnpm/action-setup`, correctly relying on auto-detection from root `package.json`'s `"packageManager": "pnpm@11.5.1"` field.
+- No `actions/setup-python` step needed or present — `uv sync` self-manages the Python toolchain per `backend/pyproject.toml`'s `requires-python = "&gt;=3.12"`, which is correct for uv-based CI.
+- Triggers (`push` on all branches + `pull_request`, test.yml:3-6) are sensible for a small project — catches breakage on every branch push and on PRs.
+- Minimal, no unnecessary complexity — no matrix builds, no extraneous steps, nothing speculative beyond what the two test commands need.
+
+### Issues
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None. Checked all four action tags (`actions/checkout@v4`, `astral-sh/setup-uv@v5`, `pnpm/action-setup@v4`, `actions/setup-node@v4`) against the GitHub API — all four tags still resolve and exist (`refs/tags/v4`, `v5`, `v4`, `v4`), so the workflow will run, not break.
+
+#### Minor (Nice to Have)
+- Action versions are behind current majors: `actions/checkout` latest is v7, `astral-sh/setup-uv` latest is v9, `pnpm/action-setup` latest is v6, `actions/setup-node` latest is v7 (checked via `gh api .../releases/latest` today, 2026-07-29). None of this is the implementer's fault — these are the literal versions specified in the task brief itself (task-9-brief.md:26-40), so it's a plan-staleness note for the controller/planner, not an implementation defect. Old tags remain functional; this is cosmetic, not a CI risk.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The workflow is a verbatim, correctly-targeted implementation of the brief, and independent checks against `frontend/package.json`, `pnpm-workspace.yaml`, and `backend/pyproject.toml`/`uv.lock` confirm every path and filter resolves correctly for this repo's actual structure.</result>
+<usage><subagent_tokens>41584</subagent_tokens><tool_uses>9</tool_uses><duration_ms>83248</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a54c84d9686e4a0e7</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a54c84d9686e4a0e7.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 10: update CLAUDE.md docs" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>**DONE**
+
+Commit hash: `3d2d8323760d7d924116ee9646126f99d3e70b7c`
+
+All three documentation updates complete:
+- Added `uv run pytest` to Backend commands
+- Added `pnpm run test` to Frontend commands  
+- Replaced stale "no test suite" sentence with accurate test location description
+
+No concerns. Markdown remains clean, content is accurate, and commit matches brief specification exactly.</result>
+<usage><subagent_tokens>29875</subagent_tokens><tool_uses>9</tool_uses><duration_ms>57296</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a67aca1e14b83cba1</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a67aca1e14b83cba1.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 10 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Confirmed: `.ts`/`.tsx` files go through `ts-loader` while `babel-loader` handles `.js`/`.jsx` only. The CLAUDE.md claim "since `.tsx` is compiled by `ts-loader`, not Babel" is accurate.
+
+All facts check out. Compiling the final review now.
+
+### Spec Compliance
+
+- ✅ Spec compliant. All three requested edits are present and match the brief precisely:
+  - `CLAUDE.md:17` adds `uv run pytest                                # run backend tests` immediately after the `ty check` line in the Backend commands block, as instructed.
+  - `CLAUDE.md:26` adds `pnpm run test      # run frontend tests (Jest)` immediately after the `pnpm run format` line in the Frontend commands block, as instructed.
+  - `CLAUDE.md:36` replaces the stale "There is no test suite..." sentence with "Backend tests live in `backend/tests/` (pytest); frontend tests live in `frontend/src/__tests__/` (Jest + React Testing Library, using ts-jest since `.tsx` is compiled by `ts-loader`, not Babel, in this project)." — verbatim match to the brief's Step 2 replacement text.
+- No scope creep: the diff stat (`3 insertions(+), 1 deletion(-)`) matches exactly these three changes; no other lines in CLAUDE.md were touched.
+
+### Strengths
+
+- The new prose is factually verified, not just plausible-sounding: `backend/tests/` contains `conftest.py`, `test_difficulty.py`, `test_filtering.py`, `test_pure_functions.py`, `test_routes.py`; `frontend/src/__tests__/` contains `App.test.tsx`, `App.results.test.tsx`, `App.voice.test.tsx`, `helpers.test.ts`, plus `setupTests.ts`/`testUtils.ts`.
+- The ts-jest / ts-loader claim is correct and non-obvious — confirmed in `frontend/webpack.config.cjs:23-31`, where `.ts`/`.tsx` route through `ts-loader` and only `.js`/`.jsx` go through `babel-loader`. Getting this detail right (rather than a generic "uses Jest") shows the doc was written from the actual config, not assumed.
+- `frontend/package.json`'s `"test": "jest"` script and `frontend/jest.config.js`'s `ts-jest` transform both match what CLAUDE.md now describes.
+- Blank-line spacing around the two edited fenced code blocks and around the replaced sentence is preserved correctly (`CLAUDE.md:18-19`, `:27-28`, `:35,37`) — no MD031 violations introduced.
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+None.
+
+#### Minor (Nice to Have)
+
+- `CLAUDE.md:36` is a 212-character line, well beyond typical 80-100 char guidance. However this is consistent with the file's pre-existing style (e.g. `CLAUDE.md:47` is already 343 characters), so this isn't a regression introduced by the task — no line-length rule (MD013) appears to be enforced in this repo's markdown convention. Not flagging as a real issue, just noting for awareness.
+
+### Assessment
+
+**Task quality:** Approved
+**Reasoning:** All three requested edits match the brief exactly, the new prose is verifiably accurate against the actual test directories and build config, and no unrelated content was touched or markdown formatting broken.</result>
+<usage><subagent_tokens>41181</subagent_tokens><tool_uses>7</tool_uses><duration_ms>49522</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a7f1393bc4bad1c92</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a7f1393bc4bad1c92.output</output-file>
+<status>failed</status>
+<summary>Agent "Final whole-branch review" failed: Agent terminated early due to an API error: API Error: 529 Overloaded. This is a server-side issue, usually temporary — try again in a moment. If it persists, check https://status.claude.com.</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a0fa3c214fa65c8a4</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a0fa3c214fa65c8a4.output</output-file>
+<status>failed</status>
+<summary>Agent "Final whole-branch review (retry)" failed: Agent terminated early due to an API error: API Error: 529 Overloaded. This is a server-side issue, usually temporary — try again in a moment. If it persists, check https://status.claude.com.</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a071ad5e340a8a9c7</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a071ad5e340a8a9c7.output</output-file>
+<status>failed</status>
+<summary>Agent "Final whole-branch review (retry 2)" failed: Agent terminated early due to an API error: API Error: 529 Overloaded. This is a server-side issue, usually temporary — try again in a moment. If it persists, check https://status.claude.com.</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+</task-notification>
+
+---
+
+Retry the final whole-branch review for docs/superpowers/plans/2026-07-29-test-suite.md in worktree /Users/rod/build/missing-vowels/.claude/worktrees/test-suite (branch feature/test-suite). Opus has hit 529 Overloaded three times in a row dispatching the final code-reviewer subagent (base d3518ca453665edd55096ef1d127b50fde1a049b, head 3d2d8323760d7d924116ee9646126f99d3e70b7c, diff package at .superpowers/sdd/2026-07-29-test-suite/review-d3518ca..3d2d832.diff). All 10 implementation tasks are complete and individually reviewed clean. Retry the same final-review dispatch on opus; if it 529s again, try once more, and if it fails a 4th time report status to Rod rather than continuing to retry blindly.
+
+---
+
+<task-notification>
+<task-id>ad1e31be46e9b8a07</task-id>
+<tool-use-id>toolu_01XMzEmswmcxoi8hB4w8nVNw</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/ad1e31be46e9b8a07.output</output-file>
+<status>failed</status>
+<summary>Agent "Final whole-branch review (retry 3)" failed: Agent terminated early due to an API error: API Error: 529 Overloaded. This is a server-side issue, usually temporary — try again in a moment. If it persists, check https://status.claude.com.</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a1e01df3a82ee7387</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a1e01df3a82ee7387.output</output-file>
+<status>completed</status>
+<summary>Agent "Final whole-branch review (sonnet fallback)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Strengths
+
+- Both suites are genuinely green: `uv run pytest -v` → 38 passed; `pnpm test` → 4 suites / 26 tests passed. Confirmed by running them myself, not by trusting the plan's claims.
+- `backend/app.py` is byte-for-byte untouched (`git diff` empty) — the stated "pure data API stays pure" constraint held.
+- `frontend/src/App.tsx`'s diff is exactly the five planned `export` additions, nothing else — confirmed via diff, and confirmed the production `pnpm run build` still compiles cleanly (203 KiB entrypoint, no new errors), so this is a genuinely inert change to shipped behavior.
+- `ruff check`, `ty check`, and `biome check` all pass clean across the new backend/frontend test files, so the suite doesn't quietly violate the project's own lint/type gates.
+- Test assertions target real, meaningful behavior: ROT13 answers decoded from the actual API response and checked against the real category data, difficulty-band boundaries, ChatGPT-grade fuzzy-match edge cases (`checkAnswer`), and the "answer never in DOM before reveal" regression guard for the anti-plaintext contract — not mocks-verifying-mocks.
+- The `advanceToTimeUp()` stepped-timer helper is accompanied by a genuinely useful explanatory comment (React effect/fake-timer interaction) rather than a magic workaround — good for future maintainers even though it's duplicated (see below).
+- Selector/text assertions (`.top-score`, `.final-score`, `.result-value`, "Time's Up!", "Select Difficulty", etc.) all verified to match real `App.tsx` markup — no test relies on invented DOM structure.
+- All 10 plan tasks are present and committed as separate, well-scoped commits, including the two in-flight fix commits for the already-known issues (`3ee5fb2`/`b926100` for the TypedDict fix, `3a42020` for the `testMatch` fix) — the branch history is honest about what was fixed and when.
+- `pyproject.toml`/`package.json` diffs match the plan exactly; `CLAUDE.md` updates are accurate and match the actual test layout.
+
+### Issues
+
+#### Critical (Must Fix)
+
+None.
+
+#### Important (Should Fix)
+
+None. I looked hard for anything that would break CI, silently no-op, or misrepresent coverage, and didn't find one.
+
+#### Minor (Nice to Have)
+
+1. **Undocumented `pnpm-workspace.yaml` change.** The diff adds `allowBuilds: { unrs-resolver: true }`, which isn't mentioned anywhere in the plan or spec. This is pnpm's newer build-script-approval mechanism reacting to a native-binding transitive dependency pulled in by the new devDependencies — it's necessary for `pnpm install --frozen-lockfile` to succeed non-interactively in CI (confirmed `pnpm install`/`pnpm test`/`pnpm build` all work locally with it in place). Functionally fine, just worth a one-line mention in the plan's task list or commit message for future readers wondering where it came from.
+2. CI workflow pins `checkout@v4`, `setup-uv@v5`, `pnpm/action-setup@v4`, `setup-node@v4` — all resolve and run correctly today; only a freshness nit.
+3. `on: push: branches: ["**"]` plus `pull_request` will double-run the workflow for any push that's also part of an open PR from the same repo — standard, low-cost redundancy, not a bug.
+
+### Deferred Findings Triage
+
+1. **`jest.restoreAllMocks()` vs. direct `global.fetch` assignment.** Independently verified: `installFetchMock` does `global.fetch = fetchMock as unknown as typeof fetch` — a plain property assignment, not `jest.spyOn`. `restoreAllMocks()` has no effect on it. Confirmed harmless because every test calls `installFetchMock` again before use, so there's no cross-test leakage. **Verdict: non-issue.** Cosmetic only; not worth the churn of touching passing tests before merge.
+2. **`difficultiesResponse.level` typed as `number` vs. `Difficulty.level: string` in `App.tsx`.** Confirmed both sides directly. Worth noting: the *test fixture's* `number` typing actually matches what the real Flask route returns (`app.py`'s difficulty counts are ints) — it's the pre-existing `Difficulty` interface in `App.tsx` that's arguably the stale/wrong one, and that interface predates this branch. No compile or runtime failure since `.json()` erases the type. **Verdict: non-issue for this PR** — it's a pre-existing type-accuracy gap in production code, out of scope for a test-suite branch, and correctly not touched here.
+3. **`advanceToTimeUp()` duplicated in `App.results.test.tsx` and `App.voice.test.tsx`.** Confirmed verbatim duplication (including the explanatory comment, cross-referenced between the two files). This is a legitimate DRY nit — it belongs in `testUtils.ts` alongside the other Task 6 shared helpers, and moving it is a trivial, low-risk extraction. **Verdict: defer.** Not worth blocking merge over, but flag it as good first cleanup on this branch or the next touch of these files — genuinely "nice to have," not "should fix now."
+4. **Pinned GitHub Action major versions behind current.** Confirmed the versions used; all resolve and the workflow runs. **Verdict: non-issue / defer indefinitely** — this is Dependabot's job going forward, not something to hand-fix pre-merge.
+
+### Recommendations
+
+- Merge as-is. Optionally fold the `advanceToTimeUp` dedup into a fast-follow if another PR touches those two test files anyway — not worth a standalone commit right now.
+- Consider a one-line commit-message or plan-note addendum explaining the `pnpm-workspace.yaml` `allowBuilds` addition, purely so a future `git blame` doesn't leave someone puzzled.
+
+### Assessment
+
+**Ready to merge?** Yes.
+
+**Reasoning:** Both suites are genuinely green under independent re-run, lint/type/build gates all pass, the two production-code touch points (`app.py` untouched, `App.tsx`'s five `export` additions) are verified to be exactly what the plan promised with no bundle/runtime impact, and none of the four deferred findings rise above cosmetic/non-blocking.</result>
+<usage><subagent_tokens>97897</subagent_tokens><tool_uses>28</tool_uses><duration_ms>172162</duration_ms></usage>
+</task-notification>
