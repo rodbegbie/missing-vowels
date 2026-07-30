@@ -727,3 +727,7 @@ None. I looked hard for anything that would break CI, silently no-op, or misrepr
 **Reasoning:** Both suites are genuinely green under independent re-run, lint/type/build gates all pass, the two production-code touch points (`app.py` untouched, `App.tsx`'s five `export` additions) are verified to be exactly what the plan promised with no bundle/runtime impact, and none of the four deferred findings rise above cosmetic/non-blocking.</result>
 <usage><subagent_tokens>97897</subagent_tokens><tool_uses>28</tool_uses><duration_ms>172162</duration_ms></usage>
 </task-notification>
+
+---
+
+Upgrade the workflow actions to use the latest versions of each (e.g. actions/checkout@v7)
