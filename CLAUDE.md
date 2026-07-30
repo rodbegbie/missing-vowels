@@ -14,6 +14,7 @@ uv run python app.py       # run Flask server (port 8000)
 .venv/bin/ruff format app.py categories.py   # format
 .venv/bin/ruff check app.py categories.py    # lint
 .venv/bin/ty check                            # type check
+uv run pytest                                # run backend tests
 ```
 
 Frontend (from `frontend/`):
@@ -22,6 +23,7 @@ pnpm run dev       # webpack dev server (port 8000, proxies /api to :8001 — se
 pnpm run build     # production build to frontend/dist
 pnpm run lint      # biome lint
 pnpm run format    # biome format --write
+pnpm run test      # run frontend tests (Jest)
 ```
 
 Root (from repo root):
@@ -31,7 +33,7 @@ pnpm run format:backend  # ruff format on backend
 pnpm run lint:backend    # ruff check on backend
 ```
 
-There is no test suite (no pytest/vitest/jest configured) — verify changes by running the app manually.
+Backend tests live in `backend/tests/` (pytest); frontend tests live in `frontend/src/__tests__/` (Jest + React Testing Library, using ts-jest since `.tsx` is compiled by `ts-loader`, not Babel, in this project).
 
 Pre-commit (husky + lint-staged) runs `biome check --write` (format + lint + import sort) on frontend files and `ruff check` + `ruff format` + `ty check` on backend `.py` files. Don't bypass this.
 
