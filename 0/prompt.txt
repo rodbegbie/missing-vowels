@@ -1,0 +1,5 @@
+Run a `pnpm audit` and fix any issues
+
+---
+
+/hunk-review
