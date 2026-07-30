@@ -5,7 +5,7 @@ const API_URL = "/api";
 const VOWELS = new Set(["A", "E", "I", "O", "U"]);
 
 // ROT13 decode function
-function rot13(text: string): string {
+export function rot13(text: string): string {
   return text.replace(/[a-zA-Z]/g, (char) => {
     const base = char <= "Z" ? 65 : 97;
     return String.fromCharCode(((char.charCodeAt(0) - base + 13) % 26) + base);
@@ -76,7 +76,7 @@ declare global {
 }
 
 // Normalize text for comparison (lowercase, remove punctuation, extra spaces)
-function normalizeText(text: string): string {
+export function normalizeText(text: string): string {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, "")
@@ -85,7 +85,7 @@ function normalizeText(text: string): string {
 }
 
 // Levenshtein distance for fuzzy matching
-function levenshteinDistance(a: string, b: string): number {
+export function levenshteinDistance(a: string, b: string): number {
   const matrix: number[][] = [];
   for (let i = 0; i <= b.length; i++) {
     matrix[i] = [i];
@@ -110,7 +110,7 @@ function levenshteinDistance(a: string, b: string): number {
 }
 
 // Check if spoken answer matches the correct answer (fuzzy matching)
-function checkAnswer(spoken: string, correct: string): boolean {
+export function checkAnswer(spoken: string, correct: string): boolean {
   const normalizedSpoken = normalizeText(spoken);
   const normalizedCorrect = normalizeText(correct);
 
@@ -152,7 +152,7 @@ function checkAnswer(spoken: string, correct: string): boolean {
 }
 
 // Generate valid groupings for 9 consonants (2-3 spaces, groups of 2+ letters)
-function generateGrouping(): number[] {
+export function generateGrouping(): number[] {
   // Valid groupings for 9 consonants with 2-3 spaces, all groups >= 2
   const validGroupings = [
     [2, 2, 2, 3], // MS SN GV WLS
