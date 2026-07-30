@@ -1,0 +1,86 @@
+<task-notification>
+<task-id>a9d9b0024de9cd413</task-id>
+<tool-use-id>toolu_01MBntUsW9KEAinwsofdJoKz</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a9d9b0024de9cd413.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 1: backend test infra" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+Commit: `2fc393784ead1863e37d11c0dcff9409a077eff9`
+
+Test summary: 14/14 passed
+
+No concerns. All work matches the brief exactly; pytest infrastructure is ready; conftest.py fixture is available for Task 4.</result>
+<usage><subagent_tokens>30565</subagent_tokens><tool_uses>14</tool_uses><duration_ms>93282</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>abe73bfe83f1780f2</task-id>
+<tool-use-id>toolu_01F5u2qNerHmrh9LJTr4mnuy</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/abe73bfe83f1780f2.output</output-file>
+<status>completed</status>
+<summary>Agent "Review Task 1 (spec + quality)" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>### Spec Compliance
+- ✅ Spec compliant
+
+All four required changes are present and match the brief exactly:
+- `backend/pyproject.toml:29` adds `"pytest&gt;=8.3"` to the dev dependency group (diff lines 27-32) and `[tool.pytest.ini_options]` with `pythonpath = ["."]` and `testpaths = ["tests"]` (diff lines 34-36) — verbatim to the brief's Step 1.
+- `backend/tests/conftest.py` (diff lines 40-54) matches the brief's Step 3 exactly: `client` fixture setting `TESTING = True` and returning `flask_app.test_client()`.
+- `backend/tests/test_pure_functions.py` (diff lines 55-124) matches the brief's Step 4 exactly: 5 classes, 14 tests, covering `rot13`, `has_vowels`, `has_numbers`, `remove_vowels`, `format_missing_vowels`.
+- `backend/uv.lock` updated with `pytest`, `iniconfig`, `packaging`, `pluggy`, `pygments` — consistent with `uv sync` after adding the dependency, and included in the commit per Step 6.
+- Diff scope is tight — only the four files the brief names are touched; no unrelated production code changed.
+
+I independently verified test assertions against the real `backend/app.py` implementation (not just trusting the brief/report):
+- `rot13("Hello") == "Uryyb"` — correct (codecs rot_13).
+- `has_vowels`/`has_numbers` — match `app.py:36-44` character-membership logic exactly, including the "y is not a vowel" case.
+- `remove_vowels("Hello") == ("Hll", 2)` — correct (e, o are the two vowels removed).
+- `format_missing_vowels("Sky") == ("SKY", 0)` — correct, hits the `len(all_consonants) &lt;= 4` short-circuit at `app.py:108-109`.
+- `format_missing_vowels("Hello World")` — consonants `"HLLWRLD"` (7 chars), vowel count 3 (2 from Hello + 1 from World) — correct.
+- The 20-iteration "segments never shorter than 2 chars" test is consistent with the `max_spaces`/position-validity logic at `app.py:111-140`, which structurally guarantees the invariant — not a flaky test, just exercising randomness against a real guarantee.
+
+### Strengths
+- Tests exercise real implementation behavior with no mocking, and each assertion was independently verified against `app.py` rather than trusted from the brief.
+- Clean one-class-per-function organization, descriptive test names, no duplication.
+- Correctly targets pure/deterministic functions only in this task, leaving Flask-route/randomness-heavy integration testing to the `client` fixture for a later task — good separation of concerns.
+- Scope discipline: no stray edits, no production code touched, lockfile update is a mechanical consequence of the dependency add.
+
+### Issues
+
+#### Critical (Must Fix)
+None.
+
+#### Important (Should Fix)
+None.
+
+#### Minor (Nice to Have)
+- The `client` fixture in `backend/tests/conftest.py:6-8` is unused within this diff (by design — consumed by Task 4). Not a defect, just worth confirming Task 4 actually wires it up.
+- `format_missing_vowels` boundary cases (exactly 4 vs 5 consonant chars, the `max_spaces &lt; 1` branch at `app.py:114-115`) aren't directly tested, though this is brief-mandated coverage, not an implementer gap.
+
+### Assessment
+**Task quality:** Approved
+**Reasoning:** The diff matches the brief's specified files and code essentially verbatim, and independent verification against the real `app.py` implementation confirms every test assertion is correct — no critical or important issues found.</result>
+<usage><subagent_tokens>51637</subagent_tokens><tool_uses>4</tool_uses><duration_ms>66926</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a8379cbea95ac330f</task-id>
+<tool-use-id>toolu_015pRnvGBySmTvYtaWRLLDGL</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-rod-build-missing-vowels/8f253a20-e3c4-47d5-9f59-794ee1b75c2b/tasks/a8379cbea95ac330f.output</output-file>
+<status>completed</status>
+<summary>Agent "Implement Task 2: filter_categories tests" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>DONE
+
+**Commit:** d614236d847ad65d47ffe12cb7d6e1373bd75f29
+
+**Test summary:** 6 passed in 0.01s (test_keeps_category_with_enough_valid_answers, test_drops_answers_without_vowels, test_drops_answers_with_digits, test_drops_category_left_with_fewer_than_five_valid_answers, test_keeps_category_with_exactly_five_valid_answers, test_defaults_obscurity_modifier_to_zero_when_missing)
+
+**Concerns:** None. All tests pass, file committed exactly as specified, report written to `/Users/rod/build/missing-vowels/.claude/worktrees/test-suite/.superpowers/sdd/2026-07-29-test-suite/task-2-report.md`.</result>
+<usage><subagent_tokens>27152</subagent_tokens><tool_uses>8</tool_uses><duration_ms>58580</duration_ms></usage>
+</task-notification>
