@@ -48,9 +48,12 @@ filtering).
 ## Frontend
 
 **Tooling:** Jest, React Testing Library, `@testing-library/jest-dom`,
-`@testing-library/user-event`, `jest-environment-jsdom`, and `babel-jest`
-reusing the project's existing `@babel/preset-env` / `@babel/preset-react`
-config (no separate TypeScript transform needed).
+`@testing-library/user-event`, `jest-environment-jsdom`, and `ts-jest`.
+`.tsx` files in this project are compiled by `ts-loader` in webpack, not
+Babel (`babel-loader` only handles `.js`/`.jsx`, and none exist in `src/`),
+so `ts-jest` is used to mirror the real build pipeline and read the
+existing `tsconfig.json` directly, rather than standing up a second,
+Babel-based TypeScript transform alongside an already-unused Babel config.
 
 **Source change:** export the pure helper functions from `App.tsx` —
 `rot13`, `normalizeText`, `levenshteinDistance`, `checkAnswer`,
