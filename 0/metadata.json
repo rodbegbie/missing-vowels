@@ -1,0 +1,36 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYVP9D71FJTST0Q08GQ78ZQQ",
+  "session_id": "41d7cd1e-8438-4295-a413-ab8c812a18ff",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-31T08:57:41.612011Z",
+  "branch": "chore/werkzeug-3-1-6-cve-fix",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "backend/pyproject.toml"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "turn_id": "d28f8aff4265",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 28,
+    "cache_creation_tokens": 34311,
+    "cache_read_tokens": 689344,
+    "output_tokens": 4054,
+    "api_call_count": 14
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-31T08:57:41.605748Z",
+    "agent_lines": 1,
+    "agent_removed": 0,
+    "human_added": 5,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 6,
+    "total_lines_changed": 9,
+    "agent_percentage": 11.11111111111111,
+    "metric_version": 2
+  }
+}
