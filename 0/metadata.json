@@ -1,0 +1,84 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01KYVPBJ3XMTEW8R5H3QNM426T",
+  "session_id": "41d7cd1e-8438-4295-a413-ab8c812a18ff",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-31T08:58:58.208178Z",
+  "branch": "chore/werkzeug-3-1-6-cve-fix",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "backend/pyproject.toml"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "turn_id": "6e49ff41d472",
+  "checkpoint_transcript_start": 121,
+  "transcript_lines_at_start": 121,
+  "compact_transcript_start": 16,
+  "token_usage": {
+    "input_tokens": 8,
+    "cache_creation_tokens": 29788,
+    "cache_read_tokens": 197528,
+    "output_tokens": 916,
+    "api_call_count": 4
+  },
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-07-31T08:58:58.198121Z",
+    "agent_lines": 2,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 2,
+    "total_lines_changed": 2,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 21260,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/scheduled_tasks.lock": 1,
+        ".claude/worktrees/biome-migration/.claude/settings.json": 84,
+        ".claude/worktrees/biome-migration/.entire/.gitignore": 5,
+        ".claude/worktrees/biome-migration/.entire/settings.json": 9,
+        ".claude/worktrees/biome-migration/.gitignore": 14,
+        ".claude/worktrees/biome-migration/.husky/pre-commit": 4,
+        ".claude/worktrees/biome-migration/.lintstagedrc.mjs": 18,
+        ".claude/worktrees/biome-migration/.pi/extensions/entire/index.ts": 127,
+        ".claude/worktrees/biome-migration/CLAUDE.md": 58,
+        ".claude/worktrees/biome-migration/README.md": 281,
+        ".claude/worktrees/biome-migration/backend/.python-version": 1,
+        ".claude/worktrees/biome-migration/backend/app.py": 311,
+        ".claude/worktrees/biome-migration/backend/categories.py": 7122,
+        ".claude/worktrees/biome-migration/backend/pyproject.toml": 15,
+        ".claude/worktrees/biome-migration/backend/uv.lock": 237,
+        ".claude/worktrees/biome-migration/docs/superpowers/plans/2026-07-28-biome-migration.md": 768,
+        ".claude/worktrees/biome-migration/docs/superpowers/specs/2026-07-28-biome-migration-design.md": 130,
+        ".claude/worktrees/biome-migration/frontend/.gitignore": 24,
+        ".claude/worktrees/biome-migration/frontend/biome.json": 24,
+        ".claude/worktrees/biome-migration/frontend/index.html": 14,
+        ".claude/worktrees/biome-migration/frontend/package-lock.json": 9577,
+        ".claude/worktrees/biome-migration/frontend/package.json": 43,
+        ".claude/worktrees/biome-migration/frontend/public/vite.svg": 1,
+        ".claude/worktrees/biome-migration/frontend/src/App.css": 652,
+        ".claude/worktrees/biome-migration/frontend/src/App.tsx": 757,
+        ".claude/worktrees/biome-migration/frontend/src/assets/react.svg": 1,
+        ".claude/worktrees/biome-migration/frontend/src/index.css": 13,
+        ".claude/worktrees/biome-migration/frontend/src/main.tsx": 15,
+        ".claude/worktrees/biome-migration/frontend/tsconfig.json": 22,
+        ".claude/worktrees/biome-migration/frontend/webpack.config.cjs": 117,
+        ".claude/worktrees/biome-migration/missing-vowels.service": 15,
+        ".claude/worktrees/biome-migration/package-lock.json": 786,
+        ".claude/worktrees/biome-migration/package.json": 14
+      }
+    }
+  ]
+}

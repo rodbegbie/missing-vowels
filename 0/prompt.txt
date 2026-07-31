@@ -1,0 +1,1 @@
+Add a comment in pyproject.toml explaining that werkzeug is there because for the CVE
