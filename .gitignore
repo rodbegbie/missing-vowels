@@ -15,3 +15,7 @@ node_modules/
 
 # Superpowers scratch workspace
 .superpowers/
+
+# Session tooling artifacts
+.agent-traces/
+.private-journal/
